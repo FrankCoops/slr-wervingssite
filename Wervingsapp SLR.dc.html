@@ -67,6 +67,23 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .dk-stat{background:#3c3c3c;padding:36px 30px}
 .dk-stat b{display:block;font-weight:800;font-size:54px;line-height:.9;color:#ffe500}
 .dk-stat span{display:block;font-weight:400;font-size:15px;color:#dcdcdc;margin-top:16px}
+.dk-hero-tag{font-weight:600;font-size:22px;line-height:1.2;color:#fff;margin:22px 0 0}
+.dk-hero-tag span{color:#ffe500}
+.dk-tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:60px}
+.dk-tile{position:relative;overflow:hidden;min-height:300px;display:block;text-decoration:none;border:0}
+.dk-tile.span2{grid-column:1 / -1;min-height:360px}
+.dk-tile-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transition:transform .55s ease}
+.dk-tile:hover .dk-tile-img{transform:scale(1.05)}
+.dk-tile-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.82) 84%)}
+.dk-tile-in{position:absolute;inset:0;padding:30px 34px;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
+.dk-tnr{font-weight:800;font-size:30px;line-height:.8;color:#ffe500}
+.dk-tt{font-weight:800;text-transform:uppercase;font-size:32px;line-height:.9;letter-spacing:-.01em;color:#fff}
+.dk-tt span{color:#ffe500}
+.dk-ts{font-weight:400;font-size:15px;color:#d6d6d6;margin-top:10px}
+.dk-block{position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;padding:30px 34px;box-sizing:border-box;text-decoration:none;border:0;transition:transform .12s}
+.dk-block:hover{transform:translateY(-3px)}
+.dk-block.y{background:#ffe500}
+.dk-block.g{background:#8c8c8c}
 </style>
 <script src="./image-slot.js"></script>
 </helmet>
@@ -881,25 +898,67 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div class="dk-hero-grad"></div>
 <div class="dk-container dk-hero-inner">
 <div class="dk-kicker">Opent in 2027</div>
-<div class="dk-h1">Kies jij ook voor het <span>Stedelijk Lyceum Rotterdam?</span></div>
-<p class="dk-lead">In 2027 opent de nieuwste school van de stad de deuren voor leerlingen uit heel Rotterdam en omstreken. Een hypermodern schoolgebouw, vernieuwend onderwijs en een van de gaafste plekken van de stad.</p>
+<div class="dk-h1">De nieuwste <span>school</span><br>van de stad</div>
+<div class="dk-hero-tag">Een nieuwe tijd, een gloednieuw <span>lyceum</span></div>
+<p class="dk-lead">In 2027 opent de nieuwste school van de stad de deuren voor leerlingen uit heel Rotterdam en omstreken. Het Stedelijk Lyceum Rotterdam heeft een hypermodern schoolgebouw, vernieuwend onderwijs en staat op een van de gaafste plekken van Rotterdam. Ontdek alles over onze school en wie weet zien wij jou op de Kop van Zuid.</p>
 <div class="dk-cta-row">
-<a class="dk-btn" href="#introductie">Ontdek de school →</a>
-<a class="dk-ghost" href="#aanmelden">Direct aanmelden</a>
+<a class="dk-btn" href="#overzicht">Ontdek de school →</a>
+<a class="dk-ghost" href="#aanmelden">Direct naar aanmelden</a>
 </div>
 </div>
 </div>
 
-<div class="dk-section" id="introductie">
+<div class="dk-section" id="overzicht">
 <div class="dk-container">
-<div class="dk-eyebrow">De nieuwste school van de stad</div>
-<div class="dk-h2">Waarom je misschien wel voor de <span>meest interessante school</span> van Rotterdam kiest.</div>
-<p class="dk-body">Een gloednieuw schoolgebouw met de modernste lokalen, een toffe locatie middenin de stad en vernieuwend onderwijs. Ontdek alles over onze school en wie weet zien wij jou op de Kop van Zuid.</p>
-<div class="dk-stats">
-<div class="dk-stat"><b>2027</b><span>het jaar dat we opengaan</span></div>
-<div class="dk-stat"><b>150</b><span>plekken in het eerste jaar</span></div>
-<div class="dk-stat"><b>4</b><span>projecten in jaar 1, plus de introductieweken</span></div>
-<div class="dk-stat"><b>7</b><span>stappen die elk project volgt</span></div>
+<div class="dk-kicker">Opent in 2027</div>
+<div class="dk-h2">Kies jij ook voor het <span>Stedelijk Lyceum Rotterdam?</span></div>
+<p class="dk-body">Als jij straks kiest voor het Stedelijk Lyceum Rotterdam dan kies je misschien wel voor de meest interessante school van onze stad. Met een gloednieuw schoolgebouw met de meest moderne lokalen, een hele toffe locatie middenin de stad en vernieuwend onderwijs. Ontdek snel meer over alle voordelen van onze school.</p>
+
+<div class="dk-tiles">
+
+<a class="dk-tile span2" href="#introductie">
+<div class="dk-tile-img" style="background-image:url('assets/photos/groep.jpg')"></div>
+<div class="dk-tile-grad"></div>
+<div class="dk-tile-in">
+<div class="dk-tnr">01</div>
+<div><div class="dk-tt">Introductie</div><div class="dk-ts">De nieuwste school van de stad</div></div>
+</div>
+</a>
+
+<a class="dk-tile" href="#gebouw">
+<div class="dk-tile-img" style="background-image:url('uploads/20230718-c07.jpg')"></div>
+<div class="dk-tile-grad"></div>
+<div class="dk-tile-in"><div class="dk-tnr">02</div><div class="dk-tt">Vet gebouw</div></div>
+</a>
+
+<a class="dk-tile" href="#zuid">
+<div class="dk-tile-img" style="background-image:url('uploads/kop-van-zuid.jpg')"></div>
+<div class="dk-tile-grad"></div>
+<div class="dk-tile-in"><div class="dk-tnr">03</div><div class="dk-tt">De Kop van Zuid</div></div>
+</a>
+
+<a class="dk-tile span2" href="#onderwijs">
+<div class="dk-tile-img" style="background-image:url('uploads/stad-als-klaslokaal.jpg')"></div>
+<div class="dk-tile-grad"></div>
+<div class="dk-tile-in"><div class="dk-tnr">04</div><div><div class="dk-tt">De stad als <span>klaslokaal</span></div><div class="dk-ts">Ons onderwijsconcept, stap voor stap</div></div></div>
+</a>
+
+<a class="dk-block y" href="#projecten">
+<div class="dk-tnr" style="color:#000">05</div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px">
+<div><div class="dk-tt" style="color:#000">Projecten</div><div class="dk-ts" style="color:#000">De introductieweken plus vier projecten in jaar 1</div></div>
+<div style="font-weight:700;font-size:52px;line-height:.55;color:#000">→</div>
+</div>
+</a>
+
+<a class="dk-block g" href="#aanmelden">
+<div class="dk-tnr" style="color:#fff">06</div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px">
+<div><div class="dk-tt">Aan<span>melden</span></div><div class="dk-ts" style="color:#f2f2f2">Ruimte voor ongeveer 150 nieuwe leerlingen</div></div>
+<div style="font-weight:700;font-size:52px;line-height:.55;color:#fff">→</div>
+</div>
+</a>
+
 </div>
 </div>
 </div>
