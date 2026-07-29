@@ -29,10 +29,48 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .slrinner{position:relative;width:100%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
 .slrflip:hover .slrinner{transform:rotateY(180deg)}
 .slrface{position:absolute;inset:0;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateZ(0)}
+/* ===== Adaptief: mobiel < 900px, desktop >= 900px ===== */
+.slr-desktop{display:none}
+@media(min-width:900px){
+  .slr-mobile{display:none!important}
+  .slr-desktop{display:block;height:100vh;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth}
+  .slr-desktop::-webkit-scrollbar{width:11px}
+  .slr-desktop::-webkit-scrollbar-thumb{background:rgba(255,255,255,.22)}
+}
+.dk-wrap{background:#575757;color:#fff;font-family:'Gilroy',system-ui,sans-serif}
+.dk-container{max-width:1200px;margin:0 auto;padding:0 48px;width:100%;box-sizing:border-box}
+.dk-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:rgba(18,18,18,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.dk-logo{font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.02em;line-height:1;color:#fff}
+.dk-logo b{color:#ffe500}
+.dk-menu{display:flex;align-items:center;gap:30px}
+.dk-menu a{font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;color:#e6e6e6;text-decoration:none;border:0;transition:color .15s}
+.dk-menu a:hover{color:#ffe500}
+.dk-btn{display:inline-block;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;background:#ffe500;color:#000;padding:13px 22px;text-decoration:none;border:0;transition:transform .12s}
+.dk-btn:hover{color:#000;transform:translateY(-1px)}
+.dk-hero{position:relative;height:88vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
+.dk-hero-img{position:absolute;inset:0;background-image:url('assets/photos/cover-gebouw.jpg');background-size:cover;background-position:50% 38%;filter:grayscale(100%) contrast(1.05)}
+.dk-hero-grad{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 46%,rgba(0,0,0,.12) 100%)}
+.dk-hero-inner{position:relative;z-index:2;padding-bottom:70px}
+.dk-kicker{font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.16em;color:#ffe500;margin-bottom:22px}
+.dk-h1{font-weight:800;text-transform:uppercase;font-size:74px;line-height:.9;letter-spacing:-.02em;max-width:1000px;margin:0}
+.dk-h1 span{color:#ffe500}
+.dk-lead{font-weight:300;font-size:19px;line-height:1.55;color:#eaeaea;max-width:640px;margin:28px 0 0}
+.dk-cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
+.dk-ghost{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.4);padding:15px 24px;transition:border-color .15s,color .15s}
+.dk-ghost:hover{border-color:#ffe500;color:#ffe500}
+.dk-section{padding:96px 0}
+.dk-eyebrow{font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.14em;color:#ffe500;margin-bottom:20px}
+.dk-h2{font-weight:800;text-transform:uppercase;font-size:46px;line-height:.96;letter-spacing:-.01em;margin:0;max-width:820px}
+.dk-h2 span{color:#ffe500}
+.dk-body{font-weight:300;font-size:18px;line-height:1.6;color:#dcdcdc;max-width:700px;margin:24px 0 0}
+.dk-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:60px}
+.dk-stat{background:#3c3c3c;padding:36px 30px}
+.dk-stat b{display:block;font-weight:800;font-size:54px;line-height:.9;color:#ffe500}
+.dk-stat span{display:block;font-weight:400;font-size:15px;color:#dcdcdc;margin-top:16px}
 </style>
 <script src="./image-slot.js"></script>
 </helmet>
-<div style="min-height:100dvh;background:#000;display:flex;justify-content:center">
+<div class="slr-mobile" style="min-height:100dvh;background:#000;display:flex;justify-content:center">
 <div style="width:100%;max-width:440px;height:100dvh;position:relative;overflow:hidden;background:#575757;box-shadow:0 0 60px rgba(0,0,0,.5)">
 <div style="position:relative;height:100%;background:#575757;display:flex;flex-direction:column;overflow:hidden;font-family:'Gilroy',system-ui,sans-serif;color:#fff">
 
@@ -820,6 +858,52 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </sc-if>
 
 </div>
+</div>
+</div>
+
+<div class="slr-desktop">
+<div class="dk-wrap">
+
+<div class="dk-nav">
+<div class="dk-logo">Stedelijk <b>Ly</b>ceum Rotterdam</div>
+<div class="dk-menu">
+<a href="#introductie">Introductie</a>
+<a href="#gebouw">Vet gebouw</a>
+<a href="#zuid">Kop van Zuid</a>
+<a href="#onderwijs">Onderwijs</a>
+<a href="#projecten">Projecten</a>
+<a class="dk-btn" href="#aanmelden">Aanmelden</a>
+</div>
+</div>
+
+<div class="dk-hero">
+<div class="dk-hero-img"></div>
+<div class="dk-hero-grad"></div>
+<div class="dk-container dk-hero-inner">
+<div class="dk-kicker">Opent in 2027</div>
+<div class="dk-h1">Kies jij ook voor het <span>Stedelijk Lyceum Rotterdam?</span></div>
+<p class="dk-lead">In 2027 opent de nieuwste school van de stad de deuren voor leerlingen uit heel Rotterdam en omstreken. Een hypermodern schoolgebouw, vernieuwend onderwijs en een van de gaafste plekken van de stad.</p>
+<div class="dk-cta-row">
+<a class="dk-btn" href="#introductie">Ontdek de school →</a>
+<a class="dk-ghost" href="#aanmelden">Direct aanmelden</a>
+</div>
+</div>
+</div>
+
+<div class="dk-section" id="introductie">
+<div class="dk-container">
+<div class="dk-eyebrow">De nieuwste school van de stad</div>
+<div class="dk-h2">Waarom je misschien wel voor de <span>meest interessante school</span> van Rotterdam kiest.</div>
+<p class="dk-body">Een gloednieuw schoolgebouw met de modernste lokalen, een toffe locatie middenin de stad en vernieuwend onderwijs. Ontdek alles over onze school en wie weet zien wij jou op de Kop van Zuid.</p>
+<div class="dk-stats">
+<div class="dk-stat"><b>2027</b><span>het jaar dat we opengaan</span></div>
+<div class="dk-stat"><b>150</b><span>plekken in het eerste jaar</span></div>
+<div class="dk-stat"><b>4</b><span>projecten in jaar 1, plus de introductieweken</span></div>
+<div class="dk-stat"><b>7</b><span>stappen die elk project volgt</span></div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 
