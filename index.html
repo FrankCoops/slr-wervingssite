@@ -216,89 +216,80 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </div>
 </div>
 
-<div style="padding:16px 18px 24px">
-<p style="font-weight:300;font-size:15px;line-height:1.45;color:#ececec;margin:0;text-wrap:pretty">Bij zo'n gloednieuwe en moderne school hoort onderwijs van deze tijd. Wij hebben daarom een onderwijsconcept ontwikkeld dat we 'De Stad als Klaslokaal' noemen.</p>
+<div style="padding:18px 18px 4px">
+<p style="font-weight:300;font-size:16px;line-height:1.5;color:#f0f0f0;margin:0;text-wrap:pretty">Bij zo'n gloednieuwe en moderne school hoort onderwijs van deze tijd. Wij hebben daarom een onderwijsconcept ontwikkeld dat we 'De Stad als Klaslokaal' noemen.</p>
+<p style="font-weight:300;font-size:16px;line-height:1.5;color:#dcdcdc;margin:14px 0 0;text-wrap:pretty">Je leert bij ons niet alleen in het lokaal, maar in de hele stad om ons heen. Wat je in de les leert, ga je meteen in de praktijk toepassen — op straat, op het water en op de mooiste plekken van Rotterdam-Zuid.</p>
 </div>
 
-<div style="background:#000;padding:26px 18px">
-<div style="font-weight:700;text-transform:uppercase;font-size:25px;line-height:.88">Het allerbelangrijkste<br>is dat jij begrijpt<br><span style="color:#ffe500">waarom</span> je iets leert.</div>
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#c9c9c9;margin:16px 0 0">En wat je daar nu en in de rest van je leven aan hebt. Dat maakt leren een stuk leuker en interessanter, en het helpt bij het bepalen van wat je misschien wilt gaan studeren of wat je later wilt worden.</p>
+<div style="padding:36px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:30px;line-height:.9;letter-spacing:-.01em">Het allerbelangrijkste is dat jij begrijpt <span style="color:#ffe500">waarom</span> je iets leert.</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:16px 0 0;text-wrap:pretty">En wat je daar nu en in de rest van je leven aan hebt. Dat maakt leren een stuk leuker en interessanter, en het helpt je ontdekken wat je later misschien wilt gaan studeren of worden.</p>
 </div>
 
-<div style="padding:26px 18px 0">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:12px">Twee kanten van dezelfde week</div>
-<div style="display:flex;gap:2px;margin-bottom:2px">
+<div style="padding:38px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:14px">Twee kanten van dezelfde week</div>
+<div style="display:flex;gap:2px;margin-bottom:18px">
 <div onClick="{{ modeKlas }}" style="{{ modeKlasStyle }}">In de klas</div>
 <div onClick="{{ modeBuiten }}" style="{{ modeBuitenStyle }}">Naar buiten</div>
 </div>
-<div style="background:#3c3c3c;padding:20px 18px">
-<div style="font-weight:700;text-transform:uppercase;font-size:22px;line-height:.88;margin-bottom:12px">{{ modeTitel }}</div>
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#e6e6e6;margin:0">{{ modeBody }}</p>
-</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:24px;line-height:.9;margin-bottom:12px">{{ modeTitel }}</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#e6e6e6;margin:0">{{ modeBody }}</p>
 </div>
 
-<div style="padding:26px 18px 0">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:12px">Elk project, dezelfde opbouw</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.88;margin-bottom:6px">Zeven<br>stappen</div>
-<p style="font-weight:300;font-size:13px;line-height:1.45;color:#c9c9c9;margin:10px 0 16px">Omdat elk project op dezelfde manier is opgebouwd, leer je stap voor stap beter onderzoeken en nadenken.</p>
-
-<div style="display:flex;gap:3px;margin-bottom:16px">
+<div style="padding:38px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:14px">Elk project, dezelfde opbouw</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em">In zeven stappen</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 20px;text-wrap:pretty">Omdat elk project op dezelfde manier is opgebouwd, leer je stap voor stap steeds beter onderzoeken en nadenken.</p>
+<div style="display:flex;gap:3px;margin-bottom:22px">
 <sc-for list="{{ stapBalk }}" as="sb" hint-placeholder-count="7">
 <div onClick="{{ sb.tap }}" style="{{ sb.style }}"></div>
 </sc-for>
 </div>
-
-<div style="background:#000;padding:22px 18px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between">
-<div>
-<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px">
-<div style="font-weight:700;font-size:44px;line-height:.8;color:#ffe500">{{ stapNum }}</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#878787">Stap {{ stapNum }} van 07</div>
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px">
+<div style="font-weight:700;font-size:52px;line-height:.8;color:#ffe500">{{ stapNum }}</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#9a9a9a;margin-top:8px">Stap {{ stapNum }} van 07</div>
 </div>
-<div style="font-weight:700;text-transform:uppercase;font-size:24px;line-height:.88;margin-bottom:12px">{{ stapTitel }}</div>
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#dcdcdc;margin:0">{{ stapBody }}</p>
-</div>
-<div style="display:flex;gap:2px;margin-top:20px">
+<div style="font-weight:700;text-transform:uppercase;font-size:24px;line-height:.9;margin-bottom:12px">{{ stapTitel }}</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:0;min-height:70px">{{ stapBody }}</p>
+<div style="display:flex;gap:2px;margin-top:18px">
 <div onClick="{{ stapPrev }}" style="{{ stapPrevStyle }}">← Vorige</div>
 <div onClick="{{ stapNext }}" style="{{ stapNextStyle }}">{{ stapNextLabel }}</div>
 </div>
 </div>
-</div>
 
-<div style="padding:26px 18px 0">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:12px">Een goede begeleiding</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.88;margin-bottom:6px">Schuif door<br>de jaren</div>
-<p style="font-weight:300;font-size:13px;line-height:1.45;color:#c9c9c9;margin:10px 0 6px">Sleep om te zien hoe je zelf steeds meer bepaalt.</p>
+<div style="padding:38px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:14px">Een goede begeleiding</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em">Schuif door de jaren</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 10px">Sleep om te zien hoe je zelf steeds meer bepaalt.</p>
 <input type="range" min="0" max="3" step="1" value="{{ jaarPos }}" onChange="{{ setJaar }}"/>
-<div style="display:flex;justify-content:space-between;margin:-4px 0 18px">
+<div style="display:flex;justify-content:space-between;margin:-4px 0 24px">
 <sc-for list="{{ jaarLabels }}" as="jl" hint-placeholder-count="4">
 <div style="{{ jl.style }}">{{ jl.label }}</div>
 </sc-for>
 </div>
-<div style="background:#000;padding:20px 18px">
-<div style="font-weight:700;text-transform:uppercase;font-size:20px;line-height:.9;margin-bottom:16px">{{ jaarTitel }}</div>
-<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+<div style="font-weight:700;text-transform:uppercase;font-size:22px;line-height:.9;margin-bottom:18px">{{ jaarTitel }}</div>
+<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:16px">
 <div>
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#878787;margin-bottom:6px">Begeleiding</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#9a9a9a;margin-bottom:7px">Begeleiding</div>
 <div style="height:10px;background:rgba(255,255,255,.14)"><div style="{{ barBegeleiding }}"></div></div>
 </div>
 <div>
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#878787;margin-bottom:6px">Zelf kiezen wat je onderzoekt</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#9a9a9a;margin-bottom:7px">Zelf kiezen wat je onderzoekt</div>
 <div style="height:10px;background:rgba(255,255,255,.14)"><div style="{{ barEigen }}"></div></div>
 </div>
 </div>
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#dcdcdc;margin:0">{{ jaarBody }}</p>
-</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:0">{{ jaarBody }}</p>
 </div>
 
-<div style="padding:26px 18px 0">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:12px">Zo ziet jaar 1 eruit</div>
+<div style="padding:38px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:14px">Zo ziet jaar 1 eruit</div>
 <div style="display:flex;flex-direction:column;gap:2px">
 <sc-for list="{{ jaar }}" as="jr" hint-placeholder-count="5">
 <div onClick="{{ jr.tap }}" style="display:flex;align-items:stretch;gap:2px;cursor:pointer">
-<div style="width:88px;flex:none;background:#3c3c3c;padding:13px 12px;display:flex;flex-direction:column;justify-content:center">
+<div style="width:92px;flex:none;background:#3c3c3c;padding:14px 12px;display:flex;flex-direction:column;justify-content:center">
 <div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.1em;color:#ffe500;line-height:1.2">{{ jr.periode }}</div>
 </div>
-<div style="flex:1;background:#3c3c3c;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0">
+<div style="flex:1;background:#3c3c3c;padding:14px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0">
 <div style="font-weight:700;text-transform:uppercase;font-size:15px;line-height:.95">{{ jr.name }}</div>
 <div style="font-weight:700;font-size:14px;color:#ffe500;flex:none">→</div>
 </div>
@@ -721,51 +712,50 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div style="font-weight:700;text-transform:uppercase;font-size:46px;line-height:.83;letter-spacing:-.02em">De Kop<br>van Zuid</div>
 </div>
 </div>
-<div style="padding:16px 18px 24px">
-<p style="font-weight:300;font-size:15px;line-height:1.45;color:#ececec;margin:0;text-wrap:pretty">Het Stedelijk Lyceum Rotterdam staat op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug.</p>
+<div style="padding:18px 18px 4px">
+<p style="font-weight:300;font-size:16px;line-height:1.5;color:#f0f0f0;margin:0;text-wrap:pretty">Ons gloednieuwe schoolgebouw staat op de Kop van Zuid — pal naast de Rijnhaven en aan de voet van de Erasmusbrug. Het is een van de indrukwekkendste en leukste plekken van Rotterdam, misschien wel van heel Nederland.</p>
+<p style="font-weight:300;font-size:16px;line-height:1.5;color:#dcdcdc;margin:14px 0 0;text-wrap:pretty">Musea, foodhallen, een bioscoop, hippe restaurants, bedrijven en hotels: het ligt hier allemaal om de hoek. En dat is nog maar het begin — de wijk om ons heen groeit uit tot een van de mooiste plekken van de stad.</p>
 </div>
 
-<div style="padding:0 18px">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:12px">Zo kom je hier · tik een vervoermiddel aan</div>
+<div style="padding:32px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:16px">Waarom deze plek zo bijzonder is</div>
+
+<div style="font-weight:700;text-transform:uppercase;font-size:23px;line-height:.95;letter-spacing:-.01em">Het tweede centrum<br>van <span style="color:#ffe500">Rotterdam</span></div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 0;text-wrap:pretty">De wijk rondom onze school wordt de komende jaren getransformeerd tot het tweede centrum van de stad. Overal om je heen verrijzen nieuwe woontorens, pleinen en plekken om te zijn.</p>
+
+<div style="font-weight:700;text-transform:uppercase;font-size:23px;line-height:.95;letter-spacing:-.01em;margin-top:28px">Nu al veel te beleven</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 0;text-wrap:pretty">Op de Wilhelminapier en Katendrecht vind je bedrijven, verschillende musea, foodhallen en een bioscoop. Ideaal voor tijdens een tussenuur of gewoon na school.</p>
+
+<div style="font-weight:700;text-transform:uppercase;font-size:23px;line-height:.95;letter-spacing:-.01em;margin-top:28px">Binnenkort: de<br>nieuwe <span style="color:#ffe500">Rijnhaven</span></div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 0;text-wrap:pretty">Vlak voor de deur komt de vernieuwde Rijnhaven, met een prachtig stadspark en een heus stadsstrand aan het water.</p>
+</div>
+
+<div style="padding:32px 18px 0">
+<img src="uploads/Wilhelminapier.jpg" alt="De Kop van Zuid" style="width:100%;height:230px;object-fit:cover;object-position:50% 45%;filter:grayscale(100%) contrast(1.06);display:block"/>
+</div>
+<div style="padding:22px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em">Als je in zo'n omgeving zit, dan moet je daar <span style="color:#ffe500">wat mee.</span></div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:14px 0 0;text-wrap:pretty">Vinden wij. Daarom gebruiken we heel Rotterdam-Zuid als ons klaslokaal — en hebben we een nieuwe manier van leren ontworpen die hier perfect bij past.</p>
+</div>
+
+<div style="padding:36px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:8px">Praktisch · zo kom je hier</div>
+<p style="font-weight:300;font-size:14px;line-height:1.5;color:#cfcfcf;margin:0 0 14px">We zijn supergoed bereikbaar, waar je ook vandaan komt. Tik een vervoermiddel aan:</p>
 <div style="display:flex;flex-wrap:wrap;gap:2px">
 <sc-for list="{{ vervoer }}" as="vv" hint-placeholder-count="5">
 <div onClick="{{ vv.tap }}" style="{{ vv.chip }}">{{ vv.label }}</div>
 </sc-for>
 </div>
-<div style="background:#000;padding:20px 18px;margin-top:2px">
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#ffe500;margin-bottom:9px">{{ vervoerHalte }}</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:22px;line-height:.9;margin-bottom:11px">{{ vervoerKop }}</div>
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#dcdcdc;margin:0">{{ vervoerBody }}</p>
+<div style="border-left:2px solid #ffe500;padding:4px 0 4px 16px;margin-top:18px">
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#ffe500;margin-bottom:8px">{{ vervoerHalte }}</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:20px;line-height:.95;margin-bottom:10px">{{ vervoerKop }}</div>
+<p style="font-weight:300;font-size:14px;line-height:1.5;color:#dcdcdc;margin:0">{{ vervoerBody }}</p>
 </div>
-<p style="font-weight:300;font-size:12px;line-height:1.45;color:#b2b2b2;margin:10px 0 0">We zijn supergoed bereikbaar, waar je ook vandaan komt. Check je precieze route en reistijd via 9292.nl.</p>
-</div>
-
-<div style="padding:24px 18px 0">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:12px">De wijk om ons heen</div>
-<div style="display:flex;flex-direction:column;gap:2px">
-<sc-for list="{{ zuidBlokken }}" as="zb" hint-placeholder-count="3">
-<div onClick="{{ zb.tap }}" style="{{ zb.box }}">
-<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
-<div style="font-weight:700;text-transform:uppercase;font-size:20px;line-height:.9">{{ zb.titel }}</div>
-<div style="font-weight:700;font-size:18px;color:#ffe500;flex:none">{{ zb.sign }}</div>
-</div>
-<sc-if value="{{ zb.open }}" hint-placeholder-val="{{ false }}">
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#e6e6e6;margin:13px 0 0">{{ zb.body }}</p>
-</sc-if>
-</div>
-</sc-for>
-</div>
+<p style="font-weight:300;font-size:12px;line-height:1.45;color:#9a9a9a;margin:14px 0 0">Check je precieze route en reistijd via 9292.nl.</p>
 </div>
 
-<div style="padding:24px 18px 0">
-<img src="assets/photos/brug.jpg" alt="Rotterdam" style="width:100%;height:200px;object-fit:cover;object-position:50% 45%;filter:grayscale(100%) contrast(1.06);display:block"/>
-<div style="background:#000;padding:22px 18px">
-<div style="font-weight:700;text-transform:uppercase;font-size:23px;line-height:.9">Als je in zo'n<br>interessante<br>omgeving bent,<br>dan moet je daar<br><span style="color:#ffe500">wat mee.</span></div>
-<p style="font-weight:300;font-size:13px;line-height:1.45;color:#c9c9c9;margin:14px 0 0">Vinden wij. Dus hebben wij een nieuwe manier van leren ontworpen, die hier perfect bij past.</p>
-</div>
-</div>
-<div onClick="{{ goOnderwijs }}" style="margin:24px 18px 0;display:flex;align-items:center;justify-content:space-between;background:#ffe500;color:#000;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.06em;padding:17px 18px;cursor:pointer" style-active="transform:translateY(2px)"><span>04 · De stad als klaslokaal</span><span>→</span></div>
-<div style="height:34px"></div>
+<div onClick="{{ goOnderwijs }}" style="margin:36px 18px 0;display:flex;align-items:center;justify-content:space-between;background:#ffe500;color:#000;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.06em;padding:17px 18px;cursor:pointer" style-active="transform:translateY(2px)"><span>04 · De stad als klaslokaal</span><span>→</span></div>
+<div style="height:40px"></div>
 </div>
 </div>
 </sc-if>
