@@ -39,21 +39,26 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 }
 .dk-wrap{background:#575757;color:#fff;font-family:'Gilroy',system-ui,sans-serif}
 .dk-container{max-width:1200px;margin:0 auto;padding:0 48px;width:100%;box-sizing:border-box}
-.dk-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:rgba(18,18,18,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
-.dk-logo{font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.02em;line-height:1;color:#fff}
-.dk-logo b{color:#ffe500}
-.dk-menu{display:flex;align-items:center;gap:30px}
-.dk-menu a{font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;color:#e6e6e6;text-decoration:none;border:0;transition:color .15s}
-.dk-menu a:hover{color:#ffe500}
-.dk-btn{display:inline-block;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;background:#ffe500;color:#000;padding:13px 22px;text-decoration:none;border:0;transition:transform .12s}
+.dk-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:86px;background:#ffe500}
+.dk-logo{font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.02em;line-height:1;color:#000}
+.dk-logo b{color:#000}
+.dk-menu{display:flex;align-items:center;gap:34px}
+.dk-menu a:not(.dk-navbtn){font-weight:600;text-transform:none;font-size:16px;letter-spacing:0;color:#000;text-decoration:none;border:0;transition:opacity .15s}
+.dk-menu a:not(.dk-navbtn):hover{opacity:.55}
+.dk-navbtn{display:inline-block;font-weight:700;text-transform:none;font-size:15px;letter-spacing:0;background:#000;color:#ffe500;padding:12px 22px;text-decoration:none;border:0;transition:transform .12s}
+.dk-navbtn:hover{color:#ffe500;transform:translateY(-1px)}
+.dk-btn{display:inline-block;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;background:#ffe500;color:#000;padding:15px 24px;text-decoration:none;border:0;transition:transform .12s}
 .dk-btn:hover{color:#000;transform:translateY(-1px)}
 .dk-hero{position:relative;height:88vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
 .dk-hero-img{position:absolute;inset:0;background-image:url('assets/photos/cover-gebouw.jpg');background-size:cover;background-position:50% 38%;filter:grayscale(100%) contrast(1.05)}
 .dk-hero-grad{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 46%,rgba(0,0,0,.12) 100%)}
 .dk-hero-inner{position:relative;z-index:2;padding-bottom:70px}
 .dk-kicker{font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.16em;color:#ffe500;margin-bottom:22px}
-.dk-h1{font-weight:800;text-transform:uppercase;font-size:74px;line-height:.9;letter-spacing:-.02em;max-width:1000px;margin:0}
+.dk-h1{font-weight:800;text-transform:uppercase;font-size:clamp(54px,7.6vw,104px);line-height:.86;letter-spacing:-.025em;max-width:1100px;margin:0}
 .dk-h1 span{color:#ffe500}
+@keyframes dkbob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+.dk-scroll{position:absolute;left:0;right:0;bottom:24px;display:flex;justify-content:center;z-index:3;pointer-events:none}
+.dk-scroll span{color:#ffe500;font-size:36px;line-height:1;animation:dkbob 1.8s ease-in-out infinite}
 .dk-lead{font-weight:300;font-size:19px;line-height:1.55;color:#eaeaea;max-width:640px;margin:28px 0 0}
 .dk-cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
 .dk-ghost{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.4);padding:15px 24px;transition:border-color .15s,color .15s}
@@ -889,7 +894,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <a href="#zuid">Kop van Zuid</a>
 <a href="#onderwijs">Onderwijs</a>
 <a href="#projecten">Projecten</a>
-<a class="dk-btn" href="#aanmelden">Aanmelden</a>
+<a class="dk-navbtn" href="#aanmelden">Aanmelden</a>
 </div>
 </div>
 
@@ -906,6 +911,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <a class="dk-ghost" href="#aanmelden">Direct naar aanmelden</a>
 </div>
 </div>
+<div class="dk-scroll"><span>↓</span></div>
 </div>
 
 <div class="dk-section" id="overzicht">
