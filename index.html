@@ -77,7 +77,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .dk-mosaic{max-width:1680px;margin:0 auto;padding:56px 40px 96px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;box-sizing:border-box}
 @media(max-width:1240px){.dk-mosaic{grid-template-columns:repeat(2,1fr);padding:48px 32px 80px}}
 .dk-cell{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;border:0}
-.dk-cell.txt{display:flex;flex-direction:column;padding:34px 30px;box-sizing:border-box}
+.dk-cell.txt{padding:0;box-sizing:border-box}
+.dk-c-face{position:absolute;inset:0;padding:34px 30px;display:flex;flex-direction:column;box-sizing:border-box;transition:opacity .3s ease}
+.dk-c-back{opacity:0;justify-content:center;pointer-events:none}
+.dk-cell.txt:hover .dk-c-front{opacity:0}
+.dk-cell.txt:hover .dk-c-back{opacity:1;pointer-events:auto}
 .dk-cell.y{background:#ffe500;color:#000}
 .dk-cell.g{background:#7c7c7c;color:#fff}
 .dk-cell.b{background:#161616;color:#fff}
@@ -87,6 +91,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .dk-cell.g .dk-c-h em,.dk-cell.b .dk-c-h em{color:#ffe500}
 .dk-c-more{font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.05em;margin-top:16px;transition:transform .14s}
 .dk-cell.txt:hover .dk-c-more{transform:translateX(4px)}
+.dk-c-teaser{font-weight:400;font-size:clamp(14px,1.15vw,17.5px);line-height:1.42;margin:0}
+.dk-cell.y .dk-c-teaser{color:#111}
+.dk-cell.g .dk-c-teaser,.dk-cell.b .dk-c-teaser{color:#fff}
+.dk-c-btn{align-self:flex-start;margin-top:22px;background:#000;color:#fff;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.05em;padding:13px 24px}
+.dk-cell.b .dk-c-btn{background:#fff;color:#000}
 .dk-c-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.04);transition:transform .55s ease}
 .dk-cell.img:hover .dk-c-img{transform:scale(1.05)}
 .dk-feat{grid-column:1/-1;display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-bottom:2px}
@@ -962,19 +971,19 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </div>
 <div class="dk-feat-img" style="background-image:url('assets/photos/groep.jpg')"></div>
 </div>
-<a class="dk-cell txt g" id="introductie" href="#introductie"><div class="dk-c-eye">01 · Introductie</div><div class="dk-c-h">De nieuwste school van de stad</div><div class="dk-c-more">Lees meer →</div></a>
+<a class="dk-cell txt g" id="introductie" href="#introductie"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">01 · Introductie</div><div class="dk-c-h">De nieuwste school van de stad</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">In 2027 openen we onze deuren voor leerlingen uit heel Rotterdam en omstreken. Ontdek waarom dit misschien wel de gaafste school van de stad wordt.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#introductie"><div class="dk-c-img" style="background-image:url('assets/photos/stadsjongen.jpg')"></div></a>
-<a class="dk-cell txt b" id="gebouw" href="#gebouw"><div class="dk-c-eye">02 · Het gebouw</div><div class="dk-c-h">Een <em>vet</em> gebouw</div><div class="dk-c-more">Lees meer →</div></a>
+<a class="dk-cell txt b" id="gebouw" href="#gebouw"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">02 · Het gebouw</div><div class="dk-c-h">Een <em>vet</em> gebouw</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Een schoolplein op het dak, een XL-gymzaal en een stadslab met 3D-printers en VR. Wat je bij ons hebt, vind je bijna nergens op een middelbare school.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#gebouw"><div class="dk-c-img" style="background-image:url('uploads/20230718-c07.jpg')"></div></a>
 
 <a class="dk-cell img" href="#zuid"><div class="dk-c-img" style="background-image:url('uploads/kop-van-zuid.jpg')"></div></a>
-<a class="dk-cell txt g" id="zuid" href="#zuid"><div class="dk-c-eye">03 · De locatie</div><div class="dk-c-h">De Kop van <em>Zuid</em></div><div class="dk-c-more">Lees meer →</div></a>
+<a class="dk-cell txt g" id="zuid" href="#zuid"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">03 · De locatie</div><div class="dk-c-h">De Kop van <em>Zuid</em></div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug — een van de indrukwekkendste en leukste plekken van Rotterdam, misschien wel van heel Nederland.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#onderwijs"><div class="dk-c-img" style="background-image:url('uploads/stad-als-klaslokaal.jpg')"></div></a>
-<a class="dk-cell txt y" id="onderwijs" href="#onderwijs"><div class="dk-c-eye">04 · Ons onderwijs</div><div class="dk-c-h">De stad als klaslokaal</div><div class="dk-c-more">Lees meer →</div></a>
+<a class="dk-cell txt y" id="onderwijs" href="#onderwijs"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">04 · Ons onderwijs</div><div class="dk-c-h">De stad als klaslokaal</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Je leert bij ons niet alleen in de klas, maar in de hele stad. Wat je leert, pas je meteen toe in de praktijk — in vier projecten en zeven stappen.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 
-<a class="dk-cell txt g" id="projecten" href="#projecten"><div class="dk-c-eye">05 · Projecten</div><div class="dk-c-h">Een plek in <em>Zuid</em> centraal</div><div class="dk-c-more">Lees meer →</div></a>
+<a class="dk-cell txt g" id="projecten" href="#projecten"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">05 · Projecten</div><div class="dk-c-h">Een plek in <em>Zuid</em> centraal</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Van de Binnenrotte tot de Wilhelminapier: vier echte plekken in Rotterdam-Zuid vormen jouw klaslokaal, plus de introductieweken.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#projecten"><div class="dk-c-img" style="background-image:url('uploads/Wilhelminapier.jpg')"></div></a>
-<a class="dk-cell txt b" id="aanmelden" href="#aanmelden"><div class="dk-c-eye">06 · Aanmelden</div><div class="dk-c-h">Zien we jou <em>hier</em>?</div><div class="dk-c-more">Aanmelden →</div></a>
+<a class="dk-cell txt b" id="aanmelden" href="#aanmelden"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">06 · Aanmelden</div><div class="dk-c-h">Zien we jou <em>hier</em>?</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">We hebben ruimte voor ongeveer 150 nieuwe leerlingen — havo, vwo én gymnasium. Laat je gegevens achter en blijf op de hoogte van onze open dagen.</p><span class="dk-c-btn">Aanmelden</span></div></a>
 <a class="dk-cell img" href="#aanmelden"><div class="dk-c-img" style="background-image:url('assets/photos/leerling-1.jpg')"></div></a>
 </div>
 
