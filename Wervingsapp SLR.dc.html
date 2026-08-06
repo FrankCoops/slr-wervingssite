@@ -88,6 +88,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .dk-cell.txt:hover .dk-c-more{transform:translateX(4px)}
 .dk-c-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.04);transition:transform .55s ease}
 .dk-cell.img:hover .dk-c-img{transform:scale(1.05)}
+.dk-feat{grid-column:1/-1;display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-bottom:2px}
+.dk-feat-txt{background:#ffe500;color:#000;padding:clamp(44px,4.4vw,68px);display:flex;flex-direction:column;justify-content:center}
+.dk-feat-kicker{font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.18em;margin-bottom:20px}
+.dk-feat-h{font-weight:800;text-transform:uppercase;font-size:clamp(30px,3.3vw,50px);line-height:.94;letter-spacing:-.02em;margin:0}
+.dk-feat-b{font-weight:300;font-size:16.5px;line-height:1.62;margin:22px 0 0;max-width:520px}
+.dk-feat-btn{align-self:flex-start;margin-top:30px;background:#161616;color:#fff;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em;padding:16px 30px;text-decoration:none;transition:transform .14s}
+.dk-feat-btn:hover{transform:translateX(4px)}
+.dk-feat-img{background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.04);min-height:440px}
+@media(max-width:1240px){.dk-feat{grid-template-columns:1fr}.dk-feat-img{min-height:300px}}
 .dk-footer{background:#161616;color:#fff;padding:56px clamp(44px,6vw,110px)}
 .dk-footer-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .dk-foot-logo{font-weight:800;text-transform:uppercase;font-size:18px;letter-spacing:.02em}
@@ -942,18 +951,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div class="dk-scroll"><span>↓</span></div>
 </div>
 
-<div class="dk-section" id="overzicht">
-<div class="dk-container">
-<div class="dk-kicker">Opent in 2027</div>
-<div class="dk-h2">Kies jij ook voor het <span>Stedelijk Lyceum Rotterdam?</span></div>
-<p class="dk-body">Als jij straks kiest voor het Stedelijk Lyceum Rotterdam dan kies je misschien wel voor de meest interessante school van onze stad. Met een gloednieuw schoolgebouw met de meest moderne lokalen, een hele toffe locatie middenin de stad en vernieuwend onderwijs. Ontdek snel meer over alle voordelen van onze school.</p>
-
+<div class="dk-mosaic" id="overzicht">
+<div class="dk-feat">
+<div class="dk-feat-txt">
+<div class="dk-feat-kicker">Opent in 2027</div>
+<h2 class="dk-feat-h">Kies jij ook voor het Stedelijk Lyceum Rotterdam?</h2>
+<p class="dk-feat-b">Als jij straks kiest voor het Stedelijk Lyceum Rotterdam dan kies je misschien wel voor de meest interessante school van onze stad. Met een gloednieuw schoolgebouw met de meest moderne lokalen, een hele toffe locatie middenin de stad en vernieuwend onderwijs. Ontdek snel meer over alle voordelen van onze school.</p>
+<a class="dk-feat-btn" href="#introductie">Ontdek onze school →</a>
 </div>
+<div class="dk-feat-img" style="background-image:url('assets/photos/groep.jpg')"></div>
 </div>
-
-<div class="dk-mosaic">
-<a class="dk-cell txt y" id="introductie" href="#introductie"><div class="dk-c-eye">01 · Introductie</div><div class="dk-c-h">De nieuwste school van de stad</div><div class="dk-c-more">Lees meer →</div></a>
-<a class="dk-cell img" href="#introductie"><div class="dk-c-img" style="background-image:url('assets/photos/groep.jpg')"></div></a>
+<a class="dk-cell txt g" id="introductie" href="#introductie"><div class="dk-c-eye">01 · Introductie</div><div class="dk-c-h">De nieuwste school van de stad</div><div class="dk-c-more">Lees meer →</div></a>
+<a class="dk-cell img" href="#introductie"><div class="dk-c-img" style="background-image:url('assets/photos/stadsjongen.jpg')"></div></a>
 <a class="dk-cell txt b" id="gebouw" href="#gebouw"><div class="dk-c-eye">02 · Het gebouw</div><div class="dk-c-h">Een <em>vet</em> gebouw</div><div class="dk-c-more">Lees meer →</div></a>
 <a class="dk-cell img" href="#gebouw"><div class="dk-c-img" style="background-image:url('uploads/20230718-c07.jpg')"></div></a>
 
