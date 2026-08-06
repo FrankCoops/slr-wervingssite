@@ -136,6 +136,122 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .dk-block:hover{transform:translateY(-3px)}
 .dk-block.y{background:#ffe500}
 .dk-block.g{background:#8c8c8c}
+
+/* ===== Desktop hoofdstuk-secties ===== */
+.dks{padding:clamp(74px,7vw,128px) 0}
+.dks-in{max-width:1220px;margin:0 auto;padding:0 clamp(24px,5vw,66px);box-sizing:border-box}
+.dks.dark{background:#141414;color:#fff}
+.dks.light{background:#fff;color:#141414}
+.dks-head{max-width:860px}
+.dks-kick{font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.18em;margin-bottom:20px;color:#8a8a8a}
+.dks.dark .dks-kick{color:#ffe500}
+.dks-h{font-weight:800;text-transform:uppercase;font-size:clamp(34px,4.1vw,62px);line-height:.9;letter-spacing:-.02em;margin:0}
+.dks-h em{font-style:normal;color:#ffe500}
+.dks.light .dks-h em{color:#141414;box-shadow:inset 0 -.13em 0 #ffe500}
+.dks-lead{font-weight:300;font-size:clamp(16px,1.25vw,19px);line-height:1.6;margin:24px 0 0}
+.dks.dark .dks-lead{color:#d2d2d2}
+.dks.light .dks-lead{color:#555}
+.dks-lead+.dks-lead{margin-top:16px}
+.dks-sub{font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.16em;margin:0 0 22px;color:#9a9a9a}
+.dks.dark .dks-sub{color:#ffe500}
+.dks-band{margin-top:clamp(48px,4.5vw,80px)}
+.dks-mid{font-weight:800;text-transform:uppercase;font-size:clamp(24px,2.5vw,38px);line-height:.95;letter-spacing:-.01em;margin:0 0 16px}
+.dks-mid em{font-style:normal;color:#ffe500}
+.dks.light .dks-mid em{color:#141414;box-shadow:inset 0 -.13em 0 #ffe500}
+.dks-p{font-weight:300;font-size:15.5px;line-height:1.6;margin:0;max-width:720px}
+.dks.dark .dks-p{color:#cfcfcf}.dks.light .dks-p{color:#555}
+/* grids */
+.dks-grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}
+@media(max-width:1080px){.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.dks-grid{grid-template-columns:1fr!important}}
+/* cards */
+.dks-card{padding:32px;box-sizing:border-box}
+.dks.dark .dks-card{background:#222}.dks.light .dks-card{background:#f4f4f4}
+.dks .dks-card.acc{background:#ffe500;color:#141414}
+.dks-cnum{font-weight:800;font-size:32px;line-height:1;color:#ffe500;margin-bottom:16px}
+.dks .dks-card.acc .dks-cnum{color:#141414}
+.dks-ch{font-weight:800;text-transform:uppercase;font-size:19px;line-height:1.02;margin:0 0 12px}
+.dks-cb{font-weight:300;font-size:14.5px;line-height:1.55;margin:0}
+.dks.dark .dks-cb{color:#c2c2c2}.dks.light .dks-cb{color:#575757}.dks .dks-card.acc .dks-cb{color:#242424}
+/* stats */
+.dks-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+@media(max-width:680px){.dks-stats{grid-template-columns:1fr 1fr}}
+.dks-stat{padding:30px 26px}
+.dks.dark .dks-stat{background:#222}.dks.light .dks-stat{background:#f4f4f4}
+.dks-stat b{display:block;font-weight:800;font-size:46px;line-height:.9;color:#ffe500}
+.dks-stat span{display:block;font-weight:400;font-size:13.5px;margin-top:12px}
+.dks.dark .dks-stat span{color:#bdbdbd}.dks.light .dks-stat span{color:#666}
+/* split text+image */
+.dks-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3.5vw,60px);align-items:center}
+.dks-split.rev .dks-split-txt{order:2}
+@media(max-width:900px){.dks-split{grid-template-columns:1fr}.dks-split.rev .dks-split-txt{order:0}}
+.dks-img{background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);min-height:400px;align-self:stretch}
+/* list rows */
+.dks-rows{display:flex;flex-direction:column;gap:2px}
+.dks-row{display:flex;gap:24px;align-items:baseline;padding:24px 28px}
+.dks.dark .dks-row{background:#1e1e1e}.dks.light .dks-row{background:#f4f4f4}
+.dks-rk{font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.12em;color:#c9a300;flex:none;width:150px}
+.dks.dark .dks-rk{color:#ffe500}
+.dks-rt{font-weight:800;text-transform:uppercase;font-size:18px;flex:none;width:230px;line-height:1}
+.dks-rb{font-weight:300;font-size:14.5px;line-height:1.5;flex:1}
+.dks.dark .dks-rb{color:#c2c2c2}.dks.light .dks-rb{color:#575757}
+@media(max-width:820px){.dks-row{flex-direction:column;gap:8px}.dks-rt,.dks-rk{width:auto}}
+/* steps */
+.dks-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1080px){.dks-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.dks-steps{grid-template-columns:1fr}}
+.dks-step{padding:28px;box-sizing:border-box}
+.dks.light .dks-step{background:#f4f4f4}.dks.dark .dks-step{background:#222}
+.dks-step b{font-weight:800;font-size:30px;color:#ffe500;display:block;line-height:1}
+.dks-step h4{font-weight:800;text-transform:uppercase;font-size:15px;margin:16px 0 8px;line-height:1.05}
+.dks-step p{font-weight:300;font-size:13.5px;line-height:1.5;margin:0}
+.dks.light .dks-step p{color:#575757}.dks.dark .dks-step p{color:#c2c2c2}
+/* project cards */
+.dks-projs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:1100px){.dks-projs{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.dks-projs{grid-template-columns:1fr 1fr}}
+.dks-proj{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;display:block;text-decoration:none}
+.dks-proj-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transition:transform .5s}
+.dks-proj:hover .dks-proj-img{transform:scale(1.06)}
+.dks-proj-gr{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.85))}
+.dks-proj-c{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.dks-proj-p{font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.1em;color:#ffe500}
+.dks-proj-n{font-weight:800;text-transform:uppercase;font-size:17px;line-height:.95;margin-top:7px}
+/* interactive map */
+.dks-maprow{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(20px,2.4vw,40px);align-items:stretch}
+@media(max-width:960px){.dks-maprow{grid-template-columns:1fr}}
+.dks-map{position:relative;width:100%;aspect-ratio:402/376;background:#000;overflow:hidden;user-select:none}
+.dks-map-img{position:absolute;inset:0;background-image:url('assets/photos/rotterdam-map.jpg');background-size:cover;background-position:center;filter:contrast(1.06) brightness(.92)}
+.dks-mapcap{display:flex;flex-direction:column;justify-content:center;background:#222;padding:clamp(26px,2.6vw,42px)}
+.dks-mapcap .m-meta{font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.12em;color:#ffe500;margin-bottom:14px}
+.dks-mapcap .m-name{font-weight:800;text-transform:uppercase;font-size:clamp(24px,2.3vw,34px);line-height:.92}
+.dks-mapcap .m-teaser{font-weight:300;font-size:15px;line-height:1.55;color:#c2c2c2;margin:16px 0 0}
+.dks-mapcap .m-lines{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:11px}
+.dks-mapcap .m-lines li{display:flex;gap:11px;font-weight:300;font-size:13.5px;line-height:1.45;color:#dcdcdc}
+.dks-mapcap .m-lines li::before{content:'';width:7px;height:7px;background:#ffe500;flex:none;margin-top:6px}
+.dks-hint{font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.12em;color:#8a8a8a}
+/* form */
+.dks-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.dks-form{grid-template-columns:1fr}}
+.dks-field label{display:block;font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.12em;color:#8a8a8a;margin-bottom:8px}
+.dks-field input{width:100%;box-sizing:border-box;background:#f4f4f4;border:1px solid #e2e2e2;color:#141414;font-weight:300;font-size:15px;padding:15px}
+.dks.dark .dks-field input{background:#222;border-color:#333;color:#fff}
+.dks-full{grid-column:1/-1}
+.dks-chips{display:flex;flex-wrap:wrap;gap:6px}
+.dks-submit{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;gap:12px;background:#141414;color:#fff;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.06em;padding:17px 32px;cursor:pointer;border:0}
+.dks.dark .dks-submit{background:#ffe500;color:#141414}
+.dks-levels{display:flex;gap:8px;flex-wrap:wrap}
+.dks-lvl{font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.05em;background:#ffe500;color:#141414;padding:10px 15px}
+.dks-note{position:relative;background:#ffe500;color:#141414;padding:clamp(30px,3vw,48px);display:flex;flex-direction:column;justify-content:center}
+.dks-note h3{font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.2vw,32px);line-height:.9;margin:0 0 14px}
+.dks-note p{font-weight:400;font-size:15px;line-height:1.55;margin:0}
+.dks-done{background:#ffe500;color:#141414;padding:clamp(30px,3vw,48px)}
+.dks-done .d-k{font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.14em;margin-bottom:14px}
+.dks-done .d-h{font-weight:800;text-transform:uppercase;font-size:clamp(28px,3vw,44px);line-height:.86}
+.dks-done .d-rows{margin-top:24px;border-top:1px solid rgba(0,0,0,.18);padding-top:18px;display:flex;flex-direction:column;gap:12px}
+.dks-done .d-rows div{display:flex;justify-content:space-between;gap:14px;font-weight:400;font-size:14px}
+.dks-done .d-rows b{font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.1em}
 </style>
 <script src="./image-slot.js"></script>
 </helmet>
@@ -971,21 +1087,250 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </div>
 <div class="dk-feat-img" style="background-image:url('assets/photos/groep.jpg')"></div>
 </div>
-<a class="dk-cell txt g" id="introductie" href="#introductie"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">01 · Introductie</div><div class="dk-c-h">De nieuwste school van de stad</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">In 2027 openen we onze deuren voor leerlingen uit heel Rotterdam en omstreken. Ontdek waarom dit misschien wel de gaafste school van de stad wordt.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
+<a class="dk-cell txt g" href="#introductie"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">01 · Introductie</div><div class="dk-c-h">De nieuwste school van de stad</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">In 2027 openen we onze deuren voor leerlingen uit heel Rotterdam en omstreken. Ontdek waarom dit misschien wel de gaafste school van de stad wordt.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#introductie"><div class="dk-c-img" style="background-image:url('assets/photos/stadsjongen.jpg')"></div></a>
-<a class="dk-cell txt b" id="gebouw" href="#gebouw"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">02 · Het gebouw</div><div class="dk-c-h">Een <em>vet</em> gebouw</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Een schoolplein op het dak, een XL-gymzaal en een stadslab met 3D-printers en VR. Wat je bij ons hebt, vind je bijna nergens op een middelbare school.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
+<a class="dk-cell txt b" href="#gebouw"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">02 · Het gebouw</div><div class="dk-c-h">Een <em>vet</em> gebouw</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Een schoolplein op het dak, een XL-gymzaal en een stadslab met 3D-printers en VR. Wat je bij ons hebt, vind je bijna nergens op een middelbare school.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#gebouw"><div class="dk-c-img" style="background-image:url('uploads/20230718-c07.jpg')"></div></a>
 
 <a class="dk-cell img" href="#zuid"><div class="dk-c-img" style="background-image:url('uploads/kop-van-zuid.jpg')"></div></a>
-<a class="dk-cell txt g" id="zuid" href="#zuid"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">03 · De locatie</div><div class="dk-c-h">De Kop van <em>Zuid</em></div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug — een van de indrukwekkendste en leukste plekken van Rotterdam, misschien wel van heel Nederland.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
+<a class="dk-cell txt g" href="#zuid"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">03 · De locatie</div><div class="dk-c-h">De Kop van <em>Zuid</em></div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug — een van de indrukwekkendste en leukste plekken van Rotterdam, misschien wel van heel Nederland.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#onderwijs"><div class="dk-c-img" style="background-image:url('uploads/stad-als-klaslokaal.jpg')"></div></a>
-<a class="dk-cell txt y" id="onderwijs" href="#onderwijs"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">04 · Ons onderwijs</div><div class="dk-c-h">De stad als klaslokaal</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Je leert bij ons niet alleen in de klas, maar in de hele stad. Wat je leert, pas je meteen toe in de praktijk — in vier projecten en zeven stappen.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
+<a class="dk-cell txt y" href="#onderwijs"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">04 · Ons onderwijs</div><div class="dk-c-h">De stad als klaslokaal</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Je leert bij ons niet alleen in de klas, maar in de hele stad. Wat je leert, pas je meteen toe in de praktijk — in vier projecten en zeven stappen.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 
-<a class="dk-cell txt g" id="projecten" href="#projecten"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">05 · Projecten</div><div class="dk-c-h">Een plek in <em>Zuid</em> centraal</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Van de Binnenrotte tot de Wilhelminapier: vier echte plekken in Rotterdam-Zuid vormen jouw klaslokaal, plus de introductieweken.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
+<a class="dk-cell txt g" href="#projecten"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">05 · Projecten</div><div class="dk-c-h">Een plek in <em>Zuid</em> centraal</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">Van de Binnenrotte tot de Wilhelminapier: vier echte plekken in Rotterdam-Zuid vormen jouw klaslokaal, plus de introductieweken.</p><span class="dk-c-btn">Ontdek meer</span></div></a>
 <a class="dk-cell img" href="#projecten"><div class="dk-c-img" style="background-image:url('uploads/Wilhelminapier.jpg')"></div></a>
-<a class="dk-cell txt b" id="aanmelden" href="#aanmelden"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">06 · Aanmelden</div><div class="dk-c-h">Zien we jou <em>hier</em>?</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">We hebben ruimte voor ongeveer 150 nieuwe leerlingen — havo, vwo én gymnasium. Laat je gegevens achter en blijf op de hoogte van onze open dagen.</p><span class="dk-c-btn">Aanmelden</span></div></a>
+<a class="dk-cell txt b" href="#aanmelden"><div class="dk-c-face dk-c-front"><div class="dk-c-eye">06 · Aanmelden</div><div class="dk-c-h">Zien we jou <em>hier</em>?</div></div><div class="dk-c-face dk-c-back"><p class="dk-c-teaser">We hebben ruimte voor ongeveer 150 nieuwe leerlingen — havo, vwo én gymnasium. Laat je gegevens achter en blijf op de hoogte van onze open dagen.</p><span class="dk-c-btn">Aanmelden</span></div></a>
 <a class="dk-cell img" href="#aanmelden"><div class="dk-c-img" style="background-image:url('assets/photos/leerling-1.jpg')"></div></a>
 </div>
+
+<!-- ===== 01 · Introductie ===== -->
+<section class="dks dark" id="introductie">
+<div class="dks-in">
+<div class="dks-head">
+<div class="dks-kick">01 · Introductie</div>
+<h2 class="dks-h">In 2027 gaan de <em>deuren</em> open</h2>
+<p class="dks-lead">In 2027 opent de nieuwste school van de stad de deuren voor leerlingen uit heel Rotterdam en omstreken. Het Stedelijk Lyceum Rotterdam heeft een hypermodern schoolgebouw, vernieuwend onderwijs en staat op een van de gaafste plekken van Rotterdam. Ontdek alles over onze school en wie weet zien wij jou op de Kop van Zuid.</p>
+</div>
+<div class="dks-grid g3 dks-band">
+<div class="dks-card"><div class="dks-cnum">01</div><h3 class="dks-ch">Een hypermodern schoolgebouw</h3><p class="dks-cb">Je krijgt les in het nieuwste schoolgebouw van heel Rotterdam. Alles is super nieuw en modern. Wat je bij ons hebt, vind je normaal bijna nooit op een middelbare school.</p></div>
+<div class="dks-card"><div class="dks-cnum">02</div><h3 class="dks-ch">Vernieuwend onderwijs</h3><p class="dks-cb">Wij hebben een onderwijsconcept ontwikkeld dat we De Stad als Klaslokaal noemen. Je gaat wat je leert ook echt toepassen in de praktijk.</p></div>
+<div class="dks-card"><div class="dks-cnum">03</div><h3 class="dks-ch">Een van de gaafste plekken van Rotterdam</h3><p class="dks-cb">We staan op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug. De wijk om ons heen wordt het tweede centrum van Rotterdam.</p></div>
+</div>
+<div class="dks-stats dks-band">
+<div class="dks-stat"><b>2027</b><span>het jaar dat we opengaan</span></div>
+<div class="dks-stat"><b>150</b><span>plekken in het eerste jaar</span></div>
+<div class="dks-stat"><b>4</b><span>projecten in jaar 1, plus de introductieweken</span></div>
+<div class="dks-stat"><b>7</b><span>stappen die elk project volgt</span></div>
+</div>
+<div class="dks-split dks-band">
+<div class="dks-split-txt">
+<h3 class="dks-mid">Maar we hebben je nog veel <em>meer</em> te vertellen.</h3>
+<p class="dks-p">Zorg dus dat je onze socials in de gaten houdt, kijk eens op onze website en kom naar onze open dagen, want we willen je dolgraag ontmoeten.</p>
+</div>
+<div class="dks-img" style="background-image:url('assets/photos/leerling-1.jpg')"></div>
+</div>
+</div>
+</section>
+
+<!-- ===== 02 · Het gebouw ===== -->
+<section class="dks light" id="gebouw">
+<div class="dks-in">
+<div class="dks-head">
+<div class="dks-kick">02 · Het gebouw</div>
+<h2 class="dks-h">Een <em>vet</em> gebouw</h2>
+<p class="dks-lead">Als je kiest voor het Stedelijk Lyceum Rotterdam, krijg je les in het nieuwste schoolgebouw van heel Rotterdam. Echt vet. Alles is super nieuw en modern: de nieuwste lokalen, apparatuur, moderne collegezalen en de vetste gymzaal van heel de stad. Kortom, alles wat jij je als leerling kunt wensen.</p>
+</div>
+<div class="dks-split dks-band">
+<div class="dks-split-txt">
+<h3 class="dks-mid">Wat je bij ons hebt, vind je normaal bijna nooit op een <em>middelbare school</em>.</h3>
+<p class="dks-p">Check snel waarom ons schoolgebouw zo vet is — van het schoolplein op het dak tot het stadslab met 3D-printers en virtual reality.</p>
+</div>
+<div class="dks-img" style="background-image:url('uploads/20230718-c02.jpg')"></div>
+</div>
+<div class="dks-band">
+<div class="dks-sub">Van dak tot begane grond</div>
+<div class="dks-rows">
+<div class="dks-row"><div class="dks-rk">Op het dak</div><div class="dks-rt">Het schoolplein</div><div class="dks-rb">We hebben een schoolplein op het dak, met uitzicht over de hele stad.</div></div>
+<div class="dks-row"><div class="dks-rk">Bovenste verdieping</div><div class="dks-rt">XL-gymzaal</div><div class="dks-rb">Een XL-gymzaal op de bovenste verdieping, met een plein waar je buiten kunt basketballen, klimmen, tafeltennissen en nog veel meer.</div></div>
+<div class="dks-row"><div class="dks-rk">In het gebouw</div><div class="dks-rt">Grote collegezalen</div><div class="dks-rb">Er zijn grote collegezalen — zoals je die normaal niet op een middelbare school vindt.</div></div>
+<div class="dks-row"><div class="dks-rk">In het gebouw</div><div class="dks-rt">Het stadslab</div><div class="dks-rb">In het stadslab breng je jouw ideeën tot leven met lasercutters, 3D-printers en virtual reality. Zo leer je ontwerpen, experimenteren en werken met moderne technologie.</div></div>
+<div class="dks-row"><div class="dks-rk">Onze buren</div><div class="dks-rt">Hogeschool Rotterdam</div><div class="dks-rb">We delen het gebouw met de Hogeschool Rotterdam, maar zijn wel van elkaar gescheiden, zodat jij in alle rust kunt leren.</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== 03 · De Kop van Zuid ===== -->
+<section class="dks dark" id="zuid">
+<div class="dks-in">
+<div class="dks-head">
+<div class="dks-kick">03 · De locatie</div>
+<h2 class="dks-h">De Kop van <em>Zuid</em></h2>
+<p class="dks-lead">Ons gloednieuwe schoolgebouw staat op de Kop van Zuid — pal naast de Rijnhaven en aan de voet van de Erasmusbrug. Het is een van de indrukwekkendste en leukste plekken van Rotterdam, misschien wel van heel Nederland.</p>
+<p class="dks-lead">Musea, foodhallen, een bioscoop, hippe restaurants, bedrijven en hotels: het ligt hier allemaal om de hoek. En dat is nog maar het begin — de wijk om ons heen groeit uit tot een van de mooiste plekken van de stad.</p>
+</div>
+<div class="dks-grid g3 dks-band">
+<div class="dks-card"><h3 class="dks-ch">Het tweede centrum</h3><p class="dks-cb">De wijk rondom onze school wordt de komende jaren getransformeerd tot het tweede centrum van Rotterdam. Overal verrijzen nieuwe woontorens, pleinen en plekken om te zijn.</p></div>
+<div class="dks-card"><h3 class="dks-ch">Nu al veel te beleven</h3><p class="dks-cb">Op de Wilhelminapier en Katendrecht vind je bedrijven, verschillende musea, foodhallen en een bioscoop. Ideaal voor tijdens een tussenuur of gewoon na school.</p></div>
+<div class="dks-card acc"><h3 class="dks-ch">Binnenkort: de nieuwe Rijnhaven</h3><p class="dks-cb">Vlak voor de deur komt de vernieuwde Rijnhaven, met een prachtig stadspark en een heus stadsstrand aan het water.</p></div>
+</div>
+<div class="dks-split rev dks-band">
+<div class="dks-split-txt">
+<h3 class="dks-mid">Als je in zo'n omgeving zit, dan moet je daar <em>wat mee.</em></h3>
+<p class="dks-p">Vinden wij. Daarom gebruiken we heel Rotterdam-Zuid als ons klaslokaal — en hebben we een nieuwe manier van leren ontworpen die hier perfect bij past.</p>
+</div>
+<div class="dks-img" style="background-image:url('uploads/Wilhelminapier.jpg')"></div>
+</div>
+<div class="dks-band">
+<div class="dks-sub">Praktisch · zo kom je hier</div>
+<div class="dks-rows">
+<div class="dks-row"><div class="dks-rk">Trein</div><div class="dks-rt">Rotterdam Centraal</div><div class="dks-rb">Vanaf Rotterdam Centraal ben je er in een paar minuten: stap over op metro D of E richting Zuid en stap uit bij Wilhelminaplein of Rijnhaven. Lopen kan ook — over de Erasmusbrug is het ongeveer een half uur.</div></div>
+<div class="dks-row"><div class="dks-rk">Tram</div><div class="dks-rt">Halte Wilhelminaplein</div><div class="dks-rb">De tram rijdt over de Erasmusbrug zo de Kop van Zuid op. Vanaf halte Wilhelminaplein loop je in een paar minuten naar school.</div></div>
+<div class="dks-row"><div class="dks-rk">Metro</div><div class="dks-rt">Rijnhaven &amp; Wilhelminaplein</div><div class="dks-rb">Metrolijn D en E stoppen allebei op loopafstand van school. Kom je uit Zuid, dan ben je vanaf Zuidplein of Slinge in een handjevol minuten bij Rijnhaven.</div></div>
+<div class="dks-row"><div class="dks-rk">Bus</div><div class="dks-rt">Kop van Zuid</div><div class="dks-rb">Ook met de bus kom je tot vlak bij school. Er stoppen meerdere lijnen op de Kop van Zuid; check je halte via 9292.</div></div>
+<div class="dks-row"><div class="dks-rk">Op de fiets</div><div class="dks-rt">Stalling bij school</div><div class="dks-rb">De meeste leerlingen komen op de fiets. Vanuit het centrum fiets je over de Erasmusbrug in ongeveer tien minuten, vanuit Zuid net zo snel via de Laan op Zuid. Je fiets zet je in de stalling bij school.</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== 04 · Ons onderwijs ===== -->
+<section class="dks light" id="onderwijs">
+<div class="dks-in">
+<div class="dks-head">
+<div class="dks-kick">04 · Ons onderwijs</div>
+<h2 class="dks-h">De stad als <em>klaslokaal</em></h2>
+<p class="dks-lead">Bij zo'n gloednieuwe en moderne school hoort onderwijs van deze tijd. Wij hebben daarom een onderwijsconcept ontwikkeld dat we De Stad als Klaslokaal noemen. Je leert bij ons niet alleen in het lokaal, maar in de hele stad om ons heen. Wat je in de les leert, ga je meteen in de praktijk toepassen — op straat, op het water en op de mooiste plekken van Rotterdam-Zuid.</p>
+</div>
+<div class="dks-grid g2 dks-band">
+<div class="dks-card"><h3 class="dks-ch">Gewoon in de klas</h3><p class="dks-cb">Bij ons op school leer je natuurlijk gewoon in de klas, met normale lessen van de vakken die je op andere scholen ook hebt. Engels, geschiedenis, biologie, gym, noem maar op.</p></div>
+<div class="dks-card acc"><h3 class="dks-ch">De stad in</h3><p class="dks-cb">Maar bij ons ga je wat je leert vervolgens ook echt toepassen in de praktijk. We gaan naar buiten om de omgeving te verkennen en actief projectonderwijs te volgen. Niet een paar dagen per jaar, maar het hele jaar door.</p></div>
+</div>
+<div class="dks-band">
+<div class="dks-sub">Elk project, dezelfde opbouw · in zeven stappen</div>
+<div class="dks-steps">
+<div class="dks-step"><b>01</b><h4>Introductie &amp; verkenning</h4><p>Het thema wordt geopend. Daarna gaan we naar buiten om de omgeving te verkennen.</p></div>
+<div class="dks-step"><b>02</b><h4>Instructie</h4><p>In de gewone lessen leer je de stof die je bij dit thema nodig hebt. Engels, geschiedenis, biologie, gym, noem maar op.</p></div>
+<div class="dks-step"><b>03</b><h4>Probleemstelling</h4><p>Je bepaalt waar je onderzoek over gaat. In de brugklas met veel begeleiding, later kies je dat steeds vaker zelf.</p></div>
+<div class="dks-step"><b>04</b><h4>Onderzoek &amp; veldwerk</h4><p>Je gaat op onderzoek uit op de plek zelf: in de wijk, op straat of op het water.</p></div>
+<div class="dks-step"><b>05</b><h4>Productie</h4><p>Je maakt iets met wat je hebt uitgezocht — bijvoorbeeld een nieuw ontwerp voor een plek in de straat.</p></div>
+<div class="dks-step"><b>06</b><h4>Presentatie</h4><p>Je presenteert wat je hebt onderzocht en gemaakt.</p></div>
+<div class="dks-step"><b>07</b><h4>Reflectie &amp; evaluatie</h4><p>Wat heb je geleerd, en wat wil je hierna verder uitzoeken?</p></div>
+</div>
+</div>
+<div class="dks-band">
+<div class="dks-sub">Een goede begeleiding · schuif door de jaren</div>
+<div class="dks-grid g4">
+<div class="dks-card"><div class="dks-cnum">01</div><h3 class="dks-ch">Brugklas</h3><p class="dks-cb">Aan het begin blijven we dichtbij de school en krijg je veel begeleiding. Zo kun je wennen aan het onderwijsconcept.</p></div>
+<div class="dks-card"><div class="dks-cnum">02</div><h3 class="dks-ch">Jaar 2</h3><p class="dks-cb">Je kent het onderwijsconcept nu. Je krijgt meer eigen verantwoordelijkheid en bepaalt vaker mee wat je onderzoekt.</p></div>
+<div class="dks-card"><div class="dks-cnum">03</div><h3 class="dks-ch">Jaar 3</h3><p class="dks-cb">Met meer ervaring kies je steeds vaker zelf wat je wil onderzoeken in een project.</p></div>
+<div class="dks-card acc"><div class="dks-cnum">04</div><h3 class="dks-ch">Bovenbouw</h3><p class="dks-cb">Naarmate je ouder wordt en meer ervaring hebt, bepaal jij steeds vaker zelf wat je wil onderzoeken.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== 05 · Projecten (interactieve kaart) ===== -->
+<section class="dks dark" id="projecten">
+<div class="dks-in">
+<div class="dks-head">
+<div class="dks-kick">05 · Projecten</div>
+<h2 class="dks-h">Een plek in <em>Zuid</em> centraal</h2>
+<p class="dks-lead">Tijdens ieder project staat er een belangrijke plek in Rotterdam-Zuid (of net daarbuiten) centraal. Je zou het misschien niet denken, maar op al die plekken komen bijna alle vakken die je op school krijgt samen.</p>
+</div>
+<div class="dks-maprow dks-band">
+<div>
+<div class="dks-map">
+<div class="dks-map-img"></div>
+<sc-for list="{{ dkMapLines }}" as="ml" hint-placeholder-count="5">
+<div style="{{ ml.style }}"></div>
+</sc-for>
+<sc-for list="{{ dkMapSpots }}" as="mp" hint-placeholder-count="5">
+<div onMouseEnter="{{ mp.enter }}" onClick="{{ mp.tap }}" style="{{ mp.wrap }}">
+<div style="{{ mp.dot }}">{{ mp.nr }}</div>
+<div style="{{ mp.tag }}">{{ mp.label }}</div>
+</div>
+</sc-for>
+<div style="{{ dkSchoolPin.wrap }}">
+<div style="{{ dkSchoolPin.label }}">SLR</div>
+<div style="{{ dkSchoolPin.pin }}"><div style="{{ dkSchoolPin.dot }}"></div></div>
+</div>
+</div>
+<div class="dks-hint" style="margin-top:16px">Beweeg over de kaart of over een project — en licht een plek op.</div>
+</div>
+<div class="dks-mapcap">
+<div class="m-meta">{{ dkHot.meta }}</div>
+<div class="m-name">{{ dkHot.name }}</div>
+<div class="m-teaser">{{ dkHot.teaser }}</div>
+<ul class="m-lines">
+<sc-for list="{{ dkHot.lijnen }}" as="ln" hint-placeholder-count="3">
+<li>{{ ln.text }}</li>
+</sc-for>
+</ul>
+</div>
+</div>
+<div class="dks-band">
+<div class="dks-sub">Alle projecten van jaar 1</div>
+<div class="dks-projs">
+<sc-for list="{{ projects }}" as="pr" hint-placeholder-count="5">
+<a class="dks-proj" onMouseEnter="{{ pr.enter }}">
+<div class="dks-proj-img" style="{{ pr.photoStyle }}"></div>
+<div class="dks-proj-gr"></div>
+<div class="dks-proj-c"><div class="dks-proj-p">{{ pr.periode }}</div><div class="dks-proj-n">{{ pr.name }}</div></div>
+</a>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== 06 · Aanmelden ===== -->
+<section class="dks light" id="aanmelden">
+<div class="dks-in">
+<div class="dks-head">
+<div class="dks-kick">06 · Aanmelden</div>
+<h2 class="dks-h">Zien we jou <em>hier</em>?</h2>
+<p class="dks-lead">We hebben voor het eerste jaar ruimte voor ongeveer 150 nieuwe leerlingen. Wij kijken ernaar uit om je te ontmoeten.</p>
+</div>
+<div class="dks-grid g2 dks-band">
+<div class="dks-card"><h3 class="dks-ch">Wat je bij ons kan volgen</h3><div class="dks-levels" style="margin:14px 0"><span class="dks-lvl">Havo</span><span class="dks-lvl">Vwo</span><span class="dks-lvl">Gymnasium</span></div><p class="dks-cb">Je kan bij ons havo-, vwo- en gymnasium-onderwijs volgen.</p></div>
+<div class="dks-card"><h3 class="dks-ch">Mavo/havo-advies?</h3><p class="dks-cb">Dan ben je ook van harte welkom. Je zit dan in een gemengde brugklas (mavo/havo) en krijgt de eerste twee jaar de kans om je te bewijzen op havo-niveau.</p></div>
+</div>
+<div class="dks-split dks-band">
+<div class="dks-split-txt">
+<div class="dks-sub">Houd me op de hoogte</div>
+<h3 class="dks-mid">Laat je gegevens <em>achter</em></h3>
+<p class="dks-p" style="margin-bottom:6px">We sturen je een bericht zodra de datum van de open dag bekend is.</p>
+<sc-if value="{{ formOpen }}" hint-placeholder-val="{{ true }}">
+<div class="dks-form" style="margin-top:26px">
+<div class="dks-field"><label>Voornaam</label><input value="{{ f.voornaam }}" onChange="{{ f.setVoornaam }}" placeholder="Bijv. Amir"/><div style="{{ f.errVoornaam }}">Vul je voornaam in</div></div>
+<div class="dks-field"><label>Achternaam</label><input value="{{ f.achternaam }}" onChange="{{ f.setAchternaam }}" placeholder="Bijv. El Amrani"/><div style="{{ f.errAchternaam }}">Vul je achternaam in</div></div>
+<div class="dks-field dks-full"><label>E-mail van je ouder of verzorger</label><input value="{{ f.email }}" onChange="{{ f.setEmail }}" placeholder="naam@voorbeeld.nl"/><div style="{{ f.errEmail }}">Vul een geldig e-mailadres in</div></div>
+<div class="dks-field"><label>Je basisschool</label><input value="{{ f.school }}" onChange="{{ f.setSchool }}" placeholder="Bijv. De Globetrotter"/><div style="{{ f.errSchool }}">Vul je basisschool in</div></div>
+<div class="dks-field"><label>Welk advies heb je (waarschijnlijk)?</label><div class="dks-chips"><sc-for list="{{ f.adviezen }}" as="ad" hint-placeholder-count="5"><div onClick="{{ ad.tap }}" style="{{ ad.style }}">{{ ad.label }}</div></sc-for></div></div>
+<div class="dks-submit" onClick="{{ f.submit }}"><span>Versturen</span><span>→</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ formDone }}" hint-placeholder-val="{{ false }}">
+<div class="dks-done" style="margin-top:26px">
+<div class="d-k">We houden je op de hoogte</div>
+<div class="d-h">Tot dan,<br>{{ f.voornaamOf }}</div>
+<div class="d-rows">
+<div><b>Open dag</b><span>{{ openDag }}</span></div>
+<div><b>Advies</b><span>{{ f.advies }}</span></div>
+<div><b>Waar</b><span>Kop van Zuid, Rotterdam</span></div>
+</div>
+</div>
+</sc-if>
+</div>
+<div class="dks-note">
+<h3>Onze open dagen</h3>
+<p>Kom naar onze open dagen, want we willen je dolgraag ontmoeten. Houd ook onze socials in de gaten en kijk eens rond op onze website.</p>
+<div class="dks-levels" style="margin-top:22px"><span class="dks-lvl">{{ openDag }}</span></div>
+</div>
+</div>
+</div>
+</section>
 
 <div class="dk-footer">
 <div class="dk-footer-in">
@@ -1337,7 +1682,8 @@ class Component extends DCLogic {
             ? { fontWeight: 700, textTransform: 'uppercase', fontSize: 9, letterSpacing: '.1em', background: '#ffe500', color: '#000', padding: '5px 7px' }
             : { fontWeight: 700, fontSize: 22, lineHeight: 1, color: 'rgba(255,255,255,.6)' },
           photoStyle: { position: 'absolute', inset: 0, backgroundImage: 'url("' + p.photo + '")', backgroundSize: 'cover', backgroundPosition: p.focus || '50% 30%', filter: 'grayscale(100%) contrast(1.05)' },
-          open: () => this.openProject(p.id)
+          open: () => this.openProject(p.id),
+          enter: () => this.setState({ hot: p.id })
         };
       }),
       jaar: PROJECTS.map(p => ({ periode: p.periode, name: p.name, tap: () => this.openProject(p.id) })),
@@ -1483,6 +1829,54 @@ class Component extends DCLogic {
       label: { background: '#ffe500', color: '#000', fontWeight: 700, textTransform: 'uppercase', fontSize: 9, letterSpacing: '.06em', padding: '3px 7px', marginBottom: 6, whiteSpace: 'nowrap', boxShadow: '0 0 12px rgba(255,229,0,.7)' },
       pin: { width: 30, height: 30, background: '#ffe500', borderRadius: '50% 50% 50% 0', transform: 'rotate(-45deg)', border: '2px solid #000', boxShadow: '0 0 0 4px rgba(255,229,0,.22), 0 0 22px rgba(255,229,0,1)', display: 'flex', alignItems: 'center', justifyContent: 'center' },
       dot: { width: 9, height: 9, borderRadius: '50%', background: '#000' }
+    };
+
+    // --- Desktop-kaart: zelfde markers, maar in percentages zodat hij meeschaalt ---
+    const AR = PW / PH; // aspect ratio van de kaart-plaat (402/376)
+    const pct = (v) => (v * 100) + '%';
+    vals.dkMapLines = MSPOTS.map((s) => {
+      const dxf = s.x - SCHOOL.x, dyf = s.y - SCHOOL.y;
+      const ang = Math.atan2(dyf, dxf * AR) * 180 / Math.PI;
+      const lenW = Math.sqrt(dxf * dxf + (dyf / AR) * (dyf / AR)) * 100;
+      return { style: {
+        position: 'absolute', left: pct(SCHOOL.x), top: pct(SCHOOL.y),
+        width: lenW + '%', height: 2, background: 'rgba(255,229,0,.5)',
+        transformOrigin: '0 50%', transform: 'rotate(' + ang + 'deg)',
+        boxShadow: '0 0 6px rgba(255,229,0,.4)', pointerEvents: 'none', zIndex: 2
+      } };
+    });
+    vals.dkMapSpots = MSPOTS.map((s) => {
+      const p = PROJECTS.find(q => q.id === s.id);
+      const on = st.hot === s.id;
+      return {
+        nr: p.nr, label: s.label,
+        wrap: { position: 'absolute', left: pct(s.x), top: pct(s.y), transform: 'translate(-50%,-50%)', cursor: 'pointer', zIndex: on ? 6 : 4 },
+        dot: {
+          width: on ? 44 : 30, height: on ? 44 : 30, borderRadius: '50%', background: '#ffe500', color: '#000',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: on ? 17 : 13, lineHeight: 1, boxSizing: 'border-box',
+          boxShadow: on ? '0 0 0 5px rgba(255,229,0,.22), 0 0 24px rgba(255,229,0,.95)' : '0 0 10px rgba(255,229,0,.6)',
+          transition: 'width .2s ease, height .2s ease, box-shadow .2s ease, font-size .2s ease'
+        },
+        tag: {
+          display: on ? 'block' : 'none', position: 'absolute', left: '50%', top: -30, transform: 'translateX(-50%)', whiteSpace: 'nowrap',
+          background: '#ffe500', color: '#000', fontWeight: 700, textTransform: 'uppercase', fontSize: 10, letterSpacing: '.08em', padding: '4px 8px'
+        },
+        enter: () => this.setState({ hot: s.id }),
+        tap: () => this.openProject(s.id)
+      };
+    });
+    vals.dkSchoolPin = {
+      wrap: { position: 'absolute', left: pct(SCHOOL.x), top: pct(SCHOOL.y), transform: 'translate(-50%,-100%)', zIndex: 8, pointerEvents: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center' },
+      label: { background: '#ffe500', color: '#000', fontWeight: 700, textTransform: 'uppercase', fontSize: 10, letterSpacing: '.06em', padding: '4px 8px', marginBottom: 7, whiteSpace: 'nowrap', boxShadow: '0 0 14px rgba(255,229,0,.7)' },
+      pin: { width: 34, height: 34, background: '#ffe500', borderRadius: '50% 50% 50% 0', transform: 'rotate(-45deg)', border: '2px solid #000', boxShadow: '0 0 0 5px rgba(255,229,0,.2), 0 0 26px rgba(255,229,0,1)', display: 'flex', alignItems: 'center', justifyContent: 'center' },
+      dot: { width: 10, height: 10, borderRadius: '50%', background: '#000' }
+    };
+    const dkHotP = PROJECTS.find(p => p.id === st.hot) || PROJECTS[0];
+    vals.dkHot = {
+      meta: dkHotP.periode + ' · ' + dkHotP.meta,
+      name: dkHotP.name,
+      teaser: dkHotP.teaser,
+      lijnen: dkHotP.lijnen.slice(0, 3).map(t => ({ text: t }))
     };
 
     const mkTile = (id, open) => ({
