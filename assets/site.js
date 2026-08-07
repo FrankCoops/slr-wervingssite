@@ -3,6 +3,12 @@
    ============================================================ */
 (function () {
   'use strict';
+  // Fallback: als de schermbreedte pas na het head-script bekend is, alsnog
+  // mobiele bezoekers naar de telefoon-app sturen.
+  var vw = window.innerWidth || document.documentElement.clientWidth || 0;
+  if (vw > 0 && vw <= 820 && !/app\.html$/.test(location.pathname)) {
+    location.replace('app.html'); return;
+  }
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   /* ---------- reveal on scroll ---------- */
