@@ -427,3 +427,23 @@ a{color:inherit;text-decoration:none}
 .dblock__img{background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);min-height:320px}
 .dblock__txt{background:var(--bone);display:flex;flex-direction:column;justify-content:center;padding:clamp(34px,4vw,64px)}
 .dark .dblock__txt{background:var(--ink-2)}
+
+/* ---------- redenen (introductie) — gelijk vormgegeven, met foto ---------- */
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.reasons{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+.reason{position:relative;display:flex;flex-direction:column;background:var(--bone);overflow:hidden;
+  text-decoration:none;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.reason:hover{transform:translateY(-8px);box-shadow:0 26px 54px -26px rgba(0,0,0,.4)}
+.reason__media{position:relative;aspect-ratio:16/11;overflow:hidden}
+.reason__img{position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:grayscale(100%) contrast(1.05);transition:transform .8s var(--ease)}
+.reason:hover .reason__img{transform:scale(1.07)}
+.reason__num{position:absolute;left:0;bottom:0;background:var(--accent);color:#111;font-weight:800;
+  font-size:20px;width:54px;height:54px;display:flex;align-items:center;justify-content:center}
+.reason__b{padding:clamp(26px,2vw,36px);display:flex;flex-direction:column;flex:1}
+.reason__t{font-weight:800;text-transform:uppercase;font-size:clamp(20px,1.55vw,25px);line-height:1.04;margin:0 0 14px}
+.reason__d{font-weight:300;font-size:14.5px;line-height:1.62;color:#4a4844;margin:0}
+.reason__go{margin-top:auto;padding-top:24px;display:inline-flex;align-items:center;gap:10px;
+  font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.08em;color:var(--ink)}
+.reason__go .ar{transition:transform .45s var(--ease)}
+.reason:hover .reason__go .ar{transform:translateX(6px)}
