@@ -11,10 +11,17 @@
     location.replace('app.html'); return;
   }
   // Live: zodra het venster naar mobiel formaat wordt versmald, de telefoon-app tonen.
-  window.addEventListener('resize', function () {
+  function checkNarrow() {
     var w = window.innerWidth || 0;
     if (w > 0 && w <= 820 && toApp()) { location.replace('app.html'); }
-  });
+  }
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(max-width:820px)');
+    var onMq = function (e) { if (e.matches) checkNarrow(); };
+    if (mq.addEventListener) mq.addEventListener('change', onMq);
+    else if (mq.addListener) mq.addListener(onMq);
+  }
+  window.addEventListener('resize', checkNarrow);
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   /* ---------- reveal on scroll ---------- */
