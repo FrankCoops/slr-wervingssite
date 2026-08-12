@@ -5,10 +5,16 @@
   'use strict';
   // Fallback: als de schermbreedte pas na het head-script bekend is, alsnog
   // mobiele bezoekers naar de telefoon-app sturen.
+  function toApp() { return !/app\.html$/.test(location.pathname); }
   var vw = window.innerWidth || document.documentElement.clientWidth || 0;
-  if (vw > 0 && vw <= 820 && !/app\.html$/.test(location.pathname)) {
+  if (vw > 0 && vw <= 820 && toApp()) {
     location.replace('app.html'); return;
   }
+  // Live: zodra het venster naar mobiel formaat wordt versmald, de telefoon-app tonen.
+  window.addEventListener('resize', function () {
+    var w = window.innerWidth || 0;
+    if (w > 0 && w <= 820 && toApp()) { location.replace('app.html'); }
+  });
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   /* ---------- reveal on scroll ---------- */
