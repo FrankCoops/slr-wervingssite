@@ -265,11 +265,9 @@ a{color:inherit;text-decoration:none}
 .proj__img{position:absolute;inset:0;background-size:cover;background-position:center;
   filter:grayscale(100%) contrast(1.05);transition:transform .8s var(--ease)}
 .proj:hover .proj__img,.proj.is-hot .proj__img{transform:scale(1.07)}
-.proj__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%;
-  filter:contrast(1.03);transition:transform .8s var(--ease),object-position .6s var(--ease)}
+.proj__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;
+  filter:contrast(1.03);transition:transform .8s var(--ease)}
 .proj:hover .proj__vid,.proj.is-hot .proj__vid{transform:scale(1.07)}
-/* rest: top-biased crop hides the burned-in caption; hover: slide down to reveal it */
-.proj:hover .proj__vid{object-position:50% 100%}
 .proj__scrim{position:absolute;inset:0;transition:opacity .45s var(--ease);
   background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.12) 42%,rgba(0,0,0,0) 64%)}
 .proj.is-hot{outline:3px solid var(--accent);outline-offset:-3px}
