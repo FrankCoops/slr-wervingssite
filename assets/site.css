@@ -265,6 +265,9 @@ a{color:inherit;text-decoration:none}
 .proj__img{position:absolute;inset:0;background-size:cover;background-position:center;
   filter:grayscale(100%) contrast(1.05);transition:transform .8s var(--ease)}
 .proj:hover .proj__img,.proj.is-hot .proj__img{transform:scale(1.07)}
+.proj__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(100%) contrast(1.05);transition:transform .8s var(--ease)}
+.proj:hover .proj__vid,.proj.is-hot .proj__vid{transform:scale(1.07)}
 .proj__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.86))}
 .proj.is-hot{outline:3px solid var(--accent);outline-offset:-3px}
 .proj__c{position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
