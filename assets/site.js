@@ -292,8 +292,48 @@
     });
   }
 
+  /* ---------- homepage hero carousel ---------- */
+  function initHeroCarousel() {
+    var root = document.querySelector('[data-hcar]');
+    if (!root) return;
+    var slides = [].slice.call(root.querySelectorAll('[data-slide]'));
+    var segs = [].slice.call(root.querySelectorAll('.hcar__seg'));
+    var fills = segs.map(function (s) { return s.querySelector('.hcar__line i'); });
+    var n = slides.length, cur = 0, timer = null;
+    var DUR = 6500;
+
+    function paint(i) {
+      slides.forEach(function (s, j) { s.classList.toggle('is-active', j === i); });
+      segs.forEach(function (s, j) { s.classList.toggle('is-active', j === i); });
+      // reset every fill: past = full, future = empty
+      fills.forEach(function (f, j) {
+        f.style.transition = 'none';
+        f.style.transform = j < i ? 'scaleX(1)' : 'scaleX(0)';
+      });
+      // force reflow so the animation restarts cleanly
+      void root.offsetWidth;
+      // animate the active fill across the slide duration
+      fills[i].style.transition = 'transform ' + DUR + 'ms linear';
+      fills[i].style.transform = 'scaleX(1)';
+    }
+
+    function go(i) { cur = (i + n) % n; paint(cur); }
+    function start() { stop(); timer = setInterval(function () { go(cur + 1); }, DUR); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    segs.forEach(function (s, j) {
+      s.addEventListener('click', function () { go(j); start(); });
+    });
+    // pause while the tab is hidden, resume on return
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else start();
+    });
+
+    go(0); start();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos();
+    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos(); initHeroCarousel();
     var y = document.querySelector('[data-year]'); if (y) y.textContent = new Date().getFullYear();
   });
 })();
