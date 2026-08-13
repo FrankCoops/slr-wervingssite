@@ -121,24 +121,24 @@
   var PROJECTS = [
     { id: 'binnenrotte', nr: '00', name: 'De Binnenrotte', periode: 'Introductie', meta: 'Waar Rotterdam is gesticht',
       photo: 'uploads/Pagina_Binnenrotte.png', x: 0.43, y: 0.31,
-      teaser: 'De plek waar Rotterdam eeuwen geleden is gesticht. Je eerste mini-project.',
+      body: 'Tijdens de eerste weken maak je kennis met je klasgenoten, de docenten en het nieuwe onderwijs. Je hoort wat je dat jaar allemaal gaat leren en waarom de verschillende vakken belangrijk zijn. Tegelijkertijd voer je je eerste mini-project uit, rondom de Binnenrotte — de plek waar Rotterdam ooit is ontstaan.',
       lijnen: ['Je leert over de geschiedenis van de stad.', 'Je onderzoekt waarom de stad juist op die plek is gesticht.', 'Je bekijkt wat je nog terugziet van het verleden.'] },
     { id: 'maas', nr: '01', name: 'De Maas', periode: 'Periode 1', meta: 'De rivier dwars door de stad',
       photo: 'uploads/DeMaas.jpg', x: 0.46, y: 0.45,
-      teaser: 'De brede rivier die dwars door Rotterdam stroomt.',
+      body: 'In de eerste periode werk je aan je eerste grote project: de Maas, de brede rivier die dwars door Rotterdam stroomt. Dankzij de Maas kon onze stad uitgroeien tot de wereldstad die ze nu is. Maar hoe kwam dat? En wat zou er gebeuren als de rivier ineens werd afgesloten voor de scheepvaart?',
       lijnen: ['Je vaart over de Maas en praat met schippers.', 'Je ontdekt welke dieren in en rond de rivier leven.', 'Je bedenkt nieuwe manieren om de rivier over te steken.'] },
     { id: 'oranjeboom', nr: '02', name: 'De Oranjeboomstraat', periode: 'Periode 2', meta: 'Feijenoord: industrie en cultuur',
       photo: 'uploads/Oranjeboomstraat.jpg', x: 0.66, y: 0.55,
-      teaser: 'Een lange straat in Feijenoord, vernoemd naar een bierbrouwerij.',
+      body: 'De Oranjeboomstraat in Feijenoord was een van de eerste grote straten van Rotterdam-Zuid. Veel van de eerste bewoners werkten in de havens en de industrie. Waar kwamen zij vandaan, en zie je hun geschiedenis vandaag nog terug in de straat? Je kiest zelfs een gebouw dat wat jou betreft mag verdwijnen en ontwerpt iets nieuws voor die plek.',
       lijnen: ['Je onderzoekt het industriele verleden van de wijk.', 'Je ontdekt de typisch Rotterdamse cultuur.', 'Je ontwerpt zelf iets nieuws voor een plek in de straat.'] },
     { id: 'stadionpark', nr: '03', name: 'Stadionpark', periode: 'Periode 3', meta: 'De Kuip en een nieuwe wijk',
       photo: 'uploads/Stadionpark.jpg', x: 0.66, y: 0.74,
-      teaser: 'De Kuip, midden in de wijk. Op wedstrijddagen tienduizenden bezoekers.',
+      body: 'Iedere Rotterdammer kent het Stadionpark, en vooral De Kuip: het stadion van Feyenoord midden in de wijk. Op wedstrijddagen komen hier tienduizenden bezoekers, van wie velen van buiten de stad. Hoe zorg je dat al die supporters veilig en op tijd bij het stadion komen, zonder dat de hele wijk vastloopt?',
       lijnen: ['Rond het stadion wordt een compleet nieuwe wijk gebouwd.', 'Je onderzoekt hoe bewoners invloed hadden op de plannen.', 'Je bekijkt hoe de toekomst van het gebied eruitziet.'] },
     { id: 'pier', nr: '04', name: 'Wilhelminapier & Katendrecht', periode: 'Periode 4', meta: 'Direct naast onze school',
       photo: 'uploads/Wilhelminapier.jpg', x: 0.42, y: 0.57,
-      teaser: 'Twee buurten tegenover elkaar, met de Rijnhaven ertussen.',
-      lijnen: ['Musea, foodhallen, een bioscoop, hotels en meer.', 'Je onderzoekt voor wie deze buurt wordt gebouwd.', 'Je bedenkt wat er nog ontbreekt in de nieuwe Rijnhaven.'] }
+      body: 'In het laatste project werk je direct naast onze school. Katendrecht en de Wilhelminapier liggen tegenover elkaar, met de Rijnhaven ertussen — een van de indrukwekkendste en leukste plekken van Rotterdam. Je vindt er musea, foodhallen, een bioscoop en hotels. Maar voor wie wordt deze buurt eigenlijk gebouwd?',
+      lijnen: ['Je onderzoekt wie profiteert van alle nieuwe woningen.', 'Je bekijkt of het ov de drukte aankan.', 'Je bedenkt wat er nog ontbreekt in de nieuwe Rijnhaven.'] }
   ];
   var SCHOOL = { x: 0.55, y: 0.60 };
   var AR = 402 / 376;
@@ -190,7 +190,7 @@
       if (cap && p) {
         cap.querySelector('.mapcap__m').textContent = p.periode + ' · ' + p.meta;
         cap.querySelector('.mapcap__n').textContent = p.name;
-        cap.querySelector('.mapcap__t').textContent = p.teaser;
+        cap.querySelector('.mapcap__t').textContent = p.body || p.teaser;
         cap.querySelector('.mapcap__l').innerHTML = p.lijnen.map(function (t) { return '<li>' + t + '</li>'; }).join('');
       }
     }
@@ -233,9 +233,49 @@
     });
   }
 
-  /* ---------- year ' ---------- */
+  /* ---------- interactieve stepper (in zeven stappen) ---------- */
+  var STEPS = [
+    ['Introductie & verkenning', 'Het thema wordt geopend. Daarna gaan we naar buiten om de omgeving te verkennen — zodat je met eigen ogen ziet waar het project over gaat.'],
+    ['Instructie', 'In de gewone lessen leer je de stof die je bij dit thema nodig hebt. Engels, geschiedenis, biologie, gym — noem maar op.'],
+    ['Probleemstelling', 'Je bepaalt waar je onderzoek over gaat. In de brugklas met veel begeleiding, later kies je dat steeds vaker zelf.'],
+    ['Onderzoek & veldwerk', 'Je gaat op onderzoek uit op de plek zelf: in de wijk, op straat of op het water. Je verzamelt, meet en praat met mensen.'],
+    ['Productie', 'Je maakt iets met wat je hebt uitgezocht — bijvoorbeeld een nieuw ontwerp voor een plek in de straat.'],
+    ['Presentatie', 'Je presenteert wat je hebt onderzocht en gemaakt aan je klas, docenten en soms zelfs aan mensen uit de wijk.'],
+    ['Reflectie & evaluatie', 'Wat heb je geleerd, en wat wil je hierna verder uitzoeken? Zo word je stap voor stap een steeds betere onderzoeker.']
+  ];
+  function initStepper() {
+    var root = document.querySelector('[data-stepper]');
+    if (!root) return;
+    var btns = [].slice.call(root.querySelectorAll('.stepper__step'));
+    var big = root.querySelector('[data-stepper-num]');
+    var title = root.querySelector('[data-stepper-title]');
+    var text = root.querySelector('[data-stepper-text]');
+    var prev = root.querySelector('[data-stepper-prev]');
+    var next = root.querySelector('[data-stepper-next]');
+    var cur = 0;
+    function show(i) {
+      cur = Math.max(0, Math.min(STEPS.length - 1, i));
+      big.textContent = ('0' + (cur + 1)).slice(-2);
+      title.textContent = STEPS[cur][0];
+      text.textContent = STEPS[cur][1];
+      btns.forEach(function (b, j) {
+        b.classList.toggle('is-active', j === cur);
+        b.classList.toggle('is-done', j < cur);
+      });
+      if (prev) prev.disabled = cur === 0;
+      if (next) next.disabled = cur === STEPS.length - 1;
+    }
+    btns.forEach(function (b, j) {
+      b.addEventListener('click', function () { show(j); });
+      b.addEventListener('mouseenter', function () { show(j); });
+    });
+    if (prev) prev.addEventListener('click', function () { show(cur - 1); });
+    if (next) next.addEventListener('click', function () { show(cur + 1); });
+    show(0);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm();
+    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper();
     var y = document.querySelector('[data-year]'); if (y) y.textContent = new Date().getFullYear();
   });
 })();
