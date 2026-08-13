@@ -332,48 +332,8 @@
     go(0); start();
   }
 
-  /* ---------- scroll-build: het gebouw verrijst ---------- */
-  function initBuildScroll() {
-    var sec = document.querySelector('[data-build]');
-    if (!sec) return;
-    var stage = sec.querySelector('.build__stage');
-    var img = sec.querySelector('.build__img');
-    var numEl = sec.querySelector('[data-build-num]');
-    var tEl = sec.querySelector('[data-build-t]');
-    var sEl = sec.querySelector('[data-build-s]');
-    var dots = [].slice.call(sec.querySelectorAll('.build__dot'));
-    var PH = [
-      ['01', 'De plek', 'Kop van Zuid, pal aan de Rijnhaven'],
-      ['02', 'Fundering', 'De basis van jouw nieuwe school'],
-      ['03', 'De constructie', 'Verdieping op verdieping omhoog'],
-      ['04', 'De gevel', 'Lichte lokalen en grote ramen'],
-      ['05', 'Het dakplein', 'Klaar in 2027']
-    ];
-    var last = -1, ticking = false;
-    function tick() {
-      ticking = false;
-      var r = sec.getBoundingClientRect();
-      var total = sec.offsetHeight - window.innerHeight;
-      var p = total > 0 ? Math.min(Math.max(-r.top / total, 0), 1) : 0;
-      stage.style.setProperty('--p', p.toFixed(4));
-      img.style.clipPath = 'inset(' + ((1 - p) * 100).toFixed(2) + '% 0 0 0)';
-      var idx = Math.min(PH.length - 1, Math.floor(p * PH.length));
-      if (idx !== last) {
-        last = idx;
-        numEl.textContent = PH[idx][0];
-        tEl.textContent = PH[idx][1];
-        sEl.textContent = PH[idx][2];
-        dots.forEach(function (d, j) { d.classList.toggle('is-on', j <= idx); });
-      }
-    }
-    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', tick);
-    tick();
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
-    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos(); initHeroCarousel(); initBuildScroll();
+    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos(); initHeroCarousel();
     var y = document.querySelector('[data-year]'); if (y) y.textContent = new Date().getFullYear();
   });
 })();
