@@ -274,8 +274,26 @@
     show(0);
   }
 
+  /* ---------- project cards: play video only on hover ---------- */
+  function initProjVideos() {
+    var cards = document.querySelectorAll('.proj');
+    cards.forEach(function (c) {
+      var v = c.querySelector('video.proj__vid');
+      if (!v) return;
+      v.pause();
+      c.addEventListener('mouseenter', function () {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      });
+      c.addEventListener('mouseleave', function () {
+        v.pause();
+        try { v.currentTime = 0; } catch (e) {}
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper();
+    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos();
     var y = document.querySelector('[data-year]'); if (y) y.textContent = new Date().getFullYear();
   });
 })();
