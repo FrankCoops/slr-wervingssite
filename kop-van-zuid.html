@@ -6,7 +6,8 @@
 <title>De Kop van Zuid · Stedelijk Lyceum Rotterdam</title>
 <meta name="description" content="Onze school staat op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug, een van de leukste plekken van Rotterdam.">
 <script>(function(){var w=window.innerWidth||document.documentElement.clientWidth||0;if(w>0&&w<=820){window.location.replace('app.html');}})();</script>
-<link rel="stylesheet" href="assets/site.css?v=36">
+<link rel="stylesheet" href="assets/site.css?v=38">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body data-hero>
 <div class="progress"></div>
@@ -117,6 +118,39 @@
   </div>
 </section>
 
+<!-- ROUTE PLANNER -->
+<section class="sec-sm">
+  <div class="wrap">
+    <div class="shead" data-reveal style="margin-bottom:clamp(20px,2vw,32px)">
+      <h2 class="h2" style="max-width:22ch">Plan jouw route naar school</h2>
+      <p class="body" style="max-width:62ch">Vul je adres in en kies hoe je wilt reizen. Wij tekenen meteen de route naar het Stedelijk Lyceum Rotterdam.</p>
+    </div>
+    <div class="planner" data-reveal>
+      <div class="planner__map" id="routeMap"></div>
+      <div class="planner__card">
+        <h3 class="planner__t">Plan je route</h3>
+        <p class="planner__sub">Naar het Stedelijk Lyceum Rotterdam · Zuiderspoorstraat 6</p>
+        <form id="routeForm" novalidate>
+          <label class="planner__field" for="routeAddr">Jouw adres</label>
+          <input class="planner__input" id="routeAddr" type="text" placeholder="Straat en plaats, bijv. Coolsingel 40, Rotterdam" autocomplete="street-address">
+          <div class="planner__modes" role="group" aria-label="Hoe wil je reizen?">
+            <button class="planner__mode is-on" type="button" data-mode="driving">Auto</button>
+            <button class="planner__mode" type="button" data-mode="cycling">Fiets</button>
+            <button class="planner__mode" type="button" data-mode="walking">Lopen</button>
+          </div>
+          <button class="btn btn--dark planner__go" type="submit">Bereken route <span class="ar">→</span></button>
+          <div class="planner__err" id="routeErr" role="alert"></div>
+        </form>
+        <div class="planner__out" id="routeOut">
+          <div class="planner__leg"><span class="planner__dot planner__dot--from"></span><div><div class="planner__leg-k">Vertrek</div><div class="planner__leg-v" id="routeFrom"></div></div></div>
+          <div class="planner__leg"><span class="planner__dot planner__dot--to"></span><div><div class="planner__leg-k">Aankomst</div><div class="planner__leg-v">Stedelijk Lyceum Rotterdam</div></div></div>
+          <div class="planner__stat"><div><b id="routeDist">–</b><span>afstand</span></div><div><b id="routeTime">–</b><span id="routeMode">reistijd</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <nav class="pager">
   <a href="gebouw.html"><span class="dir">← Vorige</span><span class="ttl">02 · Het gebouw</span></a>
   <a class="next" href="onderwijs.html"><span class="dir">Volgende →</span><span class="ttl">04 · Ons onderwijs</span></a>
@@ -148,6 +182,102 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=36"></script>
+<script src="assets/site.js?v=38"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function () {
+  if (typeof L === 'undefined') return;
+  var mapEl = document.getElementById('routeMap');
+  if (!mapEl) return;
+
+  // Stedelijk Lyceum Rotterdam (Zuiderspoorstraat 6, Kop van Zuid) — pas dit desgewenst aan naar de exacte coördinaat
+  var SLR = [51.90402, 4.49001];
+
+  var map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true }).setView(SLR, 12);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd', maxZoom: 19,
+    attribution: '&copy; OpenStreetMap, &copy; CARTO'
+  }).addTo(map);
+
+  function pin(bg, ring) {
+    return L.divIcon({
+      className: '', iconSize: [24, 24], iconAnchor: [12, 12],
+      html: '<div style="width:20px;height:20px;border-radius:50%;background:' + bg +
+            ';box-shadow:0 0 0 4px ' + ring + ',0 6px 14px rgba(0,0,0,.35)"></div>'
+    });
+  }
+  L.marker(SLR, { icon: pin('#ffe500', 'rgba(255,229,0,.4)') }).addTo(map)
+    .bindTooltip('Stedelijk Lyceum Rotterdam', { direction: 'top', offset: [0, -12] });
+
+  // zorg dat de kaart correct hertekent als de layout nog verschuift
+  setTimeout(function () { map.invalidateSize(); }, 300);
+  window.addEventListener('resize', function () { map.invalidateSize(); });
+
+  var mode = 'driving';
+  var SPEED = { cycling: 15, walking: 4.8 }; // km/h; auto gebruikt de OSRM-tijd
+  var modeName = { driving: 'met de auto', cycling: 'op de fiets', walking: 'lopend' };
+
+  document.querySelectorAll('.planner__mode').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.planner__mode').forEach(function (x) { x.classList.remove('is-on'); });
+      b.classList.add('is-on');
+      mode = b.getAttribute('data-mode');
+    });
+  });
+
+  var form = document.getElementById('routeForm');
+  var errEl = document.getElementById('routeErr');
+  var outEl = document.getElementById('routeOut');
+  var goBtn = form.querySelector('.planner__go');
+  var originMarker = null, casing = null, line = null;
+
+  function err(m) { errEl.textContent = m; errEl.classList.add('is-on'); }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errEl.classList.remove('is-on');
+    var addr = document.getElementById('routeAddr').value.trim();
+    if (!addr) { err('Vul eerst je adres in.'); return; }
+    goBtn.disabled = true;
+
+    fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=nl&q=' + encodeURIComponent(addr))
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res || !res.length) throw new Error('geocode');
+        var oLat = parseFloat(res[0].lat), oLng = parseFloat(res[0].lon);
+        return fetch('https://router.project-osrm.org/route/v1/driving/' +
+          oLng + ',' + oLat + ';' + SLR[1] + ',' + SLR[0] + '?overview=full&geometries=geojson')
+          .then(function (r) { return r.json(); })
+          .then(function (rt) {
+            if (!rt.routes || !rt.routes.length) throw new Error('route');
+            var route = rt.routes[0];
+            var coords = route.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+            if (casing) map.removeLayer(casing);
+            if (line) map.removeLayer(line);
+            if (originMarker) map.removeLayer(originMarker);
+            casing = L.polyline(coords, { color: '#111', weight: 8, opacity: .85, lineCap: 'round', lineJoin: 'round' }).addTo(map);
+            line = L.polyline(coords, { color: '#ffe500', weight: 4.5, opacity: 1, lineCap: 'round', lineJoin: 'round' }).addTo(map);
+            originMarker = L.marker([oLat, oLng], { icon: pin('#111', 'rgba(0,0,0,.25)') }).addTo(map)
+              .bindTooltip('Jouw adres', { direction: 'top', offset: [0, -12] });
+            map.fitBounds(line.getBounds(), { paddingTopLeft: [390, 70], paddingBottomRight: [70, 70] });
+
+            var km = route.distance / 1000;
+            var mins = mode === 'driving' ? route.duration / 60 : (km / SPEED[mode]) * 60;
+            document.getElementById('routeFrom').textContent = addr;
+            document.getElementById('routeDist').textContent = km.toFixed(1).replace('.', ',') + ' km';
+            document.getElementById('routeTime').textContent = Math.max(1, Math.round(mins)) + ' min';
+            document.getElementById('routeMode').textContent = modeName[mode];
+            outEl.classList.add('is-on');
+          });
+      })
+      .catch(function (e2) {
+        err(e2 && e2.message === 'geocode'
+          ? 'Dit adres konden we niet vinden. Probeer het specifieker (straat + plaats).'
+          : 'De route kon even niet worden berekend. Probeer het zo nog eens.');
+      })
+      .finally(function () { goBtn.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>

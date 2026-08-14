@@ -620,3 +620,42 @@ a{color:inherit;text-decoration:none}
 .hood:hover .hood__panel:not(:hover) .hood__c,
 .hood:focus-within .hood__panel:not(:focus-within) .hood__c{opacity:.42}
 @media(max-width:760px){.hood__b{max-height:none;opacity:1;margin-top:14px}.hood:hover .hood__panel:not(:hover) .hood__c{opacity:1}}
+
+/* ---------- routeplanner (Leaflet-kaart) ---------- */
+.planner{position:relative;height:clamp(460px,54vw,640px);border:1px solid var(--line);overflow:hidden;background:#e9e9e7}
+.planner__map{position:absolute;inset:0;z-index:1}
+.planner__map .leaflet-container{height:100%;width:100%;background:#e9e9e7;font-family:inherit}
+.planner__card{position:absolute;z-index:2;top:clamp(16px,1.8vw,26px);left:clamp(16px,1.8vw,26px);
+  width:min(360px,calc(100% - 32px));background:#fff;padding:clamp(20px,1.8vw,28px);
+  box-shadow:0 26px 60px -24px rgba(0,0,0,.4)}
+.planner__t{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:16px;margin:0}
+.planner__sub{font-weight:300;font-size:13px;color:#4a4844;margin:4px 0 18px}
+.planner__field{display:block;font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.12em;color:var(--muted);margin:0 0 7px}
+.planner__input{width:100%;border:1px solid var(--line);background:var(--bone);padding:12px 14px;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s}
+.planner__input:focus{border-color:var(--ink)}
+.planner__modes{display:flex;gap:6px;margin:14px 0 0}
+.planner__mode{flex:1;border:1px solid var(--line);background:#fff;padding:9px 4px;font-weight:700;text-transform:uppercase;
+  font-size:11px;letter-spacing:.04em;cursor:pointer;color:var(--ink);transition:background .2s,color .2s,border-color .2s}
+.planner__mode.is-on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.planner__go{width:100%;margin-top:16px;justify-content:center;padding-block:15px}
+.planner__go[disabled]{opacity:.55;cursor:default}
+.planner__err{color:#c0392b;font-size:12.5px;line-height:1.4;margin-top:12px;display:none}
+.planner__err.is-on{display:block}
+.planner__out{margin-top:20px;border-top:1px solid var(--line);padding-top:18px;display:none}
+.planner__out.is-on{display:block}
+.planner__leg{display:flex;gap:12px;align-items:flex-start;position:relative;padding-bottom:14px}
+.planner__leg::before{content:'';position:absolute;left:10px;top:22px;bottom:0;width:2px;background:var(--line)}
+.planner__leg:last-of-type::before{display:none}
+.planner__dot{width:22px;height:22px;flex:none;border-radius:50%;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.planner__dot--from{background:var(--ink)}
+.planner__dot--to{background:var(--accent)}
+.planner__leg-k{font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.planner__leg-v{font-weight:600;font-size:14px;line-height:1.25;margin-top:2px}
+.planner__stat{display:flex;gap:26px;margin-top:16px}
+.planner__stat b{font-weight:800;font-size:22px;color:var(--ink);line-height:1}
+.planner__stat span{font-weight:300;font-size:12px;color:#4a4844;display:block;margin-top:3px}
+@media(max-width:640px){
+  .planner{height:auto}
+  .planner__map{position:relative;height:340px}
+  .planner__card{position:static;width:auto;box-shadow:none;border-top:1px solid var(--line)}
+}
