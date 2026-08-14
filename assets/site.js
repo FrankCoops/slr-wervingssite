@@ -341,9 +341,10 @@
     s.async = true;
     s.onload = function () {
       if (!window.Lenis) return;
+      // lerp-gebaseerd: reageert direct op het wiel, met net een vleugje demping (subtiel, niet traag)
       var lenis = new Lenis({
-        duration: 1.05,
-        easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+        lerp: 0.16,
+        wheelMultiplier: 1,
         smoothWheel: true
       });
       window.__lenis = lenis;
