@@ -6,7 +6,7 @@
 <title>De Kop van Zuid · Stedelijk Lyceum Rotterdam</title>
 <meta name="description" content="Onze school staat op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug, een van de leukste plekken van Rotterdam.">
 <script>(function(){var w=window.innerWidth||document.documentElement.clientWidth||0;if(w>0&&w<=820){window.location.replace('app.html');}})();</script>
-<link rel="stylesheet" href="assets/site.css?v=38">
+<link rel="stylesheet" href="assets/site.css?v=39">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body data-hero>
@@ -137,6 +137,7 @@
             <button class="planner__mode is-on" type="button" data-mode="driving">Auto</button>
             <button class="planner__mode" type="button" data-mode="cycling">Fiets</button>
             <button class="planner__mode" type="button" data-mode="walking">Lopen</button>
+            <button class="planner__mode" type="button" data-mode="ov">OV</button>
           </div>
           <button class="btn btn--dark planner__go" type="submit">Bereken route <span class="ar">→</span></button>
           <div class="planner__err" id="routeErr" role="alert"></div>
@@ -144,7 +145,9 @@
         <div class="planner__out" id="routeOut">
           <div class="planner__leg"><span class="planner__dot planner__dot--from"></span><div><div class="planner__leg-k">Vertrek</div><div class="planner__leg-v" id="routeFrom"></div></div></div>
           <div class="planner__leg"><span class="planner__dot planner__dot--to"></span><div><div class="planner__leg-k">Aankomst</div><div class="planner__leg-v">Stedelijk Lyceum Rotterdam</div></div></div>
-          <div class="planner__stat"><div><b id="routeDist">–</b><span>afstand</span></div><div><b id="routeTime">–</b><span id="routeMode">reistijd</span></div></div>
+          <div class="planner__stat" id="routeStat"><div><b id="routeDist">–</b><span>afstand</span></div><div><b id="routeTime">–</b><span id="routeMode">reistijd</span></div></div>
+          <p class="planner__ovnote" id="routeOvNote">Met bus, tram, metro of trein. Bekijk de actuele reis met lijnen en tijden:</p>
+          <a class="btn btn--dark planner__ov" id="routeOv" href="#" target="_blank" rel="noopener">Plan je OV-reis <span class="ar">→</span></a>
         </div>
       </div>
     </div>
@@ -182,7 +185,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=38"></script>
+<script src="assets/site.js?v=39"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function () {
@@ -190,31 +193,47 @@
   var mapEl = document.getElementById('routeMap');
   if (!mapEl) return;
 
-  // Stedelijk Lyceum Rotterdam (Zuiderspoorstraat 6, Kop van Zuid) — pas dit desgewenst aan naar de exacte coördinaat
-  var SLR = [51.90402, 4.49001];
+  // Stedelijk Lyceum Rotterdam — Zuiderspoorstraat 6, Kop van Zuid (exacte coördinaat)
+  var SLR = [51.90552, 4.49776];
 
-  var map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true }).setView(SLR, 12);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd', maxZoom: 19,
+  var map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true }).setView(SLR, 13);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd', maxZoom: 20,
     attribution: '&copy; OpenStreetMap, &copy; CARTO'
   }).addTo(map);
 
   function pin(bg, ring) {
     return L.divIcon({
-      className: '', iconSize: [24, 24], iconAnchor: [12, 12],
-      html: '<div style="width:20px;height:20px;border-radius:50%;background:' + bg +
+      className: '', iconSize: [22, 22], iconAnchor: [11, 11],
+      html: '<div style="width:18px;height:18px;border-radius:50%;background:' + bg +
             ';box-shadow:0 0 0 4px ' + ring + ',0 6px 14px rgba(0,0,0,.35)"></div>'
     });
   }
-  L.marker(SLR, { icon: pin('#ffe500', 'rgba(255,229,0,.4)') }).addTo(map)
-    .bindTooltip('Stedelijk Lyceum Rotterdam', { direction: 'top', offset: [0, -12] });
+  function slrIcon() {
+    return L.divIcon({
+      className: '', iconSize: [48, 48], iconAnchor: [24, 24],
+      html: '<div style="width:48px;height:48px;border-radius:50%;background:#ffe500;' +
+            'box-shadow:0 0 0 4px #fff,0 8px 22px rgba(0,0,0,.4);display:flex;align-items:center;' +
+            'justify-content:center;font-family:Gilroy,system-ui,sans-serif;font-weight:800;' +
+            'font-size:15px;letter-spacing:.02em;color:#111;line-height:1">SLR</div>'
+    });
+  }
+  L.marker(SLR, { icon: slrIcon(), zIndexOffset: 1000 }).addTo(map)
+    .bindTooltip('Stedelijk Lyceum Rotterdam', { direction: 'top', offset: [0, -24] });
 
-  // zorg dat de kaart correct hertekent als de layout nog verschuift
+  // zorg dat de kaart altijd correct hertekent (bij layout-verschuiving, reveal, resize)
   setTimeout(function () { map.invalidateSize(); }, 300);
   window.addEventListener('resize', function () { map.invalidateSize(); });
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () { map.invalidateSize(); }).observe(mapEl);
+  }
+
+  // OpenRouteService (gratis): plak hier je sleutel voor EXACTE fiets- en looproutes.
+  // Leeg laten = het werkt ook, maar fiets/lopen zijn dan een schatting via het auto-wegennet.
+  var ORS_KEY = '';
 
   var mode = 'driving';
-  var SPEED = { cycling: 15, walking: 4.8 }; // km/h; auto gebruikt de OSRM-tijd
+  var SPEED = { cycling: 15, walking: 4.8 }; // km/h; gebruikt bij schatting (zonder ORS-sleutel)
   var modeName = { driving: 'met de auto', cycling: 'op de fiets', walking: 'lopend' };
 
   document.querySelectorAll('.planner__mode').forEach(function (b) {
@@ -229,9 +248,45 @@
   var errEl = document.getElementById('routeErr');
   var outEl = document.getElementById('routeOut');
   var goBtn = form.querySelector('.planner__go');
+  var statEl = document.getElementById('routeStat');
+  var ovBtn = document.getElementById('routeOv');
+  var ovNote = document.getElementById('routeOvNote');
   var originMarker = null, casing = null, line = null;
 
   function err(m) { errEl.textContent = m; errEl.classList.add('is-on'); }
+
+  // Exacte route via ORS (fiets/lopen/auto) als er een sleutel is; anders OSRM (auto-wegennet) als basis.
+  function fetchRoute(md, oLat, oLng) {
+    if (ORS_KEY && md !== 'ov') {
+      var prof = md === 'cycling' ? 'cycling-regular' : (md === 'walking' ? 'foot-walking' : 'driving-car');
+      return fetch('https://api.openrouteservice.org/v2/directions/' + prof +
+        '?api_key=' + ORS_KEY + '&start=' + oLng + ',' + oLat + '&end=' + SLR[1] + ',' + SLR[0])
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (!j.features || !j.features.length) throw new Error('route');
+          var f = j.features[0];
+          return {
+            coords: f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; }),
+            distanceM: f.properties.summary.distance,
+            durationS: f.properties.summary.duration,
+            estimated: false
+          };
+        });
+    }
+    return fetch('https://router.project-osrm.org/route/v1/driving/' +
+      oLng + ',' + oLat + ';' + SLR[1] + ',' + SLR[0] + '?overview=full&geometries=geojson')
+      .then(function (r) { return r.json(); })
+      .then(function (rt) {
+        if (!rt.routes || !rt.routes.length) throw new Error('route');
+        var route = rt.routes[0];
+        return {
+          coords: route.geometry.coordinates.map(function (c) { return [c[1], c[0]]; }),
+          distanceM: route.distance,
+          durationS: route.duration,
+          estimated: (md === 'cycling' || md === 'walking')
+        };
+      });
+  }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -239,36 +294,42 @@
     var addr = document.getElementById('routeAddr').value.trim();
     if (!addr) { err('Vul eerst je adres in.'); return; }
     goBtn.disabled = true;
+    var md = mode;
 
     fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=nl&q=' + encodeURIComponent(addr))
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (!res || !res.length) throw new Error('geocode');
         var oLat = parseFloat(res[0].lat), oLng = parseFloat(res[0].lon);
-        return fetch('https://router.project-osrm.org/route/v1/driving/' +
-          oLng + ',' + oLat + ';' + SLR[1] + ',' + SLR[0] + '?overview=full&geometries=geojson')
-          .then(function (r) { return r.json(); })
-          .then(function (rt) {
-            if (!rt.routes || !rt.routes.length) throw new Error('route');
-            var route = rt.routes[0];
-            var coords = route.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
-            if (casing) map.removeLayer(casing);
-            if (line) map.removeLayer(line);
-            if (originMarker) map.removeLayer(originMarker);
-            casing = L.polyline(coords, { color: '#111', weight: 8, opacity: .85, lineCap: 'round', lineJoin: 'round' }).addTo(map);
-            line = L.polyline(coords, { color: '#ffe500', weight: 4.5, opacity: 1, lineCap: 'round', lineJoin: 'round' }).addTo(map);
-            originMarker = L.marker([oLat, oLng], { icon: pin('#111', 'rgba(0,0,0,.25)') }).addTo(map)
-              .bindTooltip('Jouw adres', { direction: 'top', offset: [0, -12] });
-            map.fitBounds(line.getBounds(), { paddingTopLeft: [390, 70], paddingBottomRight: [70, 70] });
+        return fetchRoute(md, oLat, oLng).then(function (data) {
+          if (casing) map.removeLayer(casing);
+          if (line) map.removeLayer(line);
+          if (originMarker) map.removeLayer(originMarker);
+          casing = L.polyline(data.coords, { color: '#111', weight: 8, opacity: .85, lineCap: 'round', lineJoin: 'round' }).addTo(map);
+          line = L.polyline(data.coords, { color: '#ffe500', weight: 4.5, opacity: 1, lineCap: 'round', lineJoin: 'round' }).addTo(map);
+          originMarker = L.marker([oLat, oLng], { icon: pin('#111', 'rgba(0,0,0,.25)') }).addTo(map)
+            .bindTooltip('Jouw adres', { direction: 'top', offset: [0, -12] });
+          map.fitBounds(line.getBounds(), { paddingTopLeft: [390, 70], paddingBottomRight: [70, 70] });
 
-            var km = route.distance / 1000;
-            var mins = mode === 'driving' ? route.duration / 60 : (km / SPEED[mode]) * 60;
-            document.getElementById('routeFrom').textContent = addr;
+          document.getElementById('routeFrom').textContent = addr;
+          if (md === 'ov') {
+            statEl.style.display = 'none';
+            ovNote.style.display = 'block';
+            ovBtn.style.display = 'inline-flex';
+            ovBtn.href = 'https://www.google.com/maps/dir/?api=1&origin=' + oLat + ',' + oLng +
+              '&destination=' + SLR[0] + ',' + SLR[1] + '&travelmode=transit';
+          } else {
+            ovBtn.style.display = 'none';
+            ovNote.style.display = 'none';
+            statEl.style.display = 'flex';
+            var km = data.distanceM / 1000;
+            var mins = data.estimated ? (km / SPEED[md]) * 60 : data.durationS / 60;
             document.getElementById('routeDist').textContent = km.toFixed(1).replace('.', ',') + ' km';
             document.getElementById('routeTime').textContent = Math.max(1, Math.round(mins)) + ' min';
-            document.getElementById('routeMode').textContent = modeName[mode];
-            outEl.classList.add('is-on');
-          });
+            document.getElementById('routeMode').textContent = modeName[md];
+          }
+          outEl.classList.add('is-on');
+        });
       })
       .catch(function (e2) {
         err(e2 && e2.message === 'geocode'
