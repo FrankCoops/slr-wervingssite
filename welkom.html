@@ -51,6 +51,10 @@
   .wk-anim .wk__form{animation-delay:.2s}
   .wk-anim .wk__skip{animation-delay:.28s}
   @keyframes wkUp{to{opacity:1;transform:none}}
+  @keyframes wkMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes wkLine{to{transform:scaleX(1)}}
+  .wk__marq{display:none}
+  .wk__u{position:relative}
   @media(prefers-reduced-motion:reduce){.wk-anim *{animation:none!important;opacity:1!important;transform:none!important}}
 
   /* ===== mobile-first laag (desktop blijft intact) ===== */
@@ -68,7 +72,11 @@
     .wk__input{width:100%;min-width:0;box-sizing:border-box;font-size:22px;padding:12px 2px}
     .wk__btn{width:100%;justify-content:center;min-height:62px;padding:0 24px}
     .wk__skip{align-self:stretch;text-align:center;margin-top:20px}
-    .wk__foot{padding:18px 22px 24px}
+    .wk__foot{display:none}
+    .wk__marq{display:block;overflow:hidden;white-space:nowrap;border-top:2px solid #111;padding:13px 0}
+    .wk__marq>div{display:inline-block;font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:.06em;color:#111;animation:wkMarq 18s linear infinite;will-change:transform}
+    .wk__marq span{padding:0 8px}
+    .wk__u::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:.1em;background:#111;transform:scaleX(0);transform-origin:left;animation:wkLine .7s .55s cubic-bezier(.19,1,.22,1) forwards}
   }
 </style>
 </head>
@@ -79,7 +87,7 @@
 
   <main class="wk__in">
     <div class="wk__eyebrow">Opent in 2027 · Kop van Zuid, Rotterdam</div>
-    <h1 class="wk__h">Welkom op het Stedelijk Lyceum Rotterdam</h1>
+    <h1 class="wk__h">Welkom op het Stedelijk Lyceum <span class="wk__u">Rotterdam</span></h1>
     <p class="wk__lead">Leuk dat je er bent. Vul hieronder je naam in, dan maken we jouw bezoek aan onze school een beetje persoonlijker.</p>
 
     <form class="wk__form" id="wkForm" autocomplete="on">
@@ -92,6 +100,7 @@
     <button class="wk__skip" id="wkSkip" type="button">Liever niet, ga direct naar de site</button>
   </main>
 
+  <div class="wk__marq" aria-hidden="true"><div><span>De nieuwste school van de stad</span>·<span>Opent in 2027</span>·<span>Kop van Zuid, Rotterdam</span>·<span>De nieuwste school van de stad</span>·<span>Opent in 2027</span>·<span>Kop van Zuid, Rotterdam</span>·</div></div>
   <footer class="wk__foot">De nieuwste school van de stad · Opent in 2027</footer>
 
 <script>
