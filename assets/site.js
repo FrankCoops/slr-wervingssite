@@ -357,6 +357,7 @@
     if (!naam) return;
     document.querySelectorAll('[data-naam]').forEach(function (el) { el.textContent = naam; });
     document.querySelectorAll('[data-naam-only]').forEach(function (el) { el.removeAttribute('hidden'); });
+    document.querySelectorAll('[data-naam-hide]').forEach(function (el) { el.setAttribute('hidden', ''); });
     document.querySelectorAll('input[data-voornaam]').forEach(function (inp) { if (!inp.value) inp.value = naam; });
   }
 
