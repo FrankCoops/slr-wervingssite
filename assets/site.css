@@ -624,7 +624,9 @@ a{color:inherit;text-decoration:none}
 /* ---------- routeplanner (Leaflet-kaart) ---------- */
 .planner{position:relative;height:clamp(460px,54vw,640px);border:1px solid var(--line);overflow:hidden;background:#e9e9e7}
 .planner__map{position:absolute;inset:0;z-index:1}
-.planner__map .leaflet-container{height:100%;width:100%;background:#e9e9e7;font-family:inherit}
+.planner__map .leaflet-container{height:100%;width:100%;background:#eceae6;font-family:inherit}
+/* subtiele, rustige kaartkleur (verfijnder) */
+.planner__map .leaflet-tile-pane{filter:saturate(.72) brightness(1.03) contrast(1.02)}
 .planner__card{position:absolute;z-index:2;top:clamp(16px,1.8vw,26px);left:clamp(16px,1.8vw,26px);
   width:min(360px,calc(100% - 32px));background:#fff;padding:clamp(20px,1.8vw,28px);
   box-shadow:0 26px 60px -24px rgba(0,0,0,.4)}

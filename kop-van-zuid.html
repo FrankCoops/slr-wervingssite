@@ -6,7 +6,7 @@
 <title>De Kop van Zuid · Stedelijk Lyceum Rotterdam</title>
 <meta name="description" content="Onze school staat op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug, een van de leukste plekken van Rotterdam.">
 <script>(function(){var w=window.innerWidth||document.documentElement.clientWidth||0;if(w>0&&w<=820){window.location.replace('app.html');}})();</script>
-<link rel="stylesheet" href="assets/site.css?v=39">
+<link rel="stylesheet" href="assets/site.css?v=40">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body data-hero>
@@ -185,7 +185,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=39"></script>
+<script src="assets/site.js?v=40"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function () {
@@ -305,8 +305,8 @@
           if (casing) map.removeLayer(casing);
           if (line) map.removeLayer(line);
           if (originMarker) map.removeLayer(originMarker);
-          casing = L.polyline(data.coords, { color: '#111', weight: 8, opacity: .85, lineCap: 'round', lineJoin: 'round' }).addTo(map);
-          line = L.polyline(data.coords, { color: '#ffe500', weight: 4.5, opacity: 1, lineCap: 'round', lineJoin: 'round' }).addTo(map);
+          casing = L.polyline(data.coords, { color: '#1a1a1a', weight: 5.5, opacity: .35, lineCap: 'round', lineJoin: 'round' }).addTo(map);
+          line = L.polyline(data.coords, { color: '#ffe500', weight: 3, opacity: .95, lineCap: 'round', lineJoin: 'round' }).addTo(map);
           originMarker = L.marker([oLat, oLng], { icon: pin('#111', 'rgba(0,0,0,.25)') }).addTo(map)
             .bindTooltip('Jouw adres', { direction: 'top', offset: [0, -12] });
           map.fitBounds(line.getBounds(), { paddingTopLeft: [390, 70], paddingBottomRight: [70, 70] });
