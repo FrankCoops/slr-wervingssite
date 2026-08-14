@@ -289,17 +289,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <p style="font-weight:300;font-size:14px;line-height:1.45;color:#ececec;margin:12px 0 0;text-wrap:pretty">Ontdek snel meer over alle voordelen van onze school.</p>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;grid-auto-rows:198px;padding:0 18px">
-<div class="slrflip">
-<div class="slrinner" style="{{ tiles.intro.inner }}">
-<div onClick="{{ tiles.intro.on }}" style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;cursor:pointer;background:#7c7c7c;color:#fff;padding:15px 16px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;grid-auto-rows:200px;padding:0 18px">
+<div style="position:relative;overflow:hidden">
+<div onClick="{{ tiles.intro.on }}" style="{{ tiles.intro.frontStyle }}">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.13em;opacity:.7">01 &middot; Introductie</div>
-<div style="font-weight:800;text-transform:uppercase;font-size:21px;line-height:.94;letter-spacing:-.01em">De nieuwste school van de stad</div>
+<div style="font-weight:800;text-transform:uppercase;font-size:22px;line-height:.98;letter-spacing:-.01em">De nieuwste school van de stad</div>
 </div>
-<div style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:rotateY(180deg);background:#7c7c7c;color:#fff;display:flex;flex-direction:column">
-<div style="flex:1;padding:15px 16px;font-weight:400;font-size:12px;line-height:1.36;overflow:hidden">In 2027 openen we onze deuren. Ontdek waarom dit misschien wel de gaafste school van de stad wordt.</div>
-<div onClick="{{ tiles.intro.open }}" style="background:#000;color:#fff;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer"><span>Ontdek meer</span><span>&#8594;</span></div>
-</div>
+<div style="{{ tiles.intro.backStyle }}">
+<div style="flex:1;padding:16px 16px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:400;font-size:12.5px;line-height:1.4;overflow:hidden">In 2027 openen we onze deuren. Ontdek waarom dit misschien wel de gaafste school van de stad wordt.</div>
+<div onClick="{{ tiles.intro.open }}" style="{{ tiles.intro.btnStyle }}"><span>Ontdek meer</span><span>&#8594;</span></div>
 </div>
 </div>
 <div onClick="{{ tiles.intro.open }}" style="position:relative;overflow:hidden;cursor:pointer">
@@ -308,28 +306,24 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div onClick="{{ tiles.gebouw.open }}" style="position:relative;overflow:hidden;cursor:pointer">
 <div style="position:absolute;inset:0;background-image:url('uploads/20230718-c07.jpg');background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05)"></div>
 </div>
-<div class="slrflip">
-<div class="slrinner" style="{{ tiles.gebouw.inner }}">
-<div onClick="{{ tiles.gebouw.on }}" style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;cursor:pointer;background:#161616;color:#fff;padding:15px 16px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+<div style="position:relative;overflow:hidden">
+<div onClick="{{ tiles.gebouw.on }}" style="{{ tiles.gebouw.frontStyle }}">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.13em;opacity:.7">02 &middot; Het gebouw</div>
-<div style="font-weight:800;text-transform:uppercase;font-size:21px;line-height:.94;letter-spacing:-.01em">Een <span style="color:#ffe500">vet</span> gebouw</div>
+<div style="font-weight:800;text-transform:uppercase;font-size:22px;line-height:.98;letter-spacing:-.01em">Een <span style="color:#ffe500">vet</span> gebouw</div>
 </div>
-<div style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:rotateY(180deg);background:#161616;color:#fff;display:flex;flex-direction:column">
-<div style="flex:1;padding:15px 16px;font-weight:400;font-size:12px;line-height:1.36;overflow:hidden">Een schoolplein op het dak, een XL-gymzaal en een stadslab met 3D-printers en VR.</div>
-<div onClick="{{ tiles.gebouw.open }}" style="background:#fff;color:#000;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer"><span>Ontdek meer</span><span>&#8594;</span></div>
+<div style="{{ tiles.gebouw.backStyle }}">
+<div style="flex:1;padding:16px 16px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:400;font-size:12.5px;line-height:1.4;overflow:hidden">Een schoolplein op het dak, een XL-gymzaal en een stadslab met 3D-printers en VR.</div>
+<div onClick="{{ tiles.gebouw.open }}" style="{{ tiles.gebouw.btnStyle }}"><span>Ontdek meer</span><span>&#8594;</span></div>
 </div>
 </div>
-</div>
-<div class="slrflip">
-<div class="slrinner" style="{{ tiles.zuid.inner }}">
-<div onClick="{{ tiles.zuid.on }}" style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;cursor:pointer;background:#7c7c7c;color:#fff;padding:15px 16px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+<div style="position:relative;overflow:hidden">
+<div onClick="{{ tiles.zuid.on }}" style="{{ tiles.zuid.frontStyle }}">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.13em;opacity:.7">03 &middot; De locatie</div>
-<div style="font-weight:800;text-transform:uppercase;font-size:21px;line-height:.94;letter-spacing:-.01em">De Kop van <span style="color:#ffe500">Zuid</span></div>
+<div style="font-weight:800;text-transform:uppercase;font-size:22px;line-height:.98;letter-spacing:-.01em">De Kop van <span style="color:#ffe500">Zuid</span></div>
 </div>
-<div style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:rotateY(180deg);background:#7c7c7c;color:#fff;display:flex;flex-direction:column">
-<div style="flex:1;padding:15px 16px;font-weight:400;font-size:12px;line-height:1.36;overflow:hidden">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug, een van de leukste plekken van Rotterdam.</div>
-<div onClick="{{ tiles.zuid.open }}" style="background:#000;color:#fff;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer"><span>Ontdek meer</span><span>&#8594;</span></div>
-</div>
+<div style="{{ tiles.zuid.backStyle }}">
+<div style="flex:1;padding:16px 16px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:400;font-size:12.5px;line-height:1.4;overflow:hidden">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug, een van de leukste plekken van Rotterdam.</div>
+<div onClick="{{ tiles.zuid.open }}" style="{{ tiles.zuid.btnStyle }}"><span>Ontdek meer</span><span>&#8594;</span></div>
 </div>
 </div>
 <div onClick="{{ tiles.zuid.open }}" style="position:relative;overflow:hidden;cursor:pointer">
@@ -338,28 +332,24 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div onClick="{{ tiles.ond.open }}" style="position:relative;overflow:hidden;cursor:pointer">
 <div style="position:absolute;inset:0;background-image:url('uploads/stad-als-klaslokaal.jpg');background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05)"></div>
 </div>
-<div class="slrflip">
-<div class="slrinner" style="{{ tiles.ond.inner }}">
-<div onClick="{{ tiles.ond.on }}" style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;cursor:pointer;background:#ffe500;color:#000;padding:15px 16px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+<div style="position:relative;overflow:hidden">
+<div onClick="{{ tiles.ond.on }}" style="{{ tiles.ond.frontStyle }}">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.13em;opacity:.7">04 &middot; Ons onderwijs</div>
-<div style="font-weight:800;text-transform:uppercase;font-size:21px;line-height:.94;letter-spacing:-.01em">De stad als klaslokaal</div>
+<div style="font-weight:800;text-transform:uppercase;font-size:22px;line-height:.98;letter-spacing:-.01em">De stad als klaslokaal</div>
 </div>
-<div style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:rotateY(180deg);background:#ffe500;color:#000;display:flex;flex-direction:column">
-<div style="flex:1;padding:15px 16px;font-weight:400;font-size:12px;line-height:1.36;overflow:hidden">Je leert niet alleen in de klas, maar in de hele stad. In vier projecten en zeven stappen.</div>
-<div onClick="{{ tiles.ond.open }}" style="background:#000;color:#fff;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer"><span>Ontdek meer</span><span>&#8594;</span></div>
+<div style="{{ tiles.ond.backStyle }}">
+<div style="flex:1;padding:16px 16px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:400;font-size:12.5px;line-height:1.4;overflow:hidden">Je leert niet alleen in de klas, maar in de hele stad. In vier projecten en zeven stappen.</div>
+<div onClick="{{ tiles.ond.open }}" style="{{ tiles.ond.btnStyle }}"><span>Ontdek meer</span><span>&#8594;</span></div>
 </div>
 </div>
-</div>
-<div class="slrflip">
-<div class="slrinner" style="{{ tiles.proj.inner }}">
-<div onClick="{{ tiles.proj.on }}" style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;cursor:pointer;background:#7c7c7c;color:#fff;padding:15px 16px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+<div style="position:relative;overflow:hidden">
+<div onClick="{{ tiles.proj.on }}" style="{{ tiles.proj.frontStyle }}">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.13em;opacity:.7">05 &middot; Projecten</div>
-<div style="font-weight:800;text-transform:uppercase;font-size:21px;line-height:.94;letter-spacing:-.01em">Een plek in <span style="color:#ffe500">Zuid</span> centraal</div>
+<div style="font-weight:800;text-transform:uppercase;font-size:22px;line-height:.98;letter-spacing:-.01em">Een plek in <span style="color:#ffe500">Zuid</span> centraal</div>
 </div>
-<div style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:rotateY(180deg);background:#7c7c7c;color:#fff;display:flex;flex-direction:column">
-<div style="flex:1;padding:15px 16px;font-weight:400;font-size:12px;line-height:1.36;overflow:hidden">Van de Binnenrotte tot de Wilhelminapier: vier echte plekken in Zuid als jouw klaslokaal.</div>
-<div onClick="{{ tiles.proj.open }}" style="background:#000;color:#fff;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer"><span>Ontdek meer</span><span>&#8594;</span></div>
-</div>
+<div style="{{ tiles.proj.backStyle }}">
+<div style="flex:1;padding:16px 16px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:400;font-size:12.5px;line-height:1.4;overflow:hidden">Van de Binnenrotte tot de Wilhelminapier: vier echte plekken in Zuid als jouw klaslokaal.</div>
+<div onClick="{{ tiles.proj.open }}" style="{{ tiles.proj.btnStyle }}"><span>Ontdek meer</span><span>&#8594;</span></div>
 </div>
 </div>
 <div onClick="{{ tiles.proj.open }}" style="position:relative;overflow:hidden;cursor:pointer">
@@ -368,16 +358,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div onClick="{{ tiles.aanm.open }}" style="position:relative;overflow:hidden;cursor:pointer">
 <div style="position:absolute;inset:0;background-image:url('assets/photos/leerling-1.jpg');background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05)"></div>
 </div>
-<div class="slrflip">
-<div class="slrinner" style="{{ tiles.aanm.inner }}">
-<div onClick="{{ tiles.aanm.on }}" style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;cursor:pointer;background:#161616;color:#fff;padding:15px 16px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+<div style="position:relative;overflow:hidden">
+<div onClick="{{ tiles.aanm.on }}" style="{{ tiles.aanm.frontStyle }}">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.13em;opacity:.7">06 &middot; Aanmelden</div>
-<div style="font-weight:800;text-transform:uppercase;font-size:21px;line-height:.94;letter-spacing:-.01em">Zien we jou <span style="color:#ffe500">hier?</span></div>
+<div style="font-weight:800;text-transform:uppercase;font-size:22px;line-height:.98;letter-spacing:-.01em">Zien we jou <span style="color:#ffe500">hier?</span></div>
 </div>
-<div style="position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:rotateY(180deg);background:#161616;color:#fff;display:flex;flex-direction:column">
-<div style="flex:1;padding:15px 16px;font-weight:400;font-size:12px;line-height:1.36;overflow:hidden">Ruimte voor ongeveer 150 nieuwe leerlingen: havo, vwo en gymnasium. Blijf op de hoogte van de open dagen.</div>
-<div onClick="{{ tiles.aanm.open }}" style="background:#fff;color:#000;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer"><span>Ontdek meer</span><span>&#8594;</span></div>
-</div>
+<div style="{{ tiles.aanm.backStyle }}">
+<div style="flex:1;padding:16px 16px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:400;font-size:12.5px;line-height:1.4;overflow:hidden">Ruimte voor ongeveer 150 nieuwe leerlingen: havo, vwo en gymnasium. Blijf op de hoogte van de open dagen.</div>
+<div onClick="{{ tiles.aanm.open }}" style="{{ tiles.aanm.btnStyle }}"><span>Ontdek meer</span><span>&#8594;</span></div>
 </div>
 </div>
 </div>
@@ -1840,19 +1828,42 @@ class Component extends DCLogic {
       lijnen: dkHotP.lijnen.slice(0, 3).map(t => ({ text: t }))
     };
 
-    const mkTile = (id, open) => ({
-      inner: st.flipped === id ? { transform: 'rotateY(180deg)' } : {},
-      on: () => this.flipTo(id),
-      off: () => this.flipOff(id),
-      open
-    });
+    const tileFace = (bg, color, extra) => Object.assign({
+      position: 'absolute', inset: 0, boxSizing: 'border-box',
+      background: bg, color: color, display: 'flex', flexDirection: 'column',
+      overflow: 'hidden', transition: 'opacity .4s ease'
+    }, extra);
+    const mkTile = (id, open, sch) => {
+      const on = st.flipped === id;
+      return {
+        on: () => this.flipTo(id),
+        off: () => this.flipOff(id),
+        open,
+        frontStyle: tileFace(sch.bg, sch.fg, {
+          padding: '20px 18px', alignItems: 'center', justifyContent: 'center',
+          textAlign: 'center', gap: 11, cursor: 'pointer',
+          opacity: on ? 0 : 1, pointerEvents: on ? 'none' : 'auto'
+        }),
+        backStyle: tileFace(sch.bg, sch.fg, {
+          opacity: on ? 1 : 0, pointerEvents: on ? 'auto' : 'none'
+        }),
+        btnStyle: {
+          background: sch.btnbg, color: sch.btnfg, fontWeight: 700, textTransform: 'uppercase',
+          fontSize: 11, letterSpacing: '.05em', padding: '12px 16px', display: 'flex',
+          alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer'
+        }
+      };
+    };
+    const T_G = { bg: '#7c7c7c', fg: '#fff', btnbg: '#000', btnfg: '#fff' };
+    const T_B = { bg: '#161616', fg: '#fff', btnbg: '#fff', btnfg: '#000' };
+    const T_Y = { bg: '#ffe500', fg: '#000', btnbg: '#000', btnfg: '#fff' };
     vals.tiles = {
-      intro:  mkTile('intro',  () => this.openChapter('intro')),
-      gebouw: mkTile('gebouw', () => this.openChapter('gebouw')),
-      zuid:   mkTile('zuid',   () => this.openChapter('zuid')),
-      ond:    mkTile('ond',    () => this.go('onderwijs')),
-      proj:   mkTile('proj',   () => this.go('projecten')),
-      aanm:   mkTile('aanm',   () => this.go('aanmelden'))
+      intro:  mkTile('intro',  () => this.openChapter('intro'), T_G),
+      gebouw: mkTile('gebouw', () => this.openChapter('gebouw'), T_B),
+      zuid:   mkTile('zuid',   () => this.openChapter('zuid'), T_G),
+      ond:    mkTile('ond',    () => this.go('onderwijs'), T_Y),
+      proj:   mkTile('proj',   () => this.go('projecten'), T_G),
+      aanm:   mkTile('aanm',   () => this.go('aanmelden'), T_B)
     };
 
     return vals;
