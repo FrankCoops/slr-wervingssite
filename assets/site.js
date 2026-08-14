@@ -332,36 +332,22 @@
     go(0); start();
   }
 
-  /* ---------- smooth (inertia) scroll ---------- */
+  /* ---------- smooth scroll voor in-pagina ankers ----------
+     Geen wiel-overname: het besturingssysteem (bv. macOS-trackpad) doet het
+     scrollen zelf, native en soepel. We maken alleen ankersprongen vloeiend. */
   function initSmoothScroll() {
-    if (reduce) return;                                  // respecteer 'reduced motion'
-    if (window.matchMedia('(pointer:coarse)').matches) return; // touch laten we native
-    var s = document.createElement('script');
-    s.src = 'https://unpkg.com/lenis@1.1.14/dist/lenis.min.js';
-    s.async = true;
-    s.onload = function () {
-      if (!window.Lenis) return;
-      // lerp-gebaseerd: reageert direct op het wiel, met net een vleugje demping (subtiel, niet traag)
-      var lenis = new Lenis({
-        lerp: 0.25,
-        wheelMultiplier: 1,
-        smoothWheel: true
+    if (reduce) return;
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href || href.length < 2) return;
+      a.addEventListener('click', function (e) {
+        var t = document.querySelector(href);
+        if (!t) return;
+        e.preventDefault();
+        var top = t.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       });
-      window.__lenis = lenis;
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
-      // in-pagina ankers vloeiend laten scrollen
-      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-        var href = a.getAttribute('href');
-        if (!href || href.length < 2) return;
-        a.addEventListener('click', function (e) {
-          var t = document.querySelector(href);
-          if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -80 }); }
-        });
-      });
-    };
-    s.onerror = function () { /* zonder Lenis blijft native scrollen gewoon werken */ };
-    document.head.appendChild(s);
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function () {
