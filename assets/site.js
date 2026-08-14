@@ -1,5 +1,5 @@
 /* ============================================================
-   Stedelijk Lyceum Rotterdam — website interactions
+   Stedelijk Lyceum Rotterdam, website interactions
    ============================================================ */
 (function () {
   'use strict';
@@ -121,7 +121,7 @@
   var PROJECTS = [
     { id: 'binnenrotte', nr: '00', name: 'De Binnenrotte', periode: 'Introductie', meta: 'Waar Rotterdam is gesticht',
       photo: 'uploads/Pagina_Binnenrotte.png', x: 0.43, y: 0.31,
-      body: 'Tijdens de eerste weken maak je kennis met je klasgenoten, de docenten en het nieuwe onderwijs. Je hoort wat je dat jaar allemaal gaat leren en waarom de verschillende vakken belangrijk zijn. Tegelijkertijd voer je je eerste mini-project uit, rondom de Binnenrotte — de plek waar Rotterdam ooit is ontstaan.',
+      body: 'Tijdens de eerste weken maak je kennis met je klasgenoten, de docenten en het nieuwe onderwijs. Je hoort wat je dat jaar allemaal gaat leren en waarom de verschillende vakken belangrijk zijn. Tegelijkertijd voer je je eerste mini-project uit, rondom de Binnenrotte, de plek waar Rotterdam ooit is ontstaan.',
       lijnen: ['Je leert over de geschiedenis van de stad.', 'Je onderzoekt waarom de stad juist op die plek is gesticht.', 'Je bekijkt wat je nog terugziet van het verleden.'] },
     { id: 'maas', nr: '01', name: 'De Maas', periode: 'Periode 1', meta: 'De rivier dwars door de stad',
       photo: 'uploads/DeMaas.jpg', x: 0.46, y: 0.45,
@@ -137,7 +137,7 @@
       lijnen: ['Rond het stadion wordt een compleet nieuwe wijk gebouwd.', 'Je onderzoekt hoe bewoners invloed hadden op de plannen.', 'Je bekijkt hoe de toekomst van het gebied eruitziet.'] },
     { id: 'pier', nr: '04', name: 'Wilhelminapier & Katendrecht', periode: 'Periode 4', meta: 'Direct naast onze school',
       photo: 'uploads/Wilhelminapier.jpg', x: 0.42, y: 0.57,
-      body: 'In het laatste project werk je direct naast onze school. Katendrecht en de Wilhelminapier liggen tegenover elkaar, met de Rijnhaven ertussen — een van de indrukwekkendste en leukste plekken van Rotterdam. Je vindt er musea, foodhallen, een bioscoop en hotels. Maar voor wie wordt deze buurt eigenlijk gebouwd?',
+      body: 'In het laatste project werk je direct naast onze school. Katendrecht en de Wilhelminapier liggen tegenover elkaar, met de Rijnhaven ertussen, een van de indrukwekkendste en leukste plekken van Rotterdam. Je vindt er musea, foodhallen, een bioscoop en hotels. Maar voor wie wordt deze buurt eigenlijk gebouwd?',
       lijnen: ['Je onderzoekt wie profiteert van alle nieuwe woningen.', 'Je bekijkt of het ov de drukte aankan.', 'Je bedenkt wat er nog ontbreekt in de nieuwe Rijnhaven.'] }
   ];
   var SCHOOL = { x: 0.55, y: 0.60 };
@@ -235,11 +235,11 @@
 
   /* ---------- interactieve stepper (in zeven stappen) ---------- */
   var STEPS = [
-    ['Introductie & verkenning', 'Het thema wordt geopend. Daarna gaan we naar buiten om de omgeving te verkennen — zodat je met eigen ogen ziet waar het project over gaat.'],
-    ['Instructie', 'In de gewone lessen leer je de stof die je bij dit thema nodig hebt. Engels, geschiedenis, biologie, gym — noem maar op.'],
+    ['Introductie & verkenning', 'Het thema wordt geopend. Daarna gaan we naar buiten om de omgeving te verkennen, zodat je met eigen ogen ziet waar het project over gaat.'],
+    ['Instructie', 'In de gewone lessen leer je de stof die je bij dit thema nodig hebt. Engels, geschiedenis, biologie, gym, noem maar op.'],
     ['Probleemstelling', 'Je bepaalt waar je onderzoek over gaat. In de brugklas met veel begeleiding, later kies je dat steeds vaker zelf.'],
     ['Onderzoek & veldwerk', 'Je gaat op onderzoek uit op de plek zelf: in de wijk, op straat of op het water. Je verzamelt, meet en praat met mensen.'],
-    ['Productie', 'Je maakt iets met wat je hebt uitgezocht — bijvoorbeeld een nieuw ontwerp voor een plek in de straat.'],
+    ['Productie', 'Je maakt iets met wat je hebt uitgezocht, bijvoorbeeld een nieuw ontwerp voor een plek in de straat.'],
     ['Presentatie', 'Je presenteert wat je hebt onderzocht en gemaakt aan je klas, docenten en soms zelfs aan mensen uit de wijk.'],
     ['Reflectie & evaluatie', 'Wat heb je geleerd, en wat wil je hierna verder uitzoeken? Zo word je stap voor stap een steeds betere onderzoeker.']
   ];
