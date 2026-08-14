@@ -432,21 +432,23 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div style="padding:38px 18px 0">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:14px">Elk project, dezelfde opbouw</div>
 <div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em">In zeven stappen</div>
-<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 20px;text-wrap:pretty">Omdat elk project op dezelfde manier is opgebouwd, leer je stap voor stap steeds beter onderzoeken en nadenken.</p>
-<div style="display:flex;gap:3px;margin-bottom:22px">
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 16px;text-wrap:pretty">Elk project verloopt in dezelfde zeven stappen. Tik door ze heen.</p>
+
+<div style="position:relative;background:#000;overflow:hidden;min-height:360px">
+<div style="position:relative;z-index:4;padding:14px 14px 0;display:flex;gap:4px">
 <sc-for list="{{ stapBalk }}" as="sb" hint-placeholder-count="7">
 <div onClick="{{ sb.tap }}" style="{{ sb.style }}"></div>
 </sc-for>
 </div>
-<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px">
-<div style="font-weight:700;font-size:52px;line-height:.8;color:#ffe500">{{ stapNum }}</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#9a9a9a;margin-top:8px">Stap {{ stapNum }} van 07</div>
+<div style="position:relative;z-index:4;padding:9px 16px 0;text-align:right;font-weight:700;text-transform:uppercase;font-size:8px;letter-spacing:.14em;color:rgba(255,255,255,.4)">tik &rsaquo; volgende</div>
+<div onClick="{{ stapPrev }}" style="position:absolute;left:0;top:44px;bottom:0;width:32%;z-index:2;cursor:pointer"></div>
+<div onClick="{{ stapNext }}" style="position:absolute;right:0;top:44px;bottom:0;width:68%;z-index:2;cursor:pointer"></div>
+<div style="position:relative;z-index:1;pointer-events:none;padding:32px 22px 30px">
+<div style="font-weight:800;font-size:74px;line-height:.78;letter-spacing:-.02em;color:#ffe500">{{ stapNum }}</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#9a9a9a;margin:6px 0 0">Stap {{ stapNum }} van 07</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.9;margin:16px 0 12px">{{ stapTitel }}</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#e0e0e0;margin:0">{{ stapBody }}</p>
 </div>
-<div style="font-weight:700;text-transform:uppercase;font-size:24px;line-height:.9;margin-bottom:12px">{{ stapTitel }}</div>
-<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:0;min-height:70px">{{ stapBody }}</p>
-<div style="display:flex;gap:2px;margin-top:18px">
-<div onClick="{{ stapPrev }}" style="{{ stapPrevStyle }}">← Vorige</div>
-<div onClick="{{ stapNext }}" style="{{ stapNextStyle }}">{{ stapNextLabel }}</div>
 </div>
 </div>
 
