@@ -909,25 +909,45 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div style="padding:32px 18px 0">
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:6px">Waarom deze plek zo bijzonder is</div>
 <div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em;margin-bottom:14px">Nu al bijzonder, en het wordt nog <span style="color:#ffe500">beter</span></div>
-<div style="display:flex;flex-direction:column;gap:3px;height:470px">
-<sc-for list="{{ buurt }}" as="bt" hint-placeholder-count="3">
-<div onClick="{{ bt.tap }}" style="{{ bt.panel }}">
-<div style="{{ bt.img }}"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.84) 84%)"></div>
-<div style="position:absolute;left:16px;right:16px;bottom:15px;color:#fff">
-<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px">
-<div style="min-width:0">
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.14em;color:#ffe500;margin-bottom:6px">{{ bt.tag }}</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:22px;line-height:.9">{{ bt.titel }}</div>
-</div>
-<div style="font-weight:700;font-size:24px;line-height:1;color:#ffe500;flex:none">{{ bt.sign }}</div>
-</div>
-<div style="{{ bt.reveal }}">
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#ececec;margin:0">{{ bt.body }}</p>
+<div style="margin:0 -18px;overflow-x:auto;overflow-y:hidden;display:flex;gap:12px;padding:2px 18px 0;scroll-snap-type:x mandatory;scroll-padding-left:18px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+
+<div style="scroll-snap-align:start;flex:0 0 82%;position:relative;height:430px;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:url('uploads/Oranjeboomstraat.jpg');background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.82) 80%)"></div>
+<div style="position:absolute;top:15px;left:16px;font-weight:800;font-size:12px;letter-spacing:.02em;color:#ffe500">01<span style="color:rgba(255,255,255,.5)"> / 03</span></div>
+<div style="position:absolute;left:18px;right:18px;bottom:18px;color:#fff">
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.16em;color:#ffe500;margin-bottom:8px">Nu</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.88;letter-spacing:-.01em;margin-bottom:10px">Nu al veel<br>te beleven</div>
+<p style="font-weight:300;font-size:13.5px;line-height:1.45;color:#ececec;margin:0">Op de Wilhelminapier en Katendrecht vind je bedrijven, musea, foodhallen en een bioscoop. Ideaal voor een tussenuur of na school.</p>
 </div>
 </div>
+
+<div style="scroll-snap-align:start;flex:0 0 82%;position:relative;height:430px;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:url('uploads/DeMaas.jpg');background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.82) 80%)"></div>
+<div style="position:absolute;top:15px;left:16px;font-weight:800;font-size:12px;letter-spacing:.02em;color:#ffe500">02<span style="color:rgba(255,255,255,.5)"> / 03</span></div>
+<div style="position:absolute;left:18px;right:18px;bottom:18px;color:#fff">
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.16em;color:#ffe500;margin-bottom:8px">Binnenkort</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.88;letter-spacing:-.01em;margin-bottom:10px">De nieuwe<br>Rijnhaven</div>
+<p style="font-weight:300;font-size:13.5px;line-height:1.45;color:#ececec;margin:0">Vlak voor de deur komt de vernieuwde Rijnhaven, met een prachtig stadspark en een heus stadsstrand aan het water.</p>
 </div>
-</sc-for>
+</div>
+
+<div style="scroll-snap-align:start;flex:0 0 82%;position:relative;height:430px;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:url('uploads/kop-van-zuid.jpg');background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.82) 80%)"></div>
+<div style="position:absolute;top:15px;left:16px;font-weight:800;font-size:12px;letter-spacing:.02em;color:#ffe500">03<span style="color:rgba(255,255,255,.5)"> / 03</span></div>
+<div style="position:absolute;left:18px;right:18px;bottom:18px;color:#fff">
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.16em;color:#ffe500;margin-bottom:8px">De komende jaren</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.88;letter-spacing:-.01em;margin-bottom:10px">Het tweede<br>centrum</div>
+<p style="font-weight:300;font-size:13.5px;line-height:1.45;color:#ececec;margin:0">De wijk rondom onze school groeit uit tot het tweede centrum van Rotterdam. Overal verrijzen woontorens, pleinen en plekken om te zijn.</p>
+</div>
+</div>
+
+</div>
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:14px 18px 0">
+<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.16em;color:rgba(255,255,255,.55)">Veeg voor meer</div>
+<div style="font-weight:700;font-size:14px;color:#ffe500">→</div>
 </div>
 </div>
 
@@ -1540,13 +1560,6 @@ class Component extends DCLogic {
     const duoPanel = (a) => ({ position: 'relative', overflow: 'hidden', cursor: 'pointer', flexGrow: a ? 6 : 1, flexShrink: 1, flexBasis: 0, minHeight: 0, transition: 'flex-grow .55s cubic-bezier(.19,1,.22,1)' });
     const duoImg = (a, url) => ({ position: 'absolute', inset: 0, backgroundImage: "url('" + url + "')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'grayscale(100%) contrast(1.05)', transform: a ? 'scale(1.07)' : 'scale(1)', transition: 'transform 1.2s cubic-bezier(.19,1,.22,1)' });
     const duoReveal = (a) => ({ maxHeight: a ? '9em' : '0', opacity: a ? 1 : 0, overflow: 'hidden', marginTop: a ? '10px' : '0', transition: 'max-height .55s cubic-bezier(.19,1,.22,1), opacity .45s ease, margin-top .55s ease' });
-    const zuidActive = st.zuid == null ? 0 : st.zuid;
-    const BUURT = [
-      { tag: 'Nu', titel: 'Nu al veel te beleven', body: 'Op de Wilhelminapier en Katendrecht vind je bedrijven, musea, foodhallen en een bioscoop. Ideaal voor een tussenuur of gewoon na school.', img: 'uploads/Oranjeboomstraat.jpg' },
-      { tag: 'Binnenkort', titel: 'De nieuwe Rijnhaven', body: 'Vlak voor de deur komt de vernieuwde Rijnhaven, met een prachtig stadspark en een heus stadsstrand aan het water.', img: 'uploads/DeMaas.jpg' },
-      { tag: 'De komende jaren', titel: 'Het tweede centrum', body: 'De wijk rondom onze school groeit uit tot het tweede centrum van Rotterdam. Overal verrijzen woontorens, pleinen en plekken om te zijn.', img: 'uploads/kop-van-zuid.jpg' }
-    ];
-
     const vals = {
       naam: slrNaam, hasNaam: !!slrNaam, groet: slrNaam ? ('Hoi ' + slrNaam + ',') : '',
       isCover: st.screen === 'cover',
@@ -1622,12 +1635,6 @@ class Component extends DCLogic {
         klas:   { tap: () => this.setState({ mode: 'klas' }),   panel: duoPanel(modeKlas),   img: duoImg(modeKlas, 'assets/photos/cover-gebouw.jpg'),   reveal: duoReveal(modeKlas),   sign: modeKlas ? '–' : '+' },
         buiten: { tap: () => this.setState({ mode: 'buiten' }), panel: duoPanel(!modeKlas),  img: duoImg(!modeKlas, 'uploads/Oranjeboomstraat.jpg'),   reveal: duoReveal(!modeKlas),  sign: !modeKlas ? '–' : '+' }
       },
-      buurt: BUURT.map((b, i) => ({
-        tag: b.tag, titel: b.titel, body: b.body,
-        panel: duoPanel(i === zuidActive), img: duoImg(i === zuidActive, b.img),
-        reveal: duoReveal(i === zuidActive), sign: i === zuidActive ? '–' : '+',
-        tap: () => this.setState({ zuid: i })
-      })),
 
       stapBalk: STAPPEN.map((s, i) => ({
         style: { flex: 1, height: 6, cursor: 'pointer', background: i <= st.stapIx ? '#ffe500' : 'rgba(255,255,255,.2)', transition: 'background .2s linear' },
