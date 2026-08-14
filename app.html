@@ -855,22 +855,24 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </div>
 
 <div style="padding:24px 18px 0">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b2b2b2;margin-bottom:12px">Tik een verdieping aan</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:6px">Tik een plek aan</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em;margin-bottom:14px">Vijf plekken die je <span style="color:#ffe500">nergens anders</span> vindt</div>
 <div style="display:flex;flex-direction:column;gap:2px">
 <sc-for list="{{ verdiepingen }}" as="vd" hint-placeholder-count="5">
 <div onClick="{{ vd.tap }}" style="{{ vd.box }}">
+<div style="display:flex;align-items:center;gap:14px">
+<div style="{{ vd.num }}">{{ vd.nr }}</div>
 <div style="flex:1;min-width:0">
 <div style="{{ vd.label }}">{{ vd.laag }}</div>
 <div style="{{ vd.titel }}">{{ vd.naam }}</div>
 </div>
-<div style="{{ vd.pijl }}">→</div>
+<div style="{{ vd.pijl }}">{{ vd.sign }}</div>
+</div>
+<div style="{{ vd.reveal }}">
+<p style="font-weight:400;font-size:14px;line-height:1.5;margin:0">{{ vd.body }}</p>
+</div>
 </div>
 </sc-for>
-</div>
-<div style="background:#000;padding:22px 18px;margin-top:2px">
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#ffe500;margin-bottom:10px">{{ verdiepingLaag }}</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:24px;line-height:.88;margin-bottom:12px">{{ verdiepingNaam }}</div>
-<p style="font-weight:300;font-size:14px;line-height:1.45;color:#dcdcdc;margin:0">{{ verdiepingBody }}</p>
 </div>
 </div>
 
@@ -1482,7 +1484,7 @@ class Component extends DCLogic {
     flipped: null,
     detailId: null, done: [], openVak: null,
     hot: 'binnenrotte',
-    reden: null, verdieping: 3, zuid: null, vervoer: 0,
+    reden: null, verdieping: 0, zuid: null, vervoer: 0,
     mode: 'klas', stapIx: 0, jaarPos: 0,
     vraag: null,
     step: 'form', voornaam: (function(){try{return localStorage.getItem('slrNaam')||'';}catch(e){return '';}})(), achternaam: '', email: '', school: '',
@@ -1578,11 +1580,13 @@ class Component extends DCLogic {
       verdiepingen: VERDIEPINGEN.map((v, i) => {
         const on = st.verdieping === i;
         return {
-          laag: v[0], naam: v[1],
-          box: { display: 'flex', alignItems: 'center', gap: 14, background: on ? '#ffe500' : '#3c3c3c', color: on ? '#000' : '#fff', padding: '16px 18px', cursor: 'pointer', transition: 'background .2s linear, color .2s linear' },
-          label: { fontWeight: 700, textTransform: 'uppercase', fontSize: 9, letterSpacing: '.12em', color: on ? 'rgba(0,0,0,.6)' : '#878787', marginBottom: 5 },
-          titel: { fontWeight: 700, textTransform: 'uppercase', fontSize: 17, lineHeight: .95 },
-          pijl: { fontWeight: 700, fontSize: 15, color: on ? '#000' : '#ffe500', flex: 'none' },
+          laag: v[0], naam: v[1], body: v[2], nr: ('0' + (i + 1)).slice(-2), sign: on ? '–' : '+',
+          box: { background: on ? '#ffe500' : '#1c1c1c', color: on ? '#000' : '#fff', padding: '16px 18px', cursor: 'pointer', transition: 'background .35s, color .35s' },
+          num: { fontWeight: 800, fontSize: 30, lineHeight: .9, letterSpacing: '-.02em', color: on ? '#000' : '#ffe500', flex: 'none' },
+          label: { fontWeight: 700, textTransform: 'uppercase', fontSize: 9, letterSpacing: '.12em', color: on ? 'rgba(0,0,0,.55)' : '#878787', marginBottom: 5 },
+          titel: { fontWeight: 700, textTransform: 'uppercase', fontSize: 18, lineHeight: .95 },
+          pijl: { fontWeight: 700, fontSize: 20, lineHeight: 1, color: on ? '#000' : '#ffe500', flex: 'none' },
+          reveal: { maxHeight: on ? '12em' : '0', opacity: on ? 1 : 0, overflow: 'hidden', marginTop: on ? '12px' : '0', transition: 'max-height .5s cubic-bezier(.19,1,.22,1), opacity .4s ease, margin-top .5s ease' },
           tap: () => this.setState({ verdieping: i })
         };
       }),
