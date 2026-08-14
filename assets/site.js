@@ -350,8 +350,18 @@
     });
   }
 
+  /* ---------- persoonlijke begroeting (naam uit welkom.html) ---------- */
+  function initNaam() {
+    var naam = '';
+    try { naam = localStorage.getItem('slrNaam') || ''; } catch (e) {}
+    if (!naam) return;
+    document.querySelectorAll('[data-naam]').forEach(function (el) { el.textContent = naam; });
+    document.querySelectorAll('[data-naam-only]').forEach(function (el) { el.removeAttribute('hidden'); });
+    document.querySelectorAll('input[data-voornaam]').forEach(function (inp) { if (!inp.value) inp.value = naam; });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos(); initHeroCarousel(); initSmoothScroll();
+    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos(); initHeroCarousel(); initSmoothScroll(); initNaam();
     var y = document.querySelector('[data-year]'); if (y) y.textContent = new Date().getFullYear();
   });
 })();

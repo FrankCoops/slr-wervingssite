@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){function wide(){return (window.innerWidth||document.documentElement.clientWidth||0)>820;}if(wide()){window.location.replace('index.html');return;}window.addEventListener('resize',function(){if(wide()){window.location.replace('index.html');}});})();</script>
+<script>(function(){try{if(!localStorage.getItem('slrSeen')){location.replace('welkom.html');return;}}catch(e){}function wide(){return (window.innerWidth||document.documentElement.clientWidth||0)>820;}if(wide()){window.location.replace('index.html');return;}window.addEventListener('resize',function(){if(wide()){window.location.replace('index.html');}});})();</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -279,6 +279,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div style="position:absolute;inset:0;background-image:url('assets/photos/cover.jpg');background-size:cover;background-position:50% 30%;filter:grayscale(100%) contrast(1.06)"></div>
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(60,60,60,.38) 58%,#575757 100%)"></div>
 <div style="position:absolute;left:18px;right:18px;bottom:14px">
+<sc-if value="{{ hasNaam }}" hint-placeholder-val="{{ false }}"><div style="font-weight:700;font-size:15px;line-height:1.1;color:#fff;margin-bottom:8px">{{ groet }}</div></sc-if>
 <div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:10px">Opent in 2027</div>
 <div style="font-weight:700;text-transform:uppercase;font-size:38px;line-height:.86;letter-spacing:-.02em">Kies jij ook<br>voor het<br><span style="color:#ffe500">Stedelijk<br>Lyceum<br>Rotterdam?</span></div>
 </div>
@@ -1450,7 +1451,7 @@ class Component extends DCLogic {
     reden: null, verdieping: 3, zuid: null, vervoer: 0,
     mode: 'klas', stapIx: 0, jaarPos: 0,
     vraag: null,
-    step: 'form', voornaam: '', achternaam: '', email: '', school: '',
+    step: 'form', voornaam: (function(){try{return localStorage.getItem('slrNaam')||'';}catch(e){return '';}})(), achternaam: '', email: '', school: '',
     advies: 'Weet ik nog niet', errors: null
   };
 
@@ -1499,8 +1500,10 @@ class Component extends DCLogic {
     const ji = st.jaarPos;
     const stap = STAPPEN[st.stapIx];
     const vd = VERDIEPINGEN[st.verdieping];
+    let slrNaam = ''; try { slrNaam = localStorage.getItem('slrNaam') || ''; } catch (e) {}
 
     const vals = {
+      naam: slrNaam, hasNaam: !!slrNaam, groet: slrNaam ? ('Hoi ' + slrNaam + ',') : '',
       isCover: st.screen === 'cover',
       isApp: st.screen === 'app',
       startApp: () => this.setState({ screen: 'app', tab: 'home' }),
