@@ -613,9 +613,10 @@ a{color:inherit;text-decoration:none}
   font-size:11px;letter-spacing:.12em;padding:7px 13px;margin-bottom:16px}
 .hood__t{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1;
   font-size:clamp(21px,2vw,30px);margin:0}
-.hood__b{font-weight:300;font-size:clamp(14.5px,1vw,16px);line-height:1.55;color:#e8e6e2;margin:14px 0 0;
-  max-width:34ch;opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.hood__panel:hover .hood__b,.hood__panel:focus-visible .hood__b{opacity:1;transform:none}
+.hood__b{font-weight:300;font-size:clamp(14.5px,1vw,16px);line-height:1.55;color:#e8e6e2;
+  max-width:34ch;max-height:0;opacity:0;overflow:hidden;margin:0;
+  transition:max-height .55s var(--ease),opacity .5s var(--ease),margin .55s var(--ease)}
+.hood__panel:hover .hood__b,.hood__panel:focus-visible .hood__b{max-height:12em;opacity:1;margin-top:14px}
 .hood:hover .hood__panel:not(:hover) .hood__c,
 .hood:focus-within .hood__panel:not(:focus-within) .hood__c{opacity:.42}
-@media(max-width:760px){.hood__b{opacity:1;transform:none}.hood:hover .hood__panel:not(:hover) .hood__c{opacity:1}}
+@media(max-width:760px){.hood__b{max-height:none;opacity:1;margin-top:14px}.hood:hover .hood__panel:not(:hover) .hood__c{opacity:1}}
