@@ -332,8 +332,39 @@
     go(0); start();
   }
 
+  /* ---------- smooth (inertia) scroll ---------- */
+  function initSmoothScroll() {
+    if (reduce) return;                                  // respecteer 'reduced motion'
+    if (window.matchMedia('(pointer:coarse)').matches) return; // touch laten we native
+    var s = document.createElement('script');
+    s.src = 'https://unpkg.com/lenis@1.1.14/dist/lenis.min.js';
+    s.async = true;
+    s.onload = function () {
+      if (!window.Lenis) return;
+      var lenis = new Lenis({
+        duration: 1.05,
+        easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+        smoothWheel: true
+      });
+      window.__lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      // in-pagina ankers vloeiend laten scrollen
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        var href = a.getAttribute('href');
+        if (!href || href.length < 2) return;
+        a.addEventListener('click', function (e) {
+          var t = document.querySelector(href);
+          if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -80 }); }
+        });
+      });
+    };
+    s.onerror = function () { /* zonder Lenis blijft native scrollen gewoon werken */ };
+    document.head.appendChild(s);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos(); initHeroCarousel();
+    initReveal(); initNav(); initCounters(); initParallax(); initMap(); initForm(); initStepper(); initProjVideos(); initHeroCarousel(); initSmoothScroll();
     var y = document.querySelector('[data-year]'); if (y) y.textContent = new Date().getFullYear();
   });
 })();
