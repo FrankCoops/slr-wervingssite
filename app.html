@@ -455,27 +455,28 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </div>
 
 <div style="padding:38px 18px 0">
-<div style="font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#ffe500;margin-bottom:14px">Een goede begeleiding</div>
-<div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em">Schuif door de jaren</div>
-<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 10px">Sleep om te zien hoe je zelf steeds meer bepaalt.</p>
-<input type="range" min="0" max="3" step="1" value="{{ jaarPos }}" onChange="{{ setJaar }}"/>
-<div style="display:flex;justify-content:space-between;margin:-4px 0 24px">
+<div style="font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;letter-spacing:-.01em">Je staat er nooit <span style="color:#ffe500">alleen</span> voor</div>
+<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:12px 0 22px;text-wrap:pretty">Uiteraard sta je er nooit alleen voor. Onze ervaren en enthousiaste docenten begeleiden jou bij ieder project, ze denken met je mee en sturen bij als dat nodig is. Zo kun jij je ieder jaar blijven ontwikkelen.</p>
+<div style="display:flex;gap:3px;margin-bottom:2px">
 <sc-for list="{{ jaarLabels }}" as="jl" hint-placeholder-count="4">
-<div style="{{ jl.style }}">{{ jl.label }}</div>
+<div onClick="{{ jl.tap }}" style="{{ jl.pill }}">{{ jl.label }}</div>
 </sc-for>
 </div>
-<div style="font-weight:700;text-transform:uppercase;font-size:22px;line-height:.9;margin-bottom:18px">{{ jaarTitel }}</div>
-<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:16px">
-<div>
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#9a9a9a;margin-bottom:7px">Begeleiding</div>
-<div style="height:10px;background:rgba(255,255,255,.14)"><div style="{{ barBegeleiding }}"></div></div>
+<div style="background:#1c1c1c;padding:22px 18px">
+<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:22px">
+<div style="font-weight:800;font-size:46px;line-height:.78;letter-spacing:-.02em;color:#ffe500">{{ jaarNr }}</div>
+<div style="font-weight:700;text-transform:uppercase;font-size:21px;line-height:.9">{{ jaarSub }}</div>
 </div>
-<div>
-<div style="font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.12em;color:#9a9a9a;margin-bottom:7px">Zelf kiezen wat je onderzoekt</div>
-<div style="height:10px;background:rgba(255,255,255,.14)"><div style="{{ barEigen }}"></div></div>
+<div style="display:flex;justify-content:space-between;font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.1em;color:#9a9a9a;margin-bottom:9px">
+<span>Wij helpen jou</span><span style="color:#ffe500">Jij beslist zelf</span>
 </div>
+<div style="position:relative;height:12px;background:rgba(255,255,255,.14);border-radius:99px">
+<div style="{{ balansFill }}"></div>
+<div style="{{ balansThumb }}"></div>
 </div>
-<p style="font-weight:300;font-size:15px;line-height:1.5;color:#dcdcdc;margin:0">{{ jaarBody }}</p>
+<p style="font-weight:300;font-size:14.5px;line-height:1.5;color:#dcdcdc;margin:22px 0 0">{{ jaarBody }}</p>
+</div>
+<div style="text-align:center;font-weight:700;text-transform:uppercase;font-size:9px;letter-spacing:.14em;color:#7d7d7d;margin-top:12px">Tik op een jaar</div>
 </div>
 
 <div style="padding:38px 18px 0">
@@ -1667,15 +1668,20 @@ class Component extends DCLogic {
       stapNextStyle: navBtn(st.stapIx < STAPPEN.length - 1, true),
       stapNextLabel: st.stapIx < STAPPEN.length - 1 ? 'Volgende →' : 'Einde',
 
-      jaarPos: st.jaarPos,
-      setJaar: (e) => this.setState({ jaarPos: parseInt(e.target.value, 10) }),
       jaarLabels: JAARSTAPPEN.map((j, i) => ({
         label: j[0],
-        style: { fontWeight: 700, textTransform: 'uppercase', fontSize: 9, letterSpacing: '.08em', color: i === ji ? '#ffe500' : '#878787' }
+        tap: () => this.setState({ jaarPos: i }),
+        pill: {
+          flex: 1, textAlign: 'center', cursor: 'pointer',
+          fontWeight: 700, textTransform: 'uppercase', fontSize: 10.5, letterSpacing: '.02em',
+          padding: '12px 4px', background: i === ji ? '#ffe500' : '#1c1c1c',
+          color: i === ji ? '#000' : '#cfcfcf', transition: 'background .25s, color .25s'
+        }
       })),
-      jaarTitel: JAARSTAPPEN[ji][1], jaarBody: JAARSTAPPEN[ji][2],
-      barBegeleiding: { width: BEG_W[ji] + '%', height: '100%', background: '#ffe500', transition: 'width .32s ' + EASE },
-      barEigen: { width: EIGEN_W[ji] + '%', height: '100%', background: '#fff', transition: 'width .32s ' + EASE },
+      jaarNr: ('0' + (ji + 1)).slice(-2),
+      jaarSub: JAARSTAPPEN[ji][1], jaarBody: JAARSTAPPEN[ji][2],
+      balansFill: { position: 'absolute', left: 0, top: 0, bottom: 0, width: EIGEN_W[ji] + '%', background: '#ffe500', borderRadius: '99px', transition: 'width .45s ' + EASE },
+      balansThumb: { position: 'absolute', top: '50%', left: EIGEN_W[ji] + '%', width: 22, height: 22, background: '#fff', borderRadius: '50%', transform: 'translate(-50%,-50%)', boxShadow: '0 2px 8px rgba(0,0,0,.45)', transition: 'left .45s ' + EASE },
 
       progressLabel: this.props.toonVoortgang === false ? 'Vijf plekken' : n + '/' + total + ' bekeken',
       progressStyle: { width: this.props.toonVoortgang === false ? '0%' : Math.round((n / total) * 100) + '%', height: '100%', background: '#ffe500', transition: 'width .32s ' + EASE },
