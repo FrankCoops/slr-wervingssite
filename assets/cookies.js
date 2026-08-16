@@ -27,14 +27,23 @@
   }
   function loadMarketing() {
     if (loadedM) return; loadedM = true;
-    /* >>> PLAK HIER JE CAMPAGNE-PIXELS (laden alleen na 'marketing'-toestemming). Voor jullie social media campagnes.
-       Meta (Facebook/Instagram) pixel, officiele snippet, vul je eigen Pixel ID in:
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','JOUW_PIXEL_ID'); fbq('track','PageView');
-       TikTok Pixel / Google Ads / LinkedIn Insight Tag: op dezelfde manier hier plaatsen.
-    <<< */
+
+    /* ====== META (FACEBOOK/INSTAGRAM) PIXEL ======
+       Voor jullie social media campagnes. Laadt ALLEEN nadat de bezoeker 'marketing' heeft geaccepteerd.
+       STAP 1: haal je Pixel ID op in Meta Events Manager (business.facebook.com/events_manager) -> een reeks cijfers.
+       STAP 2: zet dat ID hieronder tussen de aanhalingstekens. Zolang dit leeg is, gebeurt er niets.  */
+    var META_PIXEL_ID = ''; // <-- bijv. '1234567890123456'
+
+    if (META_PIXEL_ID) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', META_PIXEL_ID);
+      fbq('track', 'PageView');
+      // Tip: een conversie meten (bijv. na een aanmelding) doe je met:  fbq('track','Lead');
+    }
+
+    /* Andere campagnepixels (TikTok, Google Ads, LinkedIn) kun je hier op dezelfde manier toevoegen. */
   }
   function apply(v) { if (v.analytics) loadAnalytics(); if (v.marketing) loadMarketing(); }
 
