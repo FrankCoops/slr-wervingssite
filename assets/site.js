@@ -220,6 +220,7 @@
         if (bad) ok = false;
       });
       if (!ok) return;
+      if (window.slrTrack) window.slrTrack('Lead'); // aanmelding doorgeven aan de Meta-pixel (alleen met marketing-toestemming)
       var voor = (form.querySelector('[data-voornaam]').value || 'tot snel').trim();
       var advies = (form.querySelector('.chip.is-on') || {}).textContent || 'Weet ik nog niet';
       var done = document.querySelector('[data-done]');

@@ -135,6 +135,12 @@
 
   // publieke API + footer-link ("Cookievoorkeuren")
   window.slrCookies = { open: function () { show(true); }, reset: function () { try { localStorage.removeItem(KEY); } catch (e) {} show(false); } };
+
+  // Meet-event doorgeven aan de pixel. Vuurt ALLEEN als de Meta-pixel echt geladen is
+  // (dus alleen na marketing-toestemming + ingevuld Pixel ID). Anders gebeurt er niets.
+  window.slrTrack = function (event, params) {
+    try { if (window.fbq) window.fbq('track', event, params || {}); } catch (e) {}
+  };
   document.addEventListener('click', function (e) {
     var t = e.target.closest && e.target.closest('[data-cookie-open]');
     if (t) { e.preventDefault(); show(true); }

@@ -1812,7 +1812,7 @@ class Component extends DCLogic {
         if (!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(st.email.trim())) errs.email = 1;
         if (!st.school.trim()) errs.school = 1;
         if (Object.keys(errs).length) this.setState({ errors: errs });
-        else this.setState({ errors: null, step: 'done' });
+        else { if (window.slrTrack) window.slrTrack('Lead'); this.setState({ errors: null, step: 'done' }); }
       }
     };
 
@@ -1965,6 +1965,6 @@ class Component extends DCLogic {
 }
 
 </script>
-<script src="assets/cookies.js?v=2"></script>
+<script src="assets/cookies.js?v=3"></script>
 </body>
 </html>
