@@ -377,6 +377,8 @@ a{color:inherit;text-decoration:none}
 .dark .chip{background:var(--ink-2);border-color:rgba(255,255,255,.14);color:#fff}
 .chip.is-on{background:var(--accent);color:#111;border-color:var(--accent)}
 .form__submit{grid-column:1/-1;justify-self:start}
+.form__consent{grid-column:1/-1;font-weight:300;font-size:12.5px;line-height:1.55;color:#8a8884;margin:2px 0 0;max-width:56ch}
+.form__consent a{color:#fff;box-shadow:inset 0 -.12em 0 var(--accent)}
 .done{background:var(--accent);color:#111;padding:clamp(30px,3vw,52px)}
 .done__k{font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.14em;margin-bottom:14px}
 .done__h{font-weight:800;text-transform:uppercase;font-size:clamp(30px,3.4vw,50px);line-height:.86}
@@ -657,6 +659,11 @@ a.docitem__t:hover{color:#000;box-shadow:inset 0 -.12em 0 var(--accent)}
 /* ---------- routeplanner (Leaflet-kaart) ---------- */
 .planner{position:relative;height:clamp(460px,54vw,640px);border:1px solid var(--line);overflow:hidden;background:#e9e9e7}
 .planner__map{position:absolute;inset:0;z-index:1}
+.planner__consent{position:absolute;inset:0;z-index:20;background:var(--bone);display:flex;align-items:center;justify-content:center;padding:clamp(24px,5vw,52px)}
+.planner__consent-in{max-width:460px}
+.planner__consent-t{font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:.08em;color:#6b6963;margin-bottom:12px}
+.planner__consent-p{font-size:14.5px;line-height:1.55;color:#3f3d39;margin:0 0 22px}
+.planner__consent-p a{color:#111;box-shadow:inset 0 -.12em 0 var(--accent)}
 .planner__map .leaflet-container{height:100%;width:100%;background:#eceae6;font-family:inherit}
 /* subtiele, rustige kaartkleur (verfijnder) */
 .planner__map .leaflet-tile-pane{filter:saturate(.72) brightness(1.03) contrast(1.02)}

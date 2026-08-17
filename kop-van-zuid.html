@@ -6,8 +6,7 @@
 <title>De Kop van Zuid · Stedelijk Lyceum Rotterdam</title>
 <meta name="description" content="Onze school staat op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug, een van de leukste plekken van Rotterdam.">
 <script>(function(){var w=window.innerWidth||document.documentElement.clientWidth||0;if(w>0&&w<=820){window.location.replace('app.html');}})();</script>
-<link rel="stylesheet" href="assets/site.css?v=47">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="assets/site.css?v=49">
 </head>
 <body data-hero>
 <div class="progress"></div>
@@ -184,14 +183,27 @@
 
 <script src="assets/site.js?v=48"></script>
 <script src="assets/cookies.js?v=3"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function () {
-  if (typeof L === 'undefined') return;
+  var planner = document.querySelector('.planner');
   var mapEl = document.getElementById('routeMap');
-  if (!mapEl) return;
+  if (!planner || !mapEl) return;
 
-  // Stedelijk Lyceum Rotterdam — Zuiderspoorstraat 6, Kop van Zuid (exacte coördinaat)
+  // Leaflet (kaartbibliotheek) pas laden als de bezoeker de kaart wil zien.
+  function loadLeaflet(cb) {
+    if (window.L) { cb(); return; }
+    var css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    css.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY='; css.crossOrigin = '';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    js.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo='; js.crossOrigin = '';
+    js.onload = cb; document.body.appendChild(js);
+  }
+
+  function boot() {
+  // Stedelijk Lyceum Rotterdam, Zuiderspoorstraat 6, Kop van Zuid (exacte coordinaat)
   var SLR = [51.90552, 4.49776];
 
   var map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true }).setView(SLR, 13);
@@ -335,6 +347,21 @@
           : 'De route kon even niet worden berekend. Probeer het zo nog eens.');
       })
       .finally(function () { goBtn.disabled = false; });
+  });
+  } // einde boot()
+
+  // Kaart pas laden na een klik: geen contact met externe kaartdiensten tot de bezoeker dat wil.
+  var ov = document.createElement('div');
+  ov.className = 'planner__consent';
+  ov.innerHTML = '<div class="planner__consent-in">' +
+    '<div class="planner__consent-t">Interactieve kaart</div>' +
+    '<p class="planner__consent-p">Deze kaart en routeplanner gebruiken externe kaartdiensten (o.a. OpenStreetMap en CARTO). Daarbij worden je IP-adres en het adres dat je invult met die partijen gedeeld. Meer info in onze <a href="privacy.html">privacyverklaring</a>.</p>' +
+    '<button type="button" class="btn btn--dark planner__consent-btn">Kaart laden <span class="ar">&#8594;</span></button>' +
+    '</div>';
+  planner.appendChild(ov);
+  ov.querySelector('button').addEventListener('click', function () {
+    if (ov.parentNode) ov.parentNode.removeChild(ov);
+    loadLeaflet(boot);
   });
 })();
 </script>
