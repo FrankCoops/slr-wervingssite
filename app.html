@@ -16,7 +16,7 @@
 @font-face{font-family:'Gilroy';src:url('fonts/Gilroy-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
 @font-face{font-family:'Gilroy';src:url('fonts/Gilroy-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
 @font-face{font-family:'Gilroy';src:url('fonts/Gilroy-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
-body{margin:0;background:#575757;font-family:'Gilroy',system-ui,sans-serif}
+body{margin:0;background:#0e0e0e;font-family:'Gilroy',system-ui,sans-serif}
 a{color:#fff;text-decoration:none;border-bottom:2px solid #ffe500}
 a:hover{color:#ffe500}
 @keyframes slrUp{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
@@ -142,7 +142,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .dk-block{position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;padding:30px 34px;box-sizing:border-box;text-decoration:none;border:0;transition:transform .12s}
 .dk-block:hover{transform:translateY(-3px)}
 .dk-block.y{background:#ffe500}
-.dk-block.g{background:#8c8c8c}
+.dk-block.g{background:#1c1c1c}
 
 /* ===== Desktop hoofdstuk-secties ===== */
 .dks{padding:clamp(74px,7vw,128px) 0}
@@ -263,8 +263,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <script src="./image-slot.js"></script>
 </helmet>
 <div class="slr-mobile" style="min-height:100dvh;background:#000;display:flex;justify-content:center">
-<div style="width:100%;max-width:440px;height:100dvh;position:relative;overflow:hidden;background:#575757;box-shadow:0 0 60px rgba(0,0,0,.5)">
-<div style="position:relative;height:100%;background:#575757;display:flex;flex-direction:column;overflow:hidden;font-family:'Gilroy',system-ui,sans-serif;color:#fff">
+<div style="width:100%;max-width:440px;height:100dvh;position:relative;overflow:hidden;background:#0e0e0e;box-shadow:0 0 60px rgba(0,0,0,.5)">
+<div style="position:relative;height:100%;background:#0e0e0e;display:flex;flex-direction:column;overflow:hidden;font-family:'Gilroy',system-ui,sans-serif;color:#fff">
 
 <sc-if value="{{ isApp }}" hint-placeholder-val="{{ false }}">
 <div style="position:absolute;inset:0;display:flex;flex-direction:column">
@@ -283,7 +283,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 
 <div style="position:relative;height:344px;overflow:hidden">
 <div style="position:absolute;inset:0;background-image:url('assets/photos/cover.jpg');background-size:cover;background-position:50% 30%;filter:grayscale(100%) contrast(1.06)"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(60,60,60,.38) 58%,#575757 100%)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(60,60,60,.38) 58%,#0e0e0e 100%)"></div>
 <div style="position:absolute;left:18px;right:18px;bottom:14px">
 <sc-if value="{{ hasNaam }}" hint-placeholder-val="{{ false }}"><div style="font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:22px;line-height:1.05;color:#fff;margin-bottom:20px">{{ groet }}</div></sc-if>
 <div style="font-weight:700;text-transform:uppercase;font-size:38px;line-height:.86;letter-spacing:-.02em">Kies jij ook<br>voor het<br><span style="color:#ffe500">Stedelijk<br>Lyceum<br>Rotterdam?</span></div>
@@ -385,7 +385,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 
 <div style="position:relative;height:320px;overflow:hidden">
 <div style="position:absolute;inset:0;background-image:url('uploads/stad-als-klaslokaal.jpg');background-size:cover;background-position:50% 50%;filter:grayscale(100%) contrast(1.08)"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(60,60,60,.4) 58%,#575757 100%)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(60,60,60,.4) 58%,#0e0e0e 100%)"></div>
 <div style="position:absolute;left:18px;right:18px;bottom:14px">
 <div style="font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.1em;color:#ffe500;margin-bottom:10px">04 · Ons onderwijs</div>
 <div style="font-weight:700;text-transform:uppercase;font-size:44px;line-height:.83;letter-spacing:-.02em">De stad<br>als klas<br><span style="color:#ffe500">lokaal</span></div>
@@ -622,14 +622,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <div style="padding:26px 18px 0">
 <div style="font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.1em;color:#b2b2b2;margin-bottom:12px">Zo blijf je op de hoogte</div>
 <div style="display:flex;flex-direction:column;gap:2px">
-<div style="position:relative;background:#8c8c8c;color:#fff;min-height:104px;padding:15px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer">
+<div style="position:relative;background:#1c1c1c;color:#fff;min-height:104px;padding:15px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer">
 <div style="font-weight:700;text-transform:uppercase;font-size:22px;line-height:.9">Onze <span style="color:#ffe500">socials</span></div>
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
 <div style="font-weight:400;font-size:12px;color:#f2f2f2">Houd ze in de gaten</div>
 <div style="font-weight:700;font-size:38px;line-height:.6;flex:none">→</div>
 </div>
 </div>
-<div style="position:relative;background:#8c8c8c;color:#fff;min-height:104px;padding:15px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer">
+<div style="position:relative;background:#1c1c1c;color:#fff;min-height:104px;padding:15px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer">
 <div style="font-weight:700;text-transform:uppercase;font-size:22px;line-height:.9">Onze <span style="color:#ffe500">website</span></div>
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
 <div style="font-weight:400;font-size:12px;color:#f2f2f2">Kijk eens rond</div>
@@ -766,11 +766,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </sc-if>
 
 <sc-if value="{{ isIntro }}" hint-placeholder-val="{{ false }}">
-<div style="position:absolute;inset:0;z-index:40;background:#575757;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
+<div style="position:absolute;inset:0;z-index:40;background:#0e0e0e;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
 <div style="flex:1;overflow:auto">
 <div style="position:relative;height:330px">
 <div style="position:absolute;inset:0;background-image:url('assets/photos/groep.jpg');background-size:cover;background-position:50% 32%;filter:grayscale(100%) contrast(1.05)"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#575757 100%)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#0e0e0e 100%)"></div>
 <div onClick="{{ closeChapter }}" style="position:absolute;top:60px;left:18px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#000;font-weight:700;font-size:15px;cursor:pointer">←</div>
 <div style="position:absolute;top:54px;right:18px;font-weight:800;font-size:56px;line-height:.9;letter-spacing:-.02em;color:#ffe500">01</div>
 <div style="position:absolute;left:18px;right:18px;bottom:14px">
@@ -828,7 +828,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 <p style="font-weight:400;font-size:13px;line-height:1.45;margin:12px 0 0">Zorg dus dat je onze socials in de gaten houdt, kijk eens op onze website en kom naar onze open dagen, want we willen je dolgraag ontmoeten.</p>
 </div>
 </div>
-<div onClick="{{ openGebouw }}" style="position:relative;margin:24px 18px 0;background:#8c8c8c;color:#fff;min-height:112px;padding:16px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer" style-active="transform:translateY(2px)">
+<div onClick="{{ openGebouw }}" style="position:relative;margin:24px 18px 0;background:#1c1c1c;color:#fff;min-height:112px;padding:16px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer" style-active="transform:translateY(2px)">
 <div style="font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.1em;color:#ffe500">Hoofdstuk 02</div>
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
 <div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.85;letter-spacing:-.01em">Vet<br>gebouw</div>
@@ -841,11 +841,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </sc-if>
 
 <sc-if value="{{ isGebouw }}" hint-placeholder-val="{{ false }}">
-<div style="position:absolute;inset:0;z-index:40;background:#575757;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
+<div style="position:absolute;inset:0;z-index:40;background:#0e0e0e;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
 <div style="flex:1;overflow:auto">
 <div style="position:relative;height:330px">
 <div style="position:absolute;inset:0;background-image:url('uploads/20230718-c02.jpg');background-size:cover;background-position:50% 45%;filter:grayscale(100%) contrast(1.06)"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#575757 100%)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#0e0e0e 100%)"></div>
 <div onClick="{{ closeChapter }}" style="position:absolute;top:60px;left:18px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#000;font-weight:700;font-size:15px;cursor:pointer">←</div>
 <div style="position:absolute;top:54px;right:18px;font-weight:800;font-size:56px;line-height:.9;letter-spacing:-.02em;color:#ffe500">02</div>
 <div style="position:absolute;left:18px;right:18px;bottom:14px">
@@ -920,7 +920,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </div>
 </div>
 
-<div onClick="{{ openZuid }}" style="position:relative;margin:32px 18px 0;background:#8c8c8c;color:#fff;min-height:112px;padding:16px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer" style-active="transform:translateY(2px)">
+<div onClick="{{ openZuid }}" style="position:relative;margin:32px 18px 0;background:#1c1c1c;color:#fff;min-height:112px;padding:16px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer" style-active="transform:translateY(2px)">
 <div style="font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.1em;color:#ffe500">Hoofdstuk 03</div>
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
 <div style="font-weight:700;text-transform:uppercase;font-size:26px;line-height:.85;letter-spacing:-.01em">De Kop<br>van Zuid</div>
@@ -933,11 +933,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </sc-if>
 
 <sc-if value="{{ isZuid }}" hint-placeholder-val="{{ false }}">
-<div style="position:absolute;inset:0;z-index:40;background:#575757;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
+<div style="position:absolute;inset:0;z-index:40;background:#0e0e0e;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
 <div style="flex:1;overflow:auto">
 <div style="position:relative;height:330px">
 <div style="position:absolute;inset:0;background-image:url('uploads/kop-van-zuid.jpg');background-size:cover;background-position:50% 50%;filter:grayscale(100%) contrast(1.06)"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#575757 100%)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#0e0e0e 100%)"></div>
 <div onClick="{{ closeChapter }}" style="position:absolute;top:60px;left:18px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#000;font-weight:700;font-size:15px;cursor:pointer">←</div>
 <div style="position:absolute;top:54px;right:18px;font-weight:800;font-size:56px;line-height:.9;letter-spacing:-.02em;color:#ffe500">03</div>
 <div style="position:absolute;left:18px;right:18px;bottom:14px">
@@ -1019,11 +1019,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 </sc-if>
 
 <sc-if value="{{ hasDetail }}" hint-placeholder-val="{{ false }}">
-<div style="position:absolute;inset:0;z-index:42;background:#575757;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
+<div style="position:absolute;inset:0;z-index:42;background:#0e0e0e;display:flex;flex-direction:column;animation:slrSlide .24s cubic-bezier(.2,.7,.2,1)">
 <div style="flex:1;overflow:auto">
 <div style="position:relative;height:290px">
 <div style="{{ detail.photoStyle }}"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#575757 100%)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(60,60,60,.35) 48%,#0e0e0e 100%)"></div>
 <div onClick="{{ closeDetail }}" style="position:absolute;top:60px;left:18px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#000;font-weight:700;font-size:15px;cursor:pointer">←</div>
 <div style="position:absolute;top:54px;right:18px;font-weight:800;font-size:56px;line-height:.9;letter-spacing:-.02em;color:#ffe500">{{ detail.nr }}</div>
 <div style="position:absolute;left:18px;right:18px;bottom:14px">
@@ -1587,7 +1587,7 @@ class Component extends DCLogic {
       padding: '15px 12px', cursor: enabled ? 'pointer' : 'default',
       fontWeight: 700, textTransform: 'uppercase', fontSize: 11, letterSpacing: '.06em',
       background: !enabled ? '#1c1c1c' : (primary ? '#ffe500' : 'transparent'),
-      color: !enabled ? '#575757' : (primary ? '#000' : '#fff'),
+      color: !enabled ? '#0e0e0e' : (primary ? '#000' : '#fff'),
       border: !enabled ? '1px solid #1c1c1c' : '1px solid ' + (primary ? '#ffe500' : 'rgba(255,255,255,.35)')
     });
 
@@ -1762,7 +1762,7 @@ class Component extends DCLogic {
               text: q,
               box: {
                 display: 'flex', gap: 11, alignItems: 'flex-start',
-                background: on ? '#ffe500' : '#575757', color: on ? '#000' : '#e6e6e6',
+                background: on ? '#ffe500' : '#0e0e0e', color: on ? '#000' : '#e6e6e6',
                 fontWeight: 300, fontSize: 13, lineHeight: 1.45, padding: '12px 13px',
                 cursor: kiezen ? 'pointer' : 'default', transition: 'background .2s linear, color .2s linear'
               },
