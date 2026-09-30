@@ -5,8 +5,148 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Stedelijk Lyceum Rotterdam · Opent in 2027</title>
-<meta name="description" content="In 2027 opent de nieuwste school van Rotterdam: hypermodern gebouw, vernieuwend onderwijs en een toplocatie op de Kop van Zuid. Blijf op de hoogte van de open dagen.">
+<meta name="description" content="In 2027 opent de nieuwste school van Rotterdam: hypermodern gebouw, unieke locatie op de Kop van Zuid en vernieuwend onderwijs. Blijf op de hoogte van de open dagen.">
 <link rel="stylesheet" href="assets/site.css?v=49">
+<style>
+/* ============================================================
+   Landing, premium interactieve secties (scoped .lx-*)
+   ============================================================ */
+:root{
+  --lx-ink:var(--ink,#111);
+  --lx-accent:var(--accent,#ffe500);
+  --lx-bone:var(--bone,#f4f3f0);
+  --lx-line:var(--line,#e6e4df);
+  --lx-ease:cubic-bezier(.19,1,.22,1);
+}
+.lx-wrap{width:min(1180px,92vw);margin:0 auto}
+.lx-sec{padding:clamp(64px,9vw,140px) 0;scroll-margin-top:84px;position:relative}
+.lx-eye{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8a8781;display:inline-flex;align-items:center;gap:12px}
+.lx-eye::before{content:"";width:26px;height:2px;background:var(--lx-accent)}
+.lx-eye--light{color:rgba(255,255,255,.72)}
+.lx-h{font-size:clamp(30px,4.6vw,58px);line-height:.98;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:16px 0 0}
+.lx-h .a{color:var(--lx-accent)}
+.lx-h em{font-style:normal;position:relative;white-space:nowrap}
+.lx-h em::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.12em;background:var(--lx-accent);transform:scaleX(0);transform-origin:left;transition:transform 1s .3s var(--lx-ease)}
+.lx-in .lx-h em::after,[data-anim].in .lx-h em::after{transform:scaleX(1)}
+.lx-lead{font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:#54524d;max-width:56ch;margin:22px 0 0}
+
+/* reveal */
+[data-anim]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--lx-ease),transform .9s var(--lx-ease)}
+[data-anim="fade"]{transform:none}
+[data-anim].in{opacity:1;transform:none}
+
+/* HERO */
+.lx-hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;background:#0e0e0e}
+.lx-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.04);transform:scale(1.14);transition:transform 1.8s var(--lx-ease);will-change:transform}
+.lx-hero.in .lx-hero__bg{transform:scale(1)}
+.lx-hero__grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.15) 34%,rgba(10,10,10,.78) 100%)}
+.lx-hero__in{position:relative;z-index:2;padding:0 0 clamp(52px,7vw,96px);color:#fff}
+.lx-hero__h{font-size:clamp(40px,8vw,104px);line-height:.9;letter-spacing:-.03em;font-weight:800;text-transform:uppercase;margin:20px 0 0;max-width:15ch}
+.lx-hero__h .a{color:var(--lx-accent)}
+.lx-hero__lead{font-size:clamp(16px,1.7vw,21px);line-height:1.55;color:#e9e7e2;max-width:50ch;margin:24px 0 0}
+.lx-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.lx-btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:13.5px;padding:16px 26px;border-radius:2px;text-decoration:none;transition:transform .3s var(--lx-ease),background .3s,color .3s,box-shadow .3s;border:1.5px solid transparent}
+.lx-btn .ar{transition:transform .3s var(--lx-ease)}
+.lx-btn:hover .ar{transform:translateX(5px)}
+.lx-btn--y{background:var(--lx-accent);color:#111}
+.lx-btn--y:hover{transform:translateY(-2px);box-shadow:0 12px 30px -12px rgba(255,229,0,.6)}
+.lx-btn--ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.lx-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.lx-btn--dark{background:#111;color:#fff}
+.lx-btn--dark:hover{transform:translateY(-2px)}
+.lx-scroll{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.lx-scroll i{width:1px;height:34px;background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,0));animation:lxdrop 1.8s infinite}
+@keyframes lxdrop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* GEBOUW */
+.lx-split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center}
+.lx-media{position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/5}
+.lx-media__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transform:scale(1.16);transition:transform 1.5s var(--lx-ease);will-change:transform}
+.lx-media.in .lx-media__bg{transform:scale(1)}
+.lx-media__tag{position:absolute;left:18px;bottom:18px;z-index:2;background:var(--lx-accent);color:#111;font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:9px 14px}
+.lx-feats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.lx-feat{border:1px solid var(--lx-line);border-radius:3px;padding:18px 18px 20px;background:#fff;transition:transform .4s var(--lx-ease),box-shadow .4s,border-color .4s}
+.lx-feat:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(0,0,0,.35);border-color:#d9d7d1}
+.lx-feat__k{font-size:22px;line-height:1}
+.lx-feat__t{font-weight:700;margin:12px 0 4px;font-size:15.5px}
+.lx-feat__d{font-size:13.5px;color:#6b6963;line-height:1.5}
+.lx-stats{display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,64px);margin-top:34px;padding-top:28px;border-top:1px solid var(--lx-line)}
+.lx-stat__n{font-size:clamp(34px,4.5vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1}
+.lx-stat__l{font-size:13px;color:#6b6963;margin-top:6px;max-width:16ch}
+
+/* LOCATIE, hotspots */
+.lx-loc{position:relative;overflow:hidden;border-radius:3px;aspect-ratio:16/9;background:#0e0e0e}
+.lx-loc__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transform:scale(1.12);transition:transform 1.6s var(--lx-ease)}
+.lx-loc.in .lx-loc__bg{transform:scale(1)}
+.lx-loc__grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.5))}
+.lx-hot{position:absolute;transform:translate(-50%,-50%);z-index:3}
+.lx-hot__btn{position:relative;width:20px;height:20px;border-radius:50%;border:0;padding:0;background:var(--lx-accent);cursor:pointer;box-shadow:0 0 0 4px rgba(255,229,0,.28)}
+.lx-hot__btn::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1.5px solid var(--lx-accent);opacity:.7;animation:lxpulse 2.4s infinite}
+@keyframes lxpulse{0%{transform:scale(.6);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+.lx-hot__card{position:absolute;left:50%;bottom:32px;transform:translate(-50%,8px);width:max-content;max-width:240px;background:#fff;color:#111;padding:12px 14px;border-radius:4px;box-shadow:0 20px 44px -18px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s var(--lx-ease),transform .3s var(--lx-ease)}
+.lx-hot.open .lx-hot__card{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.lx-hot__t{font-weight:700;font-size:14px}
+.lx-hot__d{font-size:12.5px;color:#6b6963;margin-top:3px;line-height:1.45}
+.lx-loc__hint{position:absolute;left:18px;top:16px;z-index:3;color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+
+/* ONDERWIJS, switch-stage */
+.lx-toggle{display:inline-flex;background:#f0eeea;border:1px solid var(--lx-line);border-radius:100px;padding:5px;margin-top:26px;position:relative}
+.lx-toggle__btn{position:relative;z-index:2;border:0;background:transparent;cursor:pointer;font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:12.5px;padding:12px 22px;border-radius:100px;color:#6b6963;transition:color .3s}
+.lx-toggle__btn.active{color:#111}
+.lx-toggle__pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);background:var(--lx-accent);border-radius:100px;transition:transform .4s var(--lx-ease)}
+.lx-toggle[data-state="stad"] .lx-toggle__pill{transform:translateX(100%)}
+.lx-stage{position:relative;margin-top:26px;border-radius:3px;overflow:hidden;aspect-ratio:16/10;background:#0e0e0e}
+.lx-layer{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--lx-ease)}
+.lx-layer.on{opacity:1}
+.lx-layer__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transform:scale(1.06);transition:transform 4s var(--lx-ease)}
+.lx-layer.on .lx-layer__bg{transform:scale(1)}
+.lx-layer__grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 10%,rgba(0,0,0,.82) 92%)}
+.lx-layer__c{position:absolute;left:clamp(20px,4vw,42px);right:clamp(20px,4vw,42px);bottom:clamp(22px,3.4vw,40px);color:#fff}
+.lx-layer__t{font-size:clamp(24px,3.2vw,40px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.98}
+.lx-layer__d{font-size:clamp(14px,1.4vw,16.5px);line-height:1.55;color:#eceae5;max-width:48ch;margin-top:12px}
+.lx-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.lx-chip{font-size:12.5px;font-weight:600;color:#3b3a37;background:#fff;border:1px solid var(--lx-line);border-radius:100px;padding:9px 15px}
+.lx-chip b{color:#111}
+
+/* FAQ */
+.lx-acc{margin-top:34px;border-top:1px solid var(--lx-line)}
+.lx-acc__item{border-bottom:1px solid var(--lx-line)}
+.lx-acc__q{width:100%;background:transparent;border:0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 4px;text-align:left;font-size:clamp(16px,1.8vw,21px);font-weight:700;color:#111;letter-spacing:-.01em}
+.lx-acc__ic{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--lx-line);position:relative;transition:background .3s,border-color .3s,transform .4s var(--lx-ease)}
+.lx-acc__ic::before,.lx-acc__ic::after{content:"";position:absolute;left:50%;top:50%;background:#111;transition:transform .35s var(--lx-ease),background .3s}
+.lx-acc__ic::before{width:12px;height:1.8px;transform:translate(-50%,-50%)}
+.lx-acc__ic::after{width:1.8px;height:12px;transform:translate(-50%,-50%)}
+.lx-acc__item.open .lx-acc__ic{background:var(--lx-accent);border-color:var(--lx-accent);transform:rotate(90deg)}
+.lx-acc__item.open .lx-acc__ic::after{transform:translate(-50%,-50%) scaleY(0)}
+.lx-acc__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--lx-ease)}
+.lx-acc__item.open .lx-acc__body{grid-template-rows:1fr}
+.lx-acc__bodyin{overflow:hidden}
+.lx-acc__a{padding:0 4px 26px;max-width:70ch;color:#54524d;line-height:1.6;font-size:15.5px}
+
+/* AANMELDEN */
+.lx-cta-sec{background:#0e0e0e;color:#fff}
+.lx-cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.lx-cta-sec .lx-lead{color:#c9c7c2}
+.lx-mini{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px}
+.lx-mini div{font-size:13px;color:#b8b6b1}
+.lx-mini b{display:block;color:#fff;font-size:15px;margin-bottom:2px}
+
+@media(max-width:820px){
+  .lx-split,.lx-cta-grid{grid-template-columns:1fr}
+  .lx-media{aspect-ratio:4/3}
+  .lx-feats{grid-template-columns:1fr 1fr}
+  .lx-stage{aspect-ratio:4/5}
+  .lx-loc{aspect-ratio:4/3}
+}
+@media(max-width:480px){
+  .lx-feats{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-anim],.lx-hero__bg,.lx-media__bg,.lx-loc__bg,.lx-layer__bg{transition:none!important;transform:none!important;opacity:1!important}
+  .lx-hot__btn::after,.lx-scroll i{animation:none!important}
+  .lx-h em::after{transition:none;transform:scaleX(1)}
+}
+</style>
 </head>
 <body data-hero>
 <div class="progress"></div>
@@ -15,76 +155,177 @@
   <div class="nav__in">
     <a class="brand" href="index.html"><span class="brand__dot"></span><span>Stedelijk <b>Ly</b>ceum Rotterdam</span></a>
     <nav class="nav__menu">
-      <a class="nav__link" href="#waarom">Waarom SLR</a>
-      <a class="nav__link" href="index.html">De hele school</a>
+      <a class="nav__link" href="#gebouw">Het gebouw</a>
+      <a class="nav__link" href="#locatie">Locatie</a>
+      <a class="nav__link" href="#onderwijs">Onderwijs</a>
+      <a class="nav__link" href="#faq">FAQ</a>
       <a class="nav__cta" href="#aanmelden">Aanmelden</a>
     </nav>
     <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="phero">
-  <div class="phero__bg" data-parallax style="background-image:url('uploads/hero-schoolgebouw.jpg')"></div>
-  <div class="phero__grad"></div>
-  <div class="phero__in wrap">
-    <div class="kick" style="color:#ffe500">Opent in 2027 · Kop van Zuid, Rotterdam</div>
-    <h1 class="h1" style="color:#fff;max-width:20ch;margin-top:18px">In <span class="amp">2027</span> opent de nieuwste school van de stad</h1>
-    <p class="lead" style="color:#e8e6e2;margin-top:24px;max-width:52ch"><span data-naam-only hidden>Hé <span data-naam></span>, l</span><span data-naam-hide>L</span>eer bij ons in een hypermodern gebouw, met vernieuwend onderwijs en een toplocatie middenin de stad. Havo, vwo én gymnasium.</p>
-    <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
-      <a class="btn btn--y" href="#aanmelden">Blijf op de hoogte <span class="ar">→</span></a>
-      <a class="btn btn--ghost" href="index.html">Ontdek de school</a>
+<!-- ============ HERO ============ -->
+<section class="lx-hero" data-lx-hero>
+  <div class="lx-hero__bg" style="background-image:url('uploads/hero-schoolgebouw.jpg')"></div>
+  <div class="lx-hero__grad"></div>
+  <div class="lx-hero__in lx-wrap">
+    <div class="lx-eye lx-eye--light" data-anim="fade">Opent in 2027 · Kop van Zuid, Rotterdam</div>
+    <h1 class="lx-hero__h" data-anim data-d="80">De nieuwste <span class="a">school</span> van de stad</h1>
+    <p class="lx-hero__lead" data-anim data-d="180"><span data-naam-only hidden>Hé <span data-naam></span>, l</span><span data-naam-hide>L</span>eer in een hypermodern gebouw, met vernieuwend onderwijs en een toplocatie middenin de stad. Havo, vwo én gymnasium.</p>
+    <div class="lx-cta" data-anim data-d="280">
+      <a class="lx-btn lx-btn--y" href="#aanmelden">Blijf op de hoogte <span class="ar">→</span></a>
+      <a class="lx-btn lx-btn--ghost" href="#gebouw">Ontdek de school</a>
     </div>
   </div>
+  <div class="lx-scroll" aria-hidden="true">Scroll<i></i></div>
 </section>
 
-<!-- WAAROM -->
-<section class="sec" id="waarom">
-  <div class="wrap">
-    <div class="shead" data-reveal style="margin-bottom:clamp(24px,2.5vw,40px)">
-      <h2 class="h2">Waarom het Stedelijk <span class="amp">Lyceum</span></h2>
-      <p class="body" style="max-width:60ch;margin:0">Drie redenen waarom dit misschien wel de gaafste school van Rotterdam wordt.</p>
-    </div>
-    <div class="cards cards--3">
-      <div class="card" data-reveal>
-        <h3 class="card__t">Een <span class="amp">vet</span> gebouw</h3>
-        <p class="card__b">Een schoolplein op het dak, een XL-gymzaal en een stadslab met 3D-printers en VR. Alles gloednieuw en modern.</p>
+<!-- ============ NIEUW SCHOOLGEBOUW ============ -->
+<section class="lx-sec" id="gebouw">
+  <div class="lx-wrap">
+    <div class="lx-split">
+      <div class="lx-media" data-anim="fade">
+        <div class="lx-media__bg" style="background-image:url('uploads/gebouw-header.jpg')"></div>
+        <span class="lx-media__tag">Het gebouw</span>
       </div>
-      <div class="card" data-reveal data-reveal-d="1">
-        <h3 class="card__t">De Kop van <span class="amp">Zuid</span></h3>
-        <p class="card__b">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug, een van de leukste plekken van Rotterdam.</p>
-      </div>
-      <div class="card card--y" data-reveal data-reveal-d="2">
-        <h3 class="card__t">De stad als klaslokaal</h3>
-        <p class="card__b">Je leert niet alleen in de klas, maar in de hele stad. Wat je leert, pas je meteen toe in de praktijk.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BEELDBLOK -->
-<section class="sec bone">
-  <div class="wrap">
-    <div class="dblock" data-reveal>
-      <div class="dblock__img" style="background-image:url('uploads/home-feature.jpg')"></div>
-      <div class="dblock__txt">
-        <div class="kick">Word jij een van onze eerste leerlingen?</div>
-        <h2 class="h2" style="margin-top:18px">Kies jij ook voor het Stedelijk <span class="mark">Lyceum</span>?</h2>
-        <p class="body" style="margin-top:20px">In 2027 openen we onze deuren voor ongeveer 150 nieuwe leerlingen. Havo, vwo en gymnasium, en met een mavo/havo-advies zit je in een gemengde brugklas. Misschien zien we jou wel op de Kop van Zuid.</p>
-        <a class="btn btn--dark" href="#aanmelden" style="margin-top:26px">Ik wil op de hoogte blijven <span class="ar">→</span></a>
+      <div>
+        <div class="lx-eye" data-anim="fade">Nieuw schoolgebouw</div>
+        <h2 class="lx-h" data-anim data-d="60">Een gebouw dat je <em>nergens</em> anders vindt</h2>
+        <p class="lx-lead" data-anim data-d="120">Gloednieuw en hypermodern, ontworpen voor de manier waarop jij leert. Van een schoolplein op het dak tot een stadslab vol technologie.</p>
+        <div class="lx-feats">
+          <div class="lx-feat" data-anim data-d="160"><div class="lx-feat__k">▲</div><div class="lx-feat__t">Schoolplein op het dak</div><div class="lx-feat__d">Buiten chillen met uitzicht over de stad.</div></div>
+          <div class="lx-feat" data-anim data-d="220"><div class="lx-feat__k">◇</div><div class="lx-feat__t">XL-gymzaal</div><div class="lx-feat__d">Ruimte voor sport, dans en events.</div></div>
+          <div class="lx-feat" data-anim data-d="280"><div class="lx-feat__k">◈</div><div class="lx-feat__t">Stadslab</div><div class="lx-feat__d">3D-printers, VR en de nieuwste techniek.</div></div>
+          <div class="lx-feat" data-anim data-d="340"><div class="lx-feat__k">✦</div><div class="lx-feat__t">Alles gloednieuw</div><div class="lx-feat__d">Een frisse start, klaar voor 2027.</div></div>
+        </div>
+        <div class="lx-stats">
+          <div data-anim data-d="120"><div class="lx-stat__n"><span class="lx-num" data-count="150">0</span>+</div><div class="lx-stat__l">nieuwe leerlingen per jaar</div></div>
+          <div data-anim data-d="200"><div class="lx-stat__n"><span class="lx-num" data-count="3">0</span></div><div class="lx-stat__l">niveaus: havo, vwo &amp; gymnasium</div></div>
+          <div data-anim data-d="280"><div class="lx-stat__n">2027</div><div class="lx-stat__l">de deuren gaan open</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AANMELDEN -->
-<section class="sec-sm dark" id="aanmelden">
-  <div class="wrap">
-    <div class="split" style="align-items:start">
-      <div class="split__txt" data-reveal>
-        <div class="kick" style="color:#ffe500">Blijf op de hoogte</div>
-        <h2 class="h2" style="margin-top:16px">Laat je gegevens <span class="amp">achter</span></h2>
-        <p class="body" style="margin-top:20px">We sturen je een bericht zodra de datum van de open dag bekend is. Kom vooral langs, we willen je dolgraag ontmoeten.</p>
+<!-- ============ LOCATIE, KOP VAN ZUID ============ -->
+<section class="lx-sec bone" id="locatie" style="background:var(--lx-bone)">
+  <div class="lx-wrap">
+    <div class="lx-eye" data-anim="fade">Unieke locatie</div>
+    <h2 class="lx-h" data-anim data-d="60" style="max-width:16ch">Middenin de stad, op de <em>Kop van Zuid</em></h2>
+    <p class="lx-lead" data-anim data-d="120">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug. Tik op de punten en ontdek wat er allemaal om de hoek ligt.</p>
+    <div class="lx-loc" data-anim="fade" data-d="140" style="margin-top:34px" data-lx-hotspots>
+      <div class="lx-loc__bg" style="background-image:url('uploads/hero-kop-van-zuid.jpg')"></div>
+      <div class="lx-loc__grad"></div>
+      <div class="lx-loc__hint">Ontdek de buurt →</div>
+      <div class="lx-hot" style="left:34%;top:52%">
+        <button class="lx-hot__btn" aria-label="Erasmusbrug"></button>
+        <div class="lx-hot__card"><div class="lx-hot__t">Erasmusbrug</div><div class="lx-hot__d">De school ligt aan de voet van 'De Zwaan'.</div></div>
+      </div>
+      <div class="lx-hot" style="left:56%;top:70%">
+        <button class="lx-hot__btn" aria-label="Rijnhaven"></button>
+        <div class="lx-hot__card"><div class="lx-hot__t">Rijnhaven</div><div class="lx-hot__d">Water, terrassen en het nieuwe stadspark, pal naast de deur.</div></div>
+      </div>
+      <div class="lx-hot" style="left:73%;top:42%">
+        <button class="lx-hot__btn" aria-label="Wilhelminapier"></button>
+        <div class="lx-hot__card"><div class="lx-hot__t">Wilhelminapier</div><div class="lx-hot__d">De iconische torens van Zuid, op loopafstand.</div></div>
+      </div>
+      <div class="lx-hot" style="left:19%;top:74%">
+        <button class="lx-hot__btn" aria-label="Metro en tram"></button>
+        <div class="lx-hot__card"><div class="lx-hot__t">Metro &amp; tram</div><div class="lx-hot__d">Wilhelminaplein om de hoek, zo heel Rotterdam in.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ONDERWIJS, STAD ALS KLASLOKAAL ============ -->
+<section class="lx-sec" id="onderwijs">
+  <div class="lx-wrap">
+    <div class="lx-eye" data-anim="fade">Onderwijsconcept</div>
+    <h2 class="lx-h" data-anim data-d="60" style="max-width:18ch">De stad als <em>klaslokaal</em></h2>
+    <p class="lx-lead" data-anim data-d="120">Je leert bij ons niet alleen in de klas, maar in de hele stad. Wat je leert, pas je meteen toe in de praktijk.</p>
+
+    <div class="lx-toggle" data-lx-toggle data-state="klas" role="tablist" aria-label="In de klas of de stad in" data-anim="fade" data-d="160">
+      <span class="lx-toggle__pill" aria-hidden="true"></span>
+      <button class="lx-toggle__btn active" data-go="klas" role="tab" aria-selected="true">In de klas</button>
+      <button class="lx-toggle__btn" data-go="stad" role="tab" aria-selected="false">De stad in</button>
+    </div>
+
+    <div class="lx-stage" data-anim="fade" data-d="200">
+      <div class="lx-layer on" data-layer="klas">
+        <div class="lx-layer__bg" style="background-image:url('uploads/onderwijs-klas.jpg')"></div>
+        <div class="lx-layer__grad"></div>
+        <div class="lx-layer__c">
+          <div class="lx-eye lx-eye--light">In de klas</div>
+          <div class="lx-layer__t">Gewoon in het lokaal</div>
+          <p class="lx-layer__d">Echte lessen: Engels, geschiedenis, biologie, wiskunde. Precies de vakken die je op elke andere school ook hebt, met sterke docenten die je begrijpen.</p>
+        </div>
+      </div>
+      <div class="lx-layer" data-layer="stad">
+        <div class="lx-layer__bg" style="background-image:url('uploads/onderwijs-stad.jpg')"></div>
+        <div class="lx-layer__grad"></div>
+        <div class="lx-layer__c">
+          <div class="lx-eye lx-eye--light">De stad in</div>
+          <div class="lx-layer__t">De stad als klaslokaal</div>
+          <p class="lx-layer__d">En dan naar buiten: alles wat je leert pas je meteen toe op straat, op het water en op de mooiste plekken van Rotterdam-Zuid. In vier projecten en zeven stappen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lx-chips" data-anim="fade" data-d="120">
+      <span class="lx-chip"><b>01</b> · De Binnenrotte</span>
+      <span class="lx-chip"><b>02</b> · De Maas</span>
+      <span class="lx-chip"><b>03</b> · De Oranjeboomstraat</span>
+      <span class="lx-chip"><b>04</b> · Stadionpark</span>
+      <span class="lx-chip"><b>05</b> · Katendrecht</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="lx-sec bone" id="faq" style="background:var(--lx-bone)">
+  <div class="lx-wrap" style="max-width:min(920px,92vw)">
+    <div class="lx-eye" data-anim="fade">Veelgestelde vragen</div>
+    <h2 class="lx-h" data-anim data-d="60">Goed om te <em>weten</em></h2>
+    <div class="lx-acc" data-lx-acc>
+      <div class="lx-acc__item" data-anim="fade">
+        <button class="lx-acc__q" aria-expanded="false">Wanneer opent het Stedelijk Lyceum Rotterdam?<span class="lx-acc__ic" aria-hidden="true"></span></button>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">We openen onze deuren in 2027, op de Kop van Zuid. Laat je gegevens achter en je bent als eerste op de hoogte van de open dagen.</div></div></div>
+      </div>
+      <div class="lx-acc__item" data-anim="fade">
+        <button class="lx-acc__q" aria-expanded="false">Welke niveaus kan ik volgen?<span class="lx-acc__ic" aria-hidden="true"></span></button>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Je kunt bij ons havo, vwo en gymnasium volgen. Heb je een mavo/havo-advies? Dan ben je ook welkom: je zit dan in een gemengde brugklas en krijgt twee jaar de kans om je te bewijzen op havo-niveau.</div></div></div>
+      </div>
+      <div class="lx-acc__item" data-anim="fade">
+        <button class="lx-acc__q" aria-expanded="false">Waar staat de school precies?<span class="lx-acc__ic" aria-hidden="true"></span></button>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Middenin de stad op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug. Metro en tram liggen om de hoek.</div></div></div>
+      </div>
+      <div class="lx-acc__item" data-anim="fade">
+        <button class="lx-acc__q" aria-expanded="false">Wat betekent 'De stad als klaslokaal'?<span class="lx-acc__ic" aria-hidden="true"></span></button>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Je leert in de klas én in de hele stad om ons heen. In vier projecten en zeven stappen pas je de lesstof meteen toe op echte plekken in Rotterdam-Zuid.</div></div></div>
+      </div>
+      <div class="lx-acc__item" data-anim="fade">
+        <button class="lx-acc__q" aria-expanded="false">Hoe blijf ik op de hoogte of meld ik me aan?<span class="lx-acc__ic" aria-hidden="true"></span></button>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Laat hieronder je gegevens achter. We sturen je een bericht zodra de datum van de open dag bekend is, zodat je niets mist.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AANMELDEN ============ -->
+<section class="lx-sec lx-cta-sec" id="aanmelden">
+  <div class="lx-wrap">
+    <div class="lx-cta-grid">
+      <div>
+        <div class="lx-eye lx-eye--light" data-anim="fade">Blijf op de hoogte</div>
+        <h2 class="lx-h" data-anim data-d="60" style="color:#fff">Zien we jou <span class="a">hier?</span></h2>
+        <p class="lx-lead" data-anim data-d="120">In 2027 openen we onze deuren voor ongeveer 150 nieuwe leerlingen. Laat je gegevens achter en we sturen je een bericht zodra de open dag bekend is.</p>
+        <div class="lx-mini" data-anim data-d="180">
+          <div><b>Open dag</b>Datum volgt</div>
+          <div><b>Waar</b>Kop van Zuid, Rotterdam</div>
+          <div><b>Voor wie</b>Havo · vwo · gymnasium</div>
+        </div>
         <div class="done" data-done hidden style="margin-top:30px">
           <div class="done__k">We houden je op de hoogte</div>
           <div class="done__h">Tot dan,<br><span data-done-naam></span></div>
@@ -95,7 +336,7 @@
           </div>
         </div>
       </div>
-      <div data-reveal data-reveal-d="1">
+      <div data-anim data-d="140">
         <div class="form" data-form>
           <div class="field" data-required><label>Voornaam</label><input type="text" data-voornaam placeholder="Bijv. Amir"><div class="err">Vul je voornaam in</div></div>
           <div class="field" data-required><label>Achternaam</label><input type="text" placeholder="Bijv. El Amrani"><div class="err">Vul je achternaam in</div></div>
@@ -114,7 +355,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============ FOOTER ============ -->
 <footer class="foot">
   <div class="wrap">
     <div class="foot__top">
@@ -146,6 +387,87 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---- scroll reveal + media zoom + counters ---- */
+  var animEls = [].slice.call(document.querySelectorAll('[data-anim]'));
+  animEls.forEach(function(el){ var d=el.getAttribute('data-d'); if(d) el.style.transitionDelay=d+'ms'; });
+  var zoomEls = [].slice.call(document.querySelectorAll('.lx-hero,.lx-media,.lx-loc,.lx-stage'));
+
+  function runCount(el){
+    var target = parseFloat(el.getAttribute('data-count'))||0;
+    if(reduce){ el.textContent=target; return; }
+    var start=null, dur=1300;
+    function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased);
+      if(p<1) requestAnimationFrame(step); else el.textContent=target; }
+    requestAnimationFrame(step);
+  }
+
+  var numEls = [].slice.call(document.querySelectorAll('.lx-num'));
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);
+        if(e.target.classList.contains('lx-num')) runCount(e.target);
+      }});
+    },{threshold:0.16, rootMargin:'0px 0px -8% 0px'});
+    animEls.forEach(function(el){ io.observe(el); });
+    zoomEls.forEach(function(el){ io.observe(el); });
+    numEls.forEach(function(n){ io.observe(n); });
+  } else {
+    animEls.forEach(function(el){ el.classList.add('in'); });
+    zoomEls.forEach(function(el){ el.classList.add('in'); });
+    numEls.forEach(runCount);
+  }
+
+  /* ---- hero mark ---- */
+  var hero=document.querySelector('[data-lx-hero]'); if(hero) requestAnimationFrame(function(){ hero.classList.add('in'); });
+
+  /* ---- FAQ accordion ---- */
+  var acc=document.querySelector('[data-lx-acc]');
+  if(acc){
+    acc.addEventListener('click',function(e){
+      var q=e.target.closest('.lx-acc__q'); if(!q) return;
+      var item=q.closest('.lx-acc__item'); var open=item.classList.contains('open');
+      acc.querySelectorAll('.lx-acc__item.open').forEach(function(it){ it.classList.remove('open'); it.querySelector('.lx-acc__q').setAttribute('aria-expanded','false'); });
+      if(!open){ item.classList.add('open'); q.setAttribute('aria-expanded','true'); }
+    });
+  }
+
+  /* ---- onderwijs toggle ---- */
+  var tg=document.querySelector('[data-lx-toggle]');
+  if(tg){
+    var stage=document.querySelector('.lx-stage');
+    tg.addEventListener('click',function(e){
+      var b=e.target.closest('.lx-toggle__btn'); if(!b) return;
+      var go=b.getAttribute('data-go'); tg.setAttribute('data-state',go);
+      tg.querySelectorAll('.lx-toggle__btn').forEach(function(x){ var on=x===b; x.classList.toggle('active',on); x.setAttribute('aria-selected',on?'true':'false'); });
+      if(stage) stage.querySelectorAll('.lx-layer').forEach(function(l){ l.classList.toggle('on', l.getAttribute('data-layer')===go); });
+    });
+  }
+
+  /* ---- locatie hotspots ---- */
+  var loc=document.querySelector('[data-lx-hotspots]');
+  if(loc){
+    loc.addEventListener('click',function(e){
+      var btn=e.target.closest('.lx-hot__btn');
+      if(btn){ var hot=btn.closest('.lx-hot'); var wasOpen=hot.classList.contains('open');
+        loc.querySelectorAll('.lx-hot.open').forEach(function(h){h.classList.remove('open');});
+        if(!wasOpen) hot.classList.add('open'); e.stopPropagation(); }
+    });
+    loc.querySelectorAll('.lx-hot__btn').forEach(function(btn){
+      btn.addEventListener('mouseenter',function(){ btn.closest('.lx-hot').classList.add('open'); });
+      var wrap=btn.closest('.lx-hot');
+      wrap.addEventListener('mouseleave',function(){ wrap.classList.remove('open'); });
+    });
+    document.addEventListener('click',function(e){ if(!e.target.closest('[data-lx-hotspots]')) loc.querySelectorAll('.lx-hot.open').forEach(function(h){h.classList.remove('open');}); });
+  }
+})();
+</script>
 <script src="assets/site.js?v=49"></script>
 <script src="assets/cookies.js?v=3"></script>
 </body>
