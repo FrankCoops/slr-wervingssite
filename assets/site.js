@@ -5,7 +5,7 @@
   'use strict';
   // Fallback: als de schermbreedte pas na het head-script bekend is, alsnog
   // mobiele bezoekers naar de telefoon-app sturen.
-  function toApp() { return !/app\.html$/.test(location.pathname); }
+  function toApp() { return !/(app|landing)\.html$/.test(location.pathname); }
   var vw = window.innerWidth || document.documentElement.clientWidth || 0;
   if (vw > 0 && vw <= 820 && toApp()) {
     location.replace('app.html'); return;
