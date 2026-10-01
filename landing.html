@@ -20,8 +20,7 @@
 }
 .lx-wrap{width:min(1180px,92vw);margin:0 auto}
 .lx-sec{padding:clamp(64px,9vw,140px) 0;scroll-margin-top:84px;position:relative}
-.lx-eye{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8a8781;display:inline-flex;align-items:center;gap:12px}
-.lx-eye::before{content:"";width:26px;height:2px;background:var(--lx-accent)}
+.lx-eye{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8a8781;display:inline-block}
 .lx-eye--light{color:rgba(255,255,255,.72)}
 .lx-h{font-size:clamp(30px,4.6vw,58px);line-height:.98;letter-spacing:-.02em;font-weight:800;text-transform:uppercase;margin:16px 0 0}
 .lx-h .a{color:var(--lx-accent)}
@@ -95,7 +94,7 @@
 .lx-toggle__btn.active{color:#111}
 .lx-toggle__pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);background:var(--lx-accent);border-radius:100px;transition:transform .4s var(--lx-ease)}
 .lx-toggle[data-state="stad"] .lx-toggle__pill{transform:translateX(100%)}
-.lx-stage{position:relative;margin-top:26px;border-radius:3px;overflow:hidden;aspect-ratio:16/10;background:#0e0e0e}
+.lx-stage{position:relative;margin-top:24px;border-radius:3px;overflow:hidden;aspect-ratio:16/8;background:#0e0e0e}
 .lx-layer{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--lx-ease)}
 .lx-layer.on{opacity:1}
 .lx-layer__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transform:scale(1.06);transition:transform 4s var(--lx-ease)}
@@ -132,11 +131,13 @@
 .lx-mini b{display:block;color:#fff;font-size:15px;margin-bottom:2px}
 
 /* INTRO pills */
-.lx-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.lx-pills a{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#111;background:#fff;border:1px solid var(--lx-line);border-radius:100px;padding:12px 18px;text-decoration:none;transition:transform .3s var(--lx-ease),background .3s,color .3s,border-color .3s}
-.lx-pills a b{color:var(--lx-accent)}
-.lx-pills a:hover{transform:translateY(-2px);background:#111;color:#fff;border-color:#111}
-.lx-pills a:hover b{color:var(--lx-accent)}
+.lx-pills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:32px;max-width:540px}
+.lx-pills a{display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#111;background:#fff;border:1px solid var(--lx-line);border-radius:4px;padding:16px 18px;text-decoration:none;transition:transform .35s var(--lx-ease),background .35s,color .35s,border-color .35s,box-shadow .35s}
+.lx-pills a b{color:var(--lx-accent);font-size:12px}
+.lx-pill-l{flex:1}
+.lx-pill-ar{color:var(--lx-accent);opacity:0;transform:translateX(-6px);transition:opacity .35s var(--lx-ease),transform .35s var(--lx-ease)}
+.lx-pills a:hover{transform:translateY(-3px);background:#111;color:#fff;border-color:#111;box-shadow:0 16px 34px -20px rgba(0,0,0,.5)}
+.lx-pills a:hover .lx-pill-ar{opacity:1;transform:translateX(0)}
 
 /* PROJECTEN rail */
 .lx-railhead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
@@ -163,8 +164,9 @@
   .lx-split,.lx-cta-grid{grid-template-columns:1fr}
   .lx-media{aspect-ratio:4/3}
   .lx-feats{grid-template-columns:1fr 1fr}
-  .lx-stage{aspect-ratio:4/5}
+  .lx-stage{aspect-ratio:4/3}
   .lx-loc{aspect-ratio:4/3}
+  .lx-pills{grid-template-columns:1fr;max-width:none}
 }
 @media(max-width:480px){
   .lx-feats{grid-template-columns:1fr}
@@ -219,10 +221,10 @@
         <h2 class="lx-h" data-anim data-d="60">Kies jij ook voor het Stedelijk <em>Lyceum</em>?</h2>
         <p class="lx-lead" data-anim data-d="120">In 2027 openen we onze deuren voor leerlingen uit heel Rotterdam en omstreken. Een gloednieuw schoolgebouw, een toffe locatie middenin de stad en vernieuwend onderwijs. Misschien wel de meest interessante school van Zuid.</p>
         <div class="lx-pills" data-anim data-d="180">
-          <a href="#gebouw"><b>01</b> Het gebouw</a>
-          <a href="#locatie"><b>02</b> De locatie</a>
-          <a href="#onderwijs"><b>03</b> Het onderwijs</a>
-          <a href="#projecten"><b>04</b> De projecten</a>
+          <a href="#gebouw"><b>01</b><span class="lx-pill-l">Het gebouw</span><span class="lx-pill-ar">→</span></a>
+          <a href="#locatie"><b>02</b><span class="lx-pill-l">De locatie</span><span class="lx-pill-ar">→</span></a>
+          <a href="#onderwijs"><b>03</b><span class="lx-pill-l">Het onderwijs</span><span class="lx-pill-ar">→</span></a>
+          <a href="#projecten"><b>04</b><span class="lx-pill-l">De projecten</span><span class="lx-pill-ar">→</span></a>
         </div>
       </div>
       <div class="lx-media" data-anim="fade" data-d="120">
