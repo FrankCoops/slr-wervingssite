@@ -163,16 +163,17 @@
 .lx-proj__d{font-size:13px;line-height:1.46;color:#e4e2dd;margin-top:10px;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
 /* NIEUWBOUW gallery */
-.lx-gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(132px,15vw,198px);gap:14px;margin-top:38px}
+.lx-gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(128px,12.5vw,172px);gap:14px;margin-top:38px}
 .lx-gallery figure{position:relative;margin:0;overflow:hidden;border-radius:3px;background:#0e0e0e}
-.lx-gallery .g-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.04);transform:scale(1.04);transition:transform 1.1s var(--lx-ease)}
+.lx-gallery .g-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.04);transition:transform 1.1s var(--lx-ease)}
 .lx-gallery figure:hover .g-img{transform:scale(1.12)}
 .lx-gallery figcaption{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.lx-gallery figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent 42%);pointer-events:none}
-.g-a{grid-column:span 2;grid-row:span 2}
-.g-b{grid-column:span 2;grid-row:span 1}
-.g-c{grid-column:span 1;grid-row:span 1}
-.g-d{grid-column:span 1;grid-row:span 1}
+.lx-gallery figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 42%);pointer-events:none}
+.gg-a{grid-column:span 2;grid-row:span 2}
+.gg-b{grid-column:span 1;grid-row:span 2}
+.gg-c{grid-column:span 1;grid-row:span 2}
+.gg-d{grid-column:span 2;grid-row:span 2}
+.gg-e{grid-column:span 2;grid-row:span 2}
 
 /* FEATURES als genummerde rijen */
 .lx-rows{margin-top:48px;border-top:1px solid var(--lx-line)}
@@ -272,10 +273,11 @@
     <p class="lx-lead" data-anim data-d="120">Als je kiest voor het Stedelijk Lyceum Rotterdam, krijg je les in het nieuwste schoolgebouw van heel Rotterdam. Alles gloednieuw en modern, ontworpen voor de manier waarop jij leert.</p>
 
     <div class="lx-gallery" data-anim="fade" data-d="150">
-      <figure class="g-a"><div class="g-img" style="background-image:url('uploads/gebouw-dakplein.jpg')"></div><figcaption>Schoolplein op het dak</figcaption></figure>
-      <figure class="g-b"><div class="g-img" style="background-image:url('uploads/gebouw-header-duo.jpg')"></div><figcaption>Terras aan de Maas</figcaption></figure>
-      <figure class="g-c"><div class="g-img" style="background-image:url('uploads/gebouw-afbeelding2.jpg')"></div></figure>
-      <figure class="g-d"><div class="g-img" style="background-image:url('uploads/home-school.jpg')"></div></figure>
+      <figure class="gg-a"><div class="g-img" style="background-image:url('uploads/geb-straat.jpg')"></div><figcaption>Ons gebouw op Zuid</figcaption></figure>
+      <figure class="gg-b"><div class="g-img" style="background-image:url('uploads/geb-voetbal.jpg')"></div><figcaption>Sporten op het dak</figcaption></figure>
+      <figure class="gg-c"><div class="g-img" style="background-image:url('uploads/geb-atrium.jpg')"></div><figcaption>Het atrium</figcaption></figure>
+      <figure class="gg-d"><div class="g-img" style="background-image:url('uploads/geb-entree.jpg')"></div><figcaption>Welkom bij SLR</figcaption></figure>
+      <figure class="gg-e"><div class="g-img" style="background-image:url('uploads/geb-dakrender.jpg')"></div><figcaption>Het schoolplein op het dak</figcaption></figure>
     </div>
 
     <div class="lx-rows">
