@@ -107,6 +107,13 @@
 .lx-tc.on{opacity:1;transform:none;pointer-events:auto}
 .lx-tc__t{font-size:clamp(24px,2.8vw,38px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin-top:10px}
 .lx-tc__d{font-size:clamp(15px,1.4vw,17px);line-height:1.6;color:#54524d;max-width:46ch;margin-top:16px}
+.lx-wod{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.lx-wod__i{position:relative;border:1px solid var(--lx-line);border-radius:4px;padding:22px 22px 24px;background:#fff}
+.lx-wod__i--y{background:var(--lx-accent);border-color:var(--lx-accent)}
+.lx-wod__k{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#9c9a95}
+.lx-wod__i--y .lx-wod__k{color:#111}
+.lx-wod__i p{margin:10px 0 0;font-size:15.5px;line-height:1.5;color:#2a2926;font-weight:600}
+.lx-wod__note{margin-top:14px;font-size:13.5px;color:#8a8781}
 .lx-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .lx-chip{font-size:12.5px;font-weight:600;color:#3b3a37;background:#fff;border:1px solid var(--lx-line);border-radius:100px;padding:9px 15px}
 .lx-chip b{color:#111}
@@ -197,6 +204,7 @@
   .lx-pills{grid-template-columns:1fr;max-width:none}
   .lx-gallery{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(116px,32vw,160px)}
   .lx-row__main{grid-template-columns:1fr;gap:8px}
+  .lx-wod{grid-template-columns:1fr}
 }
 @media(max-width:480px){
   .lx-feats{grid-template-columns:1fr}
@@ -233,7 +241,7 @@
   <div class="lx-hero__in lx-wrap">
     <div class="lx-eye lx-eye--light" data-anim="fade">Opent in 2027 · Kop van Zuid, Rotterdam</div>
     <h1 class="lx-hero__h" data-anim data-d="80">De nieuwste <span class="a">school</span> van de stad</h1>
-    <p class="lx-hero__lead" data-anim data-d="180">Leer in een hypermodern gebouw, met vernieuwend onderwijs en een toplocatie middenin de stad. Havo, vwo én gymnasium.</p>
+    <p class="lx-hero__lead" data-anim data-d="180">In 2027 opent de nieuwste school van Rotterdam. Een hypermodern gebouw, vernieuwend onderwijs en een plek op een van de gaafste plekken van de stad: de Kop van Zuid. Havo, vwo én gymnasium.</p>
     <div class="lx-cta" data-anim data-d="280">
       <a class="lx-btn lx-btn--y" href="#aanmelden">Blijf op de hoogte <span class="ar">→</span></a>
       <a class="lx-btn lx-btn--ghost" href="#gebouw">Ontdek de school</a>
@@ -249,7 +257,7 @@
       <div>
         <div class="lx-eye" data-anim="fade">De nieuwste school van de stad</div>
         <h2 class="lx-h" data-anim data-d="60">Kies jij ook voor het Stedelijk <em>Lyceum</em>?</h2>
-        <p class="lx-lead" data-anim data-d="120">In 2027 openen we onze deuren voor leerlingen uit heel Rotterdam en omstreken. Een gloednieuw schoolgebouw, een toffe locatie middenin de stad en vernieuwend onderwijs. Misschien wel de meest interessante school van Zuid.</p>
+        <p class="lx-lead" data-anim data-d="120">In 2027 openen we onze deuren voor leerlingen uit heel Rotterdam en omstreken. Een gloednieuw schoolgebouw, een toffe locatie middenin de stad én vernieuwend onderwijs. En het allerbelangrijkste: bij ons snap je straks écht waarom je iets leert. Misschien wel de meest interessante school van Zuid.</p>
         <div class="lx-pills" data-anim data-d="180">
           <a href="#gebouw"><b>01</b><span class="lx-pill-l">Het gebouw</span><span class="lx-pill-ar">→</span></a>
           <a href="#locatie"><b>02</b><span class="lx-pill-l">De locatie</span><span class="lx-pill-ar">→</span></a>
@@ -270,7 +278,7 @@
   <div class="lx-wrap">
     <div class="lx-eye" data-anim="fade">Nieuw schoolgebouw</div>
     <h2 class="lx-h" data-anim data-d="60" style="max-width:18ch">Een gebouw dat je <em>nergens</em> anders vindt</h2>
-    <p class="lx-lead" data-anim data-d="120">Als je kiest voor het Stedelijk Lyceum Rotterdam, krijg je les in het nieuwste schoolgebouw van heel Rotterdam. Alles gloednieuw en modern, ontworpen voor de manier waarop jij leert.</p>
+    <p class="lx-lead" data-anim data-d="120">Als je kiest voor het Stedelijk Lyceum Rotterdam, krijg je les in het nieuwste schoolgebouw van heel Rotterdam. Echt vet. Alles is gloednieuw en modern: van het stadslab vol technologie tot het schoolplein op het dak. Wat je bij ons hebt, vind je normaal bijna nergens op een middelbare school.</p>
 
     <div class="lx-gallery" data-anim="fade" data-d="150">
       <figure class="gg-a"><div class="g-img" style="background-image:url('uploads/geb-straat.jpg')"></div><figcaption>Ons gebouw op Zuid</figcaption></figure>
@@ -295,7 +303,7 @@
   <div class="lx-wrap">
     <div class="lx-eye" data-anim="fade">Unieke locatie</div>
     <h2 class="lx-h" data-anim data-d="60" style="max-width:16ch">Middenin de stad, op de <em>Kop van Zuid</em></h2>
-    <p class="lx-lead" data-anim data-d="120">Pal naast de Rijnhaven en aan de voet van de Erasmusbrug. Tik op de punten: plekken in de buurt, waar je leert én hoe je er komt.</p>
+    <p class="lx-lead" data-anim data-d="120">Het Stedelijk Lyceum staat pal naast de Rijnhaven en aan de voet van de Erasmusbrug — de wijk die uitgroeit tot het tweede centrum van Rotterdam. Supergoed bereikbaar met metro, tram, bus, trein én gewoon op de fiets. Tik op de punten en ontdek de plekken in de buurt, waar je leert en hoe je er komt.</p>
     <div class="lx-loc" data-anim="fade" data-d="140" style="margin-top:34px" data-lx-hotspots>
       <div class="lx-loc__bg" style="background-image:url('uploads/hero-kop-van-zuid.jpg')"></div>
       <div class="lx-loc__grad"></div>
@@ -344,7 +352,7 @@
   <div class="lx-wrap">
     <div class="lx-eye" data-anim="fade">Onderwijsconcept</div>
     <h2 class="lx-h" data-anim data-d="60" style="max-width:18ch">De stad als <em>klaslokaal</em></h2>
-    <p class="lx-lead" data-anim data-d="120">Je leert bij ons niet alleen in de klas, maar in de hele stad. Wat je leert, pas je meteen toe in de praktijk.</p>
+    <p class="lx-lead" data-anim data-d="120">Bij een gloednieuwe, moderne school hoort onderwijs van deze tijd. Je leert gewoon in de klas — Engels, geschiedenis, biologie, gym — maar past alles ook echt toe in de stad om ons heen. Niet een paar dagen per jaar, maar het hele jaar door. Want het allerbelangrijkste vinden wij dat jij begrijpt wáárom je iets leert.</p>
 
     <div class="lx-toggle" data-lx-toggle data-state="klas" role="tablist" aria-label="In de klas of de stad in" data-anim="fade" data-d="160">
       <span class="lx-toggle__pill" aria-hidden="true"></span>
@@ -361,15 +369,22 @@
         <div class="lx-tc on" data-layer="klas">
           <div class="lx-eye">In de klas</div>
           <div class="lx-tc__t">Gewoon in het lokaal</div>
-          <p class="lx-tc__d">Echte lessen: Engels, geschiedenis, biologie, wiskunde. Precies de vakken die je op elke andere school ook hebt, met sterke docenten die je begrijpen.</p>
+          <p class="lx-tc__d">Echte lessen in het lokaal: Engels, geschiedenis, biologie, wiskunde en gym. Precies de vakken die je op elke andere school ook hebt — met docenten die je echt verder helpen.</p>
         </div>
         <div class="lx-tc" data-layer="stad">
           <div class="lx-eye">De stad in</div>
           <div class="lx-tc__t">De stad als klaslokaal</div>
-          <p class="lx-tc__d">En dan naar buiten: alles wat je leert pas je meteen toe op straat, op het water en op de mooiste plekken van Rotterdam-Zuid. In vier projecten en zeven stappen.</p>
+          <p class="lx-tc__d">En dan naar buiten. Alles wat je leert, pas je meteen toe op straat, op het water en op de mooiste plekken van Rotterdam-Zuid. In vier projecten en zeven stappen leer je stap voor stap beter onderzoeken en nadenken.</p>
         </div>
       </div>
     </div>
+
+    <div class="lx-wod" data-anim="fade" data-d="80">
+      <div class="lx-wod__i"><span class="lx-wod__k">Waarom?</span><p>Een echte plek in de stad — bijvoorbeeld de Erasmusbrug.</p></div>
+      <div class="lx-wod__i"><span class="lx-wod__k">Omdat</span><p>je daar met eigen ogen ziet hoe vorm, kracht en getallen samenkomen.</p></div>
+      <div class="lx-wod__i lx-wod__i--y"><span class="lx-wod__k">Daarom</span><p>snap je ineens wiskunde — en waaróm je het leert.</p></div>
+    </div>
+    <p class="lx-wod__note" data-anim="fade" data-d="120">Je snapt pas waarom je iets leert, als je weet waarom. Dat is De Stad als Klaslokaal.</p>
 
   </div>
 </section>
@@ -381,7 +396,7 @@
       <div>
         <div class="lx-eye" data-anim="fade">Projecten</div>
         <h2 class="lx-h" data-anim data-d="60">Onze projecten in <em>jaar 1</em></h2>
-        <p class="lx-lead" data-anim data-d="120">Bij ieder project staat een echte plek in Rotterdam-Zuid centraal. Sleep of swipe door de projecten.</p>
+        <p class="lx-lead" data-anim data-d="120">Bij ieder project staat een echte plek in Rotterdam-Zuid centraal — en juist daar komen bijna alle vakken samen. Elk project volgt dezelfde zeven stappen, zodat je stap voor stap steeds beter leert onderzoeken. Sleep of swipe door de projecten van jaar 1.</p>
       </div>
       <div class="lx-rail-nav" data-anim="fade" data-d="140">
         <button class="lx-rail-btn" data-rail-prev aria-label="Vorige projecten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -406,7 +421,7 @@
     <div class="lx-acc" data-lx-acc>
       <div class="lx-acc__item" data-anim="fade">
         <button class="lx-acc__q" aria-expanded="false">Wanneer opent het Stedelijk Lyceum Rotterdam?<span class="lx-acc__ic" aria-hidden="true"></span></button>
-        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">We openen onze deuren in 2027, op de Kop van Zuid. Laat je gegevens achter en je bent als eerste op de hoogte van de open dagen.</div></div></div>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">We openen onze deuren in 2027 op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug. In het eerste jaar is er ruimte voor ongeveer 150 nieuwe leerlingen. Laat je gegevens achter en je bent als eerste op de hoogte van de open dagen.</div></div></div>
       </div>
       <div class="lx-acc__item" data-anim="fade">
         <button class="lx-acc__q" aria-expanded="false">Welke niveaus kan ik volgen?<span class="lx-acc__ic" aria-hidden="true"></span></button>
@@ -414,15 +429,23 @@
       </div>
       <div class="lx-acc__item" data-anim="fade">
         <button class="lx-acc__q" aria-expanded="false">Waar staat de school precies?<span class="lx-acc__ic" aria-hidden="true"></span></button>
-        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Middenin de stad op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug. Metro en tram liggen om de hoek.</div></div></div>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Middenin de stad op de Kop van Zuid, pal naast de Rijnhaven en aan de voet van de Erasmusbrug. We zijn supergoed bereikbaar met metro, tram, bus, trein én gewoon op de fiets — waar je ook vandaan komt.</div></div></div>
       </div>
       <div class="lx-acc__item" data-anim="fade">
         <button class="lx-acc__q" aria-expanded="false">Wat betekent 'De stad als klaslokaal'?<span class="lx-acc__ic" aria-hidden="true"></span></button>
-        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Je leert in de klas én in de hele stad om ons heen. In vier projecten en zeven stappen pas je de lesstof meteen toe op echte plekken in Rotterdam-Zuid.</div></div></div>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Je leert gewoon in de klas, maar past alles ook echt toe in de hele stad om ons heen. In vier projecten en zeven stappen onderzoek je echte plekken in Rotterdam-Zuid — het hele jaar door, zodat je begrijpt waaróm je iets leert en wat je daar nu en later aan hebt.</div></div></div>
+      </div>
+      <div class="lx-acc__item" data-anim="fade">
+        <button class="lx-acc__q" aria-expanded="false">Hoe ziet een project eruit?<span class="lx-acc__ic" aria-hidden="true"></span></button>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Elk project volgt dezelfde zeven stappen: introductie &amp; verkenning, instructie, probleemstelling, onderzoek &amp; veldwerk, productie, presentatie en reflectie. Omdat elk project zo is opgebouwd, leer je stap voor stap steeds beter onderzoeken en nadenken — en ga je echt de diepte in.</div></div></div>
+      </div>
+      <div class="lx-acc__item" data-anim="fade">
+        <button class="lx-acc__q" aria-expanded="false">Hoe word ik begeleid?<span class="lx-acc__ic" aria-hidden="true"></span></button>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">In de brugklas blijven we dichtbij de school en krijg je veel begeleiding, zodat je rustig kunt wennen aan het onderwijs. Naarmate je ouder wordt en meer ervaring hebt, krijg je meer eigen verantwoordelijkheid en kies je steeds vaker zelf wat je in een project onderzoekt.</div></div></div>
       </div>
       <div class="lx-acc__item" data-anim="fade">
         <button class="lx-acc__q" aria-expanded="false">Hoe blijf ik op de hoogte of meld ik me aan?<span class="lx-acc__ic" aria-hidden="true"></span></button>
-        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Laat hieronder je gegevens achter. We sturen je een bericht zodra de datum van de open dag bekend is, zodat je niets mist.</div></div></div>
+        <div class="lx-acc__body"><div class="lx-acc__bodyin"><div class="lx-acc__a">Laat hieronder je gegevens achter. We sturen je een bericht zodra de datum van de open dag bekend is, zodat je niets mist. Kom vooral langs tijdens een open dag — we willen je dolgraag ontmoeten.</div></div></div>
       </div>
     </div>
   </div>
@@ -435,7 +458,7 @@
       <div>
         <div class="lx-eye lx-eye--light" data-anim="fade">Blijf op de hoogte</div>
         <h2 class="lx-h" data-anim data-d="60" style="color:#fff">Zien we jou <span class="a">hier?</span></h2>
-        <p class="lx-lead" data-anim data-d="120">In 2027 openen we onze deuren voor ongeveer 150 nieuwe leerlingen. Laat je gegevens achter en we sturen je een bericht zodra de open dag bekend is.</p>
+        <p class="lx-lead" data-anim data-d="120">Zien we jou straks op de nieuwste school van Rotterdam? In het eerste jaar is er ruimte voor ongeveer 150 nieuwe leerlingen — havo, vwo en gymnasium. Laat je gegevens achter en we sturen je een bericht zodra de open dag bekend is. We willen je dolgraag ontmoeten.</p>
         <div class="lx-mini" data-anim data-d="180">
           <div><b>Open dag</b>Datum volgt</div>
           <div><b>Waar</b>Kop van Zuid, Rotterdam</div>
