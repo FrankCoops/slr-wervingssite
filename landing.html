@@ -94,15 +94,17 @@
 .lx-toggle__btn.active{color:#111}
 .lx-toggle__pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);background:var(--lx-accent);border-radius:100px;transition:transform .4s var(--lx-ease)}
 .lx-toggle[data-state="stad"] .lx-toggle__pill{transform:translateX(100%)}
-.lx-stage{position:relative;margin-top:24px;border-radius:3px;overflow:hidden;aspect-ratio:16/9;background:#0e0e0e}
+.lx-stage{display:grid;grid-template-columns:minmax(0,0.78fr) 1fr;gap:clamp(22px,3.6vw,52px);margin-top:28px;align-items:center}
+.lx-stage__media{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:3/4;background:#0e0e0e}
 .lx-layer{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--lx-ease)}
 .lx-layer.on{opacity:1}
-.lx-layer__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transform:scale(1.06);transition:transform 4s var(--lx-ease)}
+.lx-layer__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(100%) contrast(1.05);transform:scale(1.04);transition:transform 1.4s var(--lx-ease)}
 .lx-layer.on .lx-layer__bg{transform:scale(1)}
-.lx-layer__grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 10%,rgba(0,0,0,.82) 92%)}
-.lx-layer__c{position:absolute;left:clamp(20px,4vw,42px);right:clamp(20px,4vw,42px);bottom:clamp(22px,3.4vw,40px);color:#fff}
-.lx-layer__t{font-size:clamp(24px,3.2vw,40px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.98}
-.lx-layer__d{font-size:clamp(14px,1.4vw,16.5px);line-height:1.55;color:#eceae5;max-width:48ch;margin-top:12px}
+.lx-stage__txt{display:grid}
+.lx-tc{grid-area:1/1;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .5s var(--lx-ease),transform .5s var(--lx-ease)}
+.lx-tc.on{opacity:1;transform:none;pointer-events:auto}
+.lx-tc__t{font-size:clamp(24px,2.8vw,38px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin-top:10px}
+.lx-tc__d{font-size:clamp(15px,1.4vw,17px);line-height:1.6;color:#54524d;max-width:46ch;margin-top:16px}
 .lx-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .lx-chip{font-size:12.5px;font-weight:600;color:#3b3a37;background:#fff;border:1px solid var(--lx-line);border-radius:100px;padding:9px 15px}
 .lx-chip b{color:#111}
@@ -186,7 +188,8 @@
   .lx-split,.lx-cta-grid{grid-template-columns:1fr}
   .lx-media{aspect-ratio:4/3}
   .lx-feats{grid-template-columns:1fr 1fr}
-  .lx-stage{aspect-ratio:4/3}
+  .lx-stage{grid-template-columns:1fr;gap:22px}
+  .lx-stage__media{aspect-ratio:4/5;max-height:62vh;margin:0 auto;width:100%}
   .lx-loc{aspect-ratio:4/3}
   .lx-pills{grid-template-columns:1fr;max-width:none}
   .lx-gallery{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(116px,32vw,160px)}
@@ -327,22 +330,20 @@
     </div>
 
     <div class="lx-stage" data-anim="fade" data-d="200">
-      <div class="lx-layer on" data-layer="klas">
-        <div class="lx-layer__bg" style="background-image:url('uploads/onderwijs-klas.jpg')"></div>
-        <div class="lx-layer__grad"></div>
-        <div class="lx-layer__c">
-          <div class="lx-eye lx-eye--light">In de klas</div>
-          <div class="lx-layer__t">Gewoon in het lokaal</div>
-          <p class="lx-layer__d">Echte lessen: Engels, geschiedenis, biologie, wiskunde. Precies de vakken die je op elke andere school ook hebt, met sterke docenten die je begrijpen.</p>
-        </div>
+      <div class="lx-stage__media">
+        <div class="lx-layer on" data-layer="klas"><div class="lx-layer__bg" style="background-image:url('uploads/onderwijs-klas.jpg')"></div></div>
+        <div class="lx-layer" data-layer="stad"><div class="lx-layer__bg" style="background-image:url('uploads/onderwijs-stad.jpg')"></div></div>
       </div>
-      <div class="lx-layer" data-layer="stad">
-        <div class="lx-layer__bg" style="background-image:url('uploads/onderwijs-stad.jpg')"></div>
-        <div class="lx-layer__grad"></div>
-        <div class="lx-layer__c">
-          <div class="lx-eye lx-eye--light">De stad in</div>
-          <div class="lx-layer__t">De stad als klaslokaal</div>
-          <p class="lx-layer__d">En dan naar buiten: alles wat je leert pas je meteen toe op straat, op het water en op de mooiste plekken van Rotterdam-Zuid. In vier projecten en zeven stappen.</p>
+      <div class="lx-stage__txt">
+        <div class="lx-tc on" data-layer="klas">
+          <div class="lx-eye">In de klas</div>
+          <div class="lx-tc__t">Gewoon in het lokaal</div>
+          <p class="lx-tc__d">Echte lessen: Engels, geschiedenis, biologie, wiskunde. Precies de vakken die je op elke andere school ook hebt, met sterke docenten die je begrijpen.</p>
+        </div>
+        <div class="lx-tc" data-layer="stad">
+          <div class="lx-eye">De stad in</div>
+          <div class="lx-tc__t">De stad als klaslokaal</div>
+          <p class="lx-tc__d">En dan naar buiten: alles wat je leert pas je meteen toe op straat, op het water en op de mooiste plekken van Rotterdam-Zuid. In vier projecten en zeven stappen.</p>
         </div>
       </div>
     </div>
@@ -537,7 +538,7 @@
       var b=e.target.closest('.lx-toggle__btn'); if(!b) return;
       var go=b.getAttribute('data-go'); tg.setAttribute('data-state',go);
       tg.querySelectorAll('.lx-toggle__btn').forEach(function(x){ var on=x===b; x.classList.toggle('active',on); x.setAttribute('aria-selected',on?'true':'false'); });
-      if(stage) stage.querySelectorAll('.lx-layer').forEach(function(l){ l.classList.toggle('on', l.getAttribute('data-layer')===go); });
+      if(stage) stage.querySelectorAll('[data-layer]').forEach(function(l){ l.classList.toggle('on', l.getAttribute('data-layer')===go); });
     });
   }
 
